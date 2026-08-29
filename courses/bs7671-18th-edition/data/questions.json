@@ -1,0 +1,2130 @@
+[
+ {
+  "n": 1,
+  "topic": "Exam Technique",
+  "q": "The City & Guilds 2382 18th Edition exam is:",
+  "options": [
+   "Closed book, 40 questions, 1 hour",
+   "Open book, 60 questions, 2 hours",
+   "Open book, 50 questions, 90 minutes",
+   "Closed book, 60 questions, 3 hours"
+  ],
+  "answer": "B",
+  "why": "It's open book — your copy of BS 7671 plus a calculator — 60 questions, 2 hours.",
+  "answerText": "Open book, 60 questions, 2 hours"
+ },
+ {
+  "n": 2,
+  "topic": "Exam Technique",
+  "q": "What is the typical minimum pass mark, and the score you should really be aiming for?",
+  "options": [
+   "40%, aim 50%",
+   "50%, aim 60%",
+   "60%, aim 80%",
+   "75%, aim 90%"
+  ],
+  "answer": "C",
+  "why": "Pass marks can vary slightly by cohort — treat 60% as the floor and aim well above it.",
+  "answerText": "60%, aim 80%"
+ },
+ {
+  "n": 3,
+  "topic": "Exam Technique",
+  "q": "Because the exam is open-book, your revision time is best spent:",
+  "options": [
+   "Memorising every table value word for word",
+   "Learning the structure of the book and practising finding the right clause/table quickly",
+   "Ignoring the book entirely",
+   "Reading only Part 1"
+  ],
+  "answer": "B",
+  "why": "The real skill tested is fast, accurate navigation and application — not rote recall.",
+  "answerText": "Learning the structure of the book and practising finding the right clause/table quickly"
+ },
+ {
+  "n": 4,
+  "topic": "Exam Technique",
+  "q": "If a question gives you numerical data, the safest approach is:",
+  "options": [
+   "Guess based on similar past questions",
+   "Work the calculation through methodically using the correct formula and reference",
+   "Pick the middle option",
+   "Skip and never return to it"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Work the calculation through methodically using the correct formula and reference"
+ },
+ {
+  "n": 5,
+  "topic": "Exam Technique",
+  "q": "Which item is essential to bring to the exam alongside ID?",
+  "options": [
+   "A laptop",
+   "The current edition of BS 7671 and a scientific calculator",
+   "A copy of the On-Site Guide only",
+   "Your own printed notes"
+  ],
+  "answer": "B",
+  "why": "Check your exam centre's exact permitted-materials list beforehand — some restrict which additional guides are allowed.",
+  "answerText": "The current edition of BS 7671 and a scientific calculator"
+ },
+ {
+  "n": 6,
+  "topic": "Definitions & Terms",
+  "q": "\"Basic protection\" refers to protection against electric shock:",
+  "options": [
+   "Under a single fault condition",
+   "Under normal, fault-free conditions",
+   "Only in special locations",
+   "Only for SELV circuits"
+  ],
+  "answer": "B",
+  "why": "Fault protection is the single-fault-condition case (ADS, earthing, bonding).",
+  "answerText": "Under normal, fault-free conditions"
+ },
+ {
+  "n": 7,
+  "topic": "Definitions & Terms",
+  "q": "What does \"Zs\" represent?",
+  "options": [
+   "The impedance of the earth electrode only",
+   "The total earth fault loop impedance (external + internal)",
+   "The prospective short-circuit current",
+   "The resistance of the line conductor only"
+  ],
+  "answer": "B",
+  "why": "Zs = Ze + (R1 + R2).",
+  "answerText": "The total earth fault loop impedance (external + internal)"
+ },
+ {
+  "n": 8,
+  "topic": "Definitions & Terms",
+  "q": "PME stands for:",
+  "options": [
+   "Protective Multiple Earthing",
+   "Portable Mains Equipment",
+   "Primary Motor Enclosure",
+   "Permanent Main Earth"
+  ],
+  "answer": "A",
+  "why": "PME describes a TN-C-S supply where the combined PEN conductor is earthed at multiple points by the DNO.",
+  "answerText": "Protective Multiple Earthing"
+ },
+ {
+  "n": 9,
+  "topic": "Definitions & Terms",
+  "q": "In a TT earthing system, the installation's means of earthing is provided by:",
+  "options": [
+   "The supply cable sheath",
+   "A PEN conductor from the DNO",
+   "A local earth electrode",
+   "Bonding to gas and water pipes only"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "A local earth electrode"
+ },
+ {
+  "n": 10,
+  "topic": "Definitions & Terms",
+  "q": "SELV is defined as:",
+  "options": [
+   "A system not exceeding 50V a.c., electrically separated from earth and other systems",
+   "Any circuit protected by an RCD",
+   "A circuit with a functional earth connection",
+   "A 110V site supply"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "A system not exceeding 50V a.c., electrically separated from earth and other systems"
+ },
+ {
+  "n": 11,
+  "topic": "Definitions & Terms",
+  "q": "\"Prospective fault current\" (PFC) is:",
+  "options": [
+   "The current that would flow for a fault of negligible impedance",
+   "The maximum current a cable can carry continuously",
+   "The rated current of the protective device",
+   "The design current of the circuit"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "The current that would flow for a fault of negligible impedance"
+ },
+ {
+  "n": 12,
+  "topic": "Definitions & Terms",
+  "q": "A \"competent person\" under BS 7671 is someone who:",
+  "options": [
+   "Holds a City & Guilds 2382 certificate only",
+   "Has the skill, knowledge and experience to avoid danger to themselves and others",
+   "Is employed by a DNO",
+   "Has more than 10 years' experience regardless of training"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Has the skill, knowledge and experience to avoid danger to themselves and others"
+ },
+ {
+  "n": 13,
+  "topic": "Definitions & Terms",
+  "q": "The term \"exposed-conductive-part\" describes:",
+  "options": [
+   "A touchable conductive part, not normally live, that can become live under fault conditions",
+   "Any conductive part of the installation, live or not",
+   "A live conductor with damaged insulation",
+   "The earth electrode"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "A touchable conductive part, not normally live, that can become live under fault conditions"
+ },
+ {
+  "n": 14,
+  "topic": "Definitions & Terms",
+  "q": "An \"extraneous-conductive-part\" is:",
+  "options": [
+   "Part of the electrical installation",
+   "A conductive part liable to introduce a potential, not forming part of the electrical installation (e.g. structural steel)",
+   "A protective conductor",
+   "A bonding conductor"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "A conductive part liable to introduce a potential, not forming part of the electrical installation (e.g. structural steel)"
+ },
+ {
+  "n": 15,
+  "topic": "Definitions & Terms",
+  "q": "What is a \"circuit protective conductor\" (cpc)?",
+  "options": [
+   "The conductor connecting exposed-conductive-parts to the main earthing terminal",
+   "The line conductor of a final circuit",
+   "A conductor used only for functional earthing",
+   "The neutral conductor"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "The conductor connecting exposed-conductive-parts to the main earthing terminal"
+ },
+ {
+  "n": 16,
+  "topic": "Definitions & Terms",
+  "q": "RCBO is an abbreviation for:",
+  "options": [
+   "A device combining overcurrent and residual current protection in one unit",
+   "Ring Circuit Breaker Outlet",
+   "Radial Circuit Bonding Outlet",
+   "Residual Current Bonded Outlet"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "A device combining overcurrent and residual current protection in one unit"
+ },
+ {
+  "n": 17,
+  "topic": "Definitions & Terms",
+  "q": "\"Diversity\" in an electrical installation refers to:",
+  "options": [
+   "The requirement to use different cable types on every circuit",
+   "The allowance made because not all connected loads run simultaneously at full demand",
+   "A type of earthing arrangement",
+   "The variation in supply voltage"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "The allowance made because not all connected loads run simultaneously at full demand"
+ },
+ {
+  "n": 18,
+  "topic": "Assessing Characteristics",
+  "q": "Part 3 (Assessment of General Characteristics) requires the designer to consider all of the following EXCEPT:",
+  "options": [
+   "Purpose, supplies and structure of the installation",
+   "External influences (ambient temperature, water, etc.)",
+   "Compatibility of equipment characteristics",
+   "The exact make and model of every light fitting"
+  ],
+  "answer": "D",
+  "why": "",
+  "answerText": "The exact make and model of every light fitting"
+ },
+ {
+  "n": 19,
+  "topic": "Assessing Characteristics",
+  "q": "\"External influences\", coded AA/AB/AC..., relate to:",
+  "options": [
+   "The financial cost of the installation",
+   "Environmental conditions affecting equipment selection (temperature, altitude, water, impact)",
+   "The supplier's tariff type",
+   "The manufacturer's nationality"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Environmental conditions affecting equipment selection (temperature, altitude, water, impact)"
+ },
+ {
+  "n": 20,
+  "topic": "Assessing Characteristics",
+  "q": "Before working on an existing installation, BS 7671 requires assessment of:",
+  "options": [
+   "Only the consumer unit",
+   "Supply/installation characteristics likely to affect the design, including maximum demand, earthing arrangement, and condition of equipment to be reused",
+   "Nothing — Part 3 is new-build only",
+   "The colour of existing cables only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Supply/installation characteristics likely to affect the design, including maximum demand, earthing arrangement, and condition of equipment to be reused"
+ },
+ {
+  "n": 21,
+  "topic": "Assessing Characteristics",
+  "q": "Maximum demand of an installation is assessed:",
+  "options": [
+   "By adding the rated current of every appliance with no allowance",
+   "Taking diversity into account, using recognised guidance",
+   "By reference to postcode",
+   "It is not required under Part 3"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Taking diversity into account, using recognised guidance"
+ },
+ {
+  "n": 22,
+  "topic": "Assessing Characteristics",
+  "q": "Compatibility (Part 3) requires checking that:",
+  "options": [
+   "All equipment is the same colour",
+   "Equipment characteristics (starting current, harmonics, leakage) won't harmfully affect other equipment or the supply",
+   "Only British-made equipment is used",
+   "All circuits use the same device rating"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Equipment characteristics (starting current, harmonics, leakage) won't harmfully affect other equipment or the supply"
+ },
+ {
+  "n": 23,
+  "topic": "Assessing Characteristics",
+  "q": "Which is an example of \"AD\" (presence of water) external-influence classification?",
+  "options": [
+   "AD4 – splashing",
+   "AC2 – altitude",
+   "AA5 – high temperature",
+   "AB1 – dry"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "AD4 – splashing"
+ },
+ {
+  "n": 24,
+  "topic": "Shock Protection (411)",
+  "q": "For a TN system, the maximum disconnection time for a final circuit ≤32A is:",
+  "options": [
+   "0.1s",
+   "0.2s",
+   "0.4s",
+   "5s"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "0.4s"
+ },
+ {
+  "n": 25,
+  "topic": "Shock Protection (411)",
+  "q": "For a TT system, the maximum disconnection time for a final circuit ≤32A is:",
+  "options": [
+   "0.2s",
+   "0.4s",
+   "1s",
+   "5s"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "0.2s"
+ },
+ {
+  "n": 26,
+  "topic": "Shock Protection (411)",
+  "q": "For distribution circuits (and final circuits >32A) on a TN system, the maximum disconnection time is:",
+  "options": [
+   "0.4s",
+   "1s",
+   "5s",
+   "No limit applies"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "5s"
+ },
+ {
+  "n": 27,
+  "topic": "Shock Protection (411)",
+  "q": "Additional protection by a 30mA RCD (411.3.3) is required for socket outlets ≤32A for use by ordinary persons:",
+  "options": [
+   "Only in bathrooms",
+   "In all locations, with only very limited listed exceptions",
+   "Only for outdoor sockets",
+   "Only in commercial premises"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "In all locations, with only very limited listed exceptions"
+ },
+ {
+  "n": 28,
+  "topic": "Shock Protection (411)",
+  "q": "In domestic premises, 30mA RCD additional protection is also specifically required for:",
+  "options": [
+   "AC final circuits supplying luminaires (lighting)",
+   "Immersion heaters only",
+   "Cooker circuits only",
+   "Nothing beyond socket outlets"
+  ],
+  "answer": "A",
+  "why": "Regulation 411.3.4 extended the requirement to domestic lighting circuits.",
+  "answerText": "AC final circuits supplying luminaires (lighting)"
+ },
+ {
+  "n": 29,
+  "topic": "Shock Protection (411)",
+  "q": "Fault protection (single-fault-condition shock protection) is most commonly achieved by:",
+  "options": [
+   "Double insulation alone",
+   "Automatic Disconnection of Supply (ADS)",
+   "Warning labels on equipment",
+   "SELV only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Automatic Disconnection of Supply (ADS)"
+ },
+ {
+  "n": 30,
+  "topic": "Shock Protection (411)",
+  "q": "Electrical separation (413) as a protective measure relies on:",
+  "options": [
+   "A single circuit from an isolating source, live parts not connected to earth or another circuit",
+   "A 30mA RCD",
+   "A TT earth electrode",
+   "PME bonding"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "A single circuit from an isolating source, live parts not connected to earth or another circuit"
+ },
+ {
+  "n": 31,
+  "topic": "Shock Protection (411)",
+  "q": "SELV and PELV are protective measures classed under:",
+  "options": [
+   "Automatic disconnection of supply",
+   "Extra-low voltage (both basic and fault protection from the low voltage itself)",
+   "Electrical separation",
+   "Obstacles and placing out of reach"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Extra-low voltage (both basic and fault protection from the low voltage itself)"
+ },
+ {
+  "n": 32,
+  "topic": "Shock Protection (411)",
+  "q": "The nominal voltage limit for SELV/PELV under normal conditions is:",
+  "options": [
+   "12V a.c.",
+   "50V a.c. / 120V ripple-free d.c.",
+   "110V d.c.",
+   "230V a.c."
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "50V a.c. / 120V ripple-free d.c."
+ },
+ {
+  "n": 33,
+  "topic": "Shock Protection (411)",
+  "q": "\"Obstacles\" and \"placing out of reach\" as protective measures are:",
+  "options": [
+   "Permitted for ordinary persons in all installations",
+   "Only permitted where supervised/controlled by skilled or instructed persons",
+   "Banned entirely under BS 7671",
+   "Only used in agricultural locations"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Only permitted where supervised/controlled by skilled or instructed persons"
+ },
+ {
+  "n": 34,
+  "topic": "Shock Protection (411)",
+  "q": "Basic protection by insulation of live parts requires the insulation to:",
+  "options": [
+   "Be removable with a standard tool for maintenance",
+   "Only be removable by destruction, solvents or heat — not by hand",
+   "Be any colour so long as present",
+   "Only cover conductors above 1mm²"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Only be removable by destruction, solvents or heat — not by hand"
+ },
+ {
+  "n": 35,
+  "topic": "Shock Protection (411)",
+  "q": "A barrier providing basic protection must give at least a degree of protection of:",
+  "options": [
+   "IPXXB (IP2X), or IPXXD on accessible horizontal top surfaces where required",
+   "IP44 in all cases",
+   "No specific rating is required",
+   "IP65 always"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "IPXXB (IP2X), or IPXXD on accessible horizontal top surfaces where required"
+ },
+ {
+  "n": 36,
+  "topic": "Shock Protection (411)",
+  "q": "Which is correct about RCDs and TT systems?",
+  "options": [
+   "An RCD is never required on TT if Zs is low enough",
+   "Because Ze is often too high for overcurrent devices alone, an RCD is almost always essential for fault protection",
+   "TT systems cannot use RCDs",
+   "TT systems don't require an earth electrode"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Because Ze is often too high for overcurrent devices alone, an RCD is almost always essential for fault protection"
+ },
+ {
+  "n": 37,
+  "topic": "Shock Protection (411)",
+  "q": "To confirm automatic disconnection will occur in time on a TN system, you must check:",
+  "options": [
+   "Only the cable colour",
+   "That Zs does not exceed the tabulated maximum for that device and disconnection time",
+   "The length of cable only",
+   "The consumer unit's diameter"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "That Zs does not exceed the tabulated maximum for that device and disconnection time"
+ },
+ {
+  "n": 38,
+  "topic": "Fire & Thermal (42)",
+  "q": "Arc Fault Detection Devices (AFDDs) are designed to:",
+  "options": [
+   "Detect overload current only",
+   "Detect arc faults that conventional overcurrent/RCD protection may miss, reducing fire risk",
+   "Replace RCDs entirely",
+   "Only function on three-phase circuits"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Detect arc faults that conventional overcurrent/RCD protection may miss, reducing fire risk"
+ },
+ {
+  "n": 39,
+  "topic": "Fire & Thermal (42)",
+  "q": "Under Regulation 421.1.7, AFDDs are required as a minimum for certain final circuits ≤32A in premises such as:",
+  "options": [
+   "Detached bungalows only",
+   "HMOs and similarly higher-risk residential premises listed in BS 7671",
+   "Garages only",
+   "All installations without exception"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "HMOs and similarly higher-risk residential premises listed in BS 7671"
+ },
+ {
+  "n": 40,
+  "topic": "Fire & Thermal (42)",
+  "q": "Where fitted, an AFDD should be installed:",
+  "options": [
+   "At the furthest point of the circuit from the origin",
+   "At the origin of the final circuit it protects",
+   "Only at the main switchboard",
+   "In the socket outlet itself only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "At the origin of the final circuit it protects"
+ },
+ {
+  "n": 41,
+  "topic": "Fire & Thermal (42)",
+  "q": "Regulation 422 deals with:",
+  "options": [
+   "Precautions for locations with particular risks — fire, explosion, escape routes, high fire load",
+   "Voltage drop only",
+   "Cable colours",
+   "RCD selection"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Precautions for locations with particular risks — fire, explosion, escape routes, high fire load"
+ },
+ {
+  "n": 42,
+  "topic": "Fire & Thermal (42)",
+  "q": "For a luminaire close to combustible material rated over 300W up to 500W, minimum spacing guidance is broadly around:",
+  "options": [
+   "0.2m",
+   "0.5m",
+   "1.0m",
+   "2.0m"
+  ],
+  "answer": "C",
+  "why": "Illustrative bands: ≤100W≈0.5m, >100–300W≈0.8m, >300–500W≈1.0m — confirm current figures.",
+  "answerText": "1.0m"
+ },
+ {
+  "n": 43,
+  "topic": "Fire & Thermal (42)",
+  "q": "A \"significant quantity\" of flammable liquid, for fire-risk assessment purposes, is generally taken as:",
+  "options": [
+   "1 litre",
+   "10 litres",
+   "25 litres",
+   "100 litres"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "25 litres"
+ },
+ {
+  "n": 44,
+  "topic": "Fire & Thermal (42)",
+  "q": "Where a circuit passes through a fire-risk location (e.g. escape route), measures may include:",
+  "options": [
+   "Ignoring the risk if PVC insulated",
+   "Fire-resistant wiring systems, avoiding combustible surfaces, protection against mechanical damage",
+   "Only increasing cable csa",
+   "No special measures are ever needed"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Fire-resistant wiring systems, avoiding combustible surfaces, protection against mechanical damage"
+ },
+ {
+  "n": 45,
+  "topic": "Fire & Thermal (42)",
+  "q": "Thermal effects requirements (Chapter 42) primarily protect against:",
+  "options": [
+   "Burns and fire from heat generated by equipment or faults",
+   "Voltage drop",
+   "Electromagnetic interference",
+   "Corrosion of conductors"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Burns and fire from heat generated by equipment or faults"
+ },
+ {
+  "n": 46,
+  "topic": "Fire & Thermal (42)",
+  "q": "Fixed equipment likely to reach ignition temperatures should be:",
+  "options": [
+   "Installed with no consideration required",
+   "Positioned/guarded so adjacent materials can't reach a dangerous temperature, or mounted/enclosed to withstand it",
+   "Always mounted directly on timber",
+   "Wrapped in PVC tape"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Positioned/guarded so adjacent materials can't reach a dangerous temperature, or mounted/enclosed to withstand it"
+ },
+ {
+  "n": 47,
+  "topic": "Fire & Thermal (42)",
+  "q": "For hand-held equipment, the maximum accessible temperature for non-metallic parts liable to be touched is around:",
+  "options": [
+   "45°C",
+   "65°C",
+   "90°C",
+   "105°C"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "65°C"
+ },
+ {
+  "n": 48,
+  "topic": "Overcurrent (43)",
+  "q": "The basic rule for selecting a protective device against overload (433.1) is:",
+  "options": [
+   "Ib ≤ In ≤ Iz, and I2 ≤ 1.45 Iz",
+   "Ib = In = Iz always exactly",
+   "In must always exceed Iz",
+   "Ib has no relationship to Iz"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Ib ≤ In ≤ Iz, and I2 ≤ 1.45 Iz"
+ },
+ {
+  "n": 49,
+  "topic": "Overcurrent (43)",
+  "q": "\"Ib\" represents:",
+  "options": [
+   "The rated current of the protective device",
+   "The design current of the circuit",
+   "The tabulated current-carrying capacity of the cable",
+   "The breaking capacity of the device"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "The design current of the circuit"
+ },
+ {
+  "n": 50,
+  "topic": "Overcurrent (43)",
+  "q": "\"Iz\" represents:",
+  "options": [
+   "The design current",
+   "The rated current of the device",
+   "The cable's effective current-carrying capacity in its installed conditions",
+   "The prospective fault current"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "The cable's effective current-carrying capacity in its installed conditions"
+ },
+ {
+  "n": 51,
+  "topic": "Overcurrent (43)",
+  "q": "The adiabatic equation for a conductor's thermal withstand under fault is:",
+  "options": [
+   "S = √(I²t) / k",
+   "S = I × t × k",
+   "S = k / (I × t)",
+   "S = √(I × t) / k²"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "S = √(I²t) / k"
+ },
+ {
+  "n": 52,
+  "topic": "Overcurrent (43)",
+  "q": "Using S=√(I²t)/k, for I=1000A, t=0.4s, k=115, the minimum csa is approximately:",
+  "options": [
+   "2.75 mm²",
+   "5.5 mm²",
+   "8.7 mm²",
+   "11 mm²"
+  ],
+  "answer": "B",
+  "why": "√(1000²×0.4)=632.5; 632.5/115≈5.5mm².",
+  "answerText": "5.5 mm²"
+ },
+ {
+  "n": 53,
+  "topic": "Overcurrent (43)",
+  "q": "The breaking capacity of a protective device must be:",
+  "options": [
+   "Less than the prospective fault current at that point",
+   "Equal to or greater than the prospective fault current at that point (or backed up per 434.5.1)",
+   "Ignored if an RCD is fitted",
+   "Only relevant for three-phase circuits"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Equal to or greater than the prospective fault current at that point (or backed up per 434.5.1)"
+ },
+ {
+  "n": 54,
+  "topic": "Overcurrent (43)",
+  "q": "A \"distribution circuit\" (as opposed to a final circuit) is one that:",
+  "options": [
+   "Directly supplies current-using equipment only",
+   "Connects the origin (or a distribution board) to another board/consumer unit supplying final circuits",
+   "Only exists in industrial premises",
+   "Cannot exceed 32A"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Connects the origin (or a distribution board) to another board/consumer unit supplying final circuits"
+ },
+ {
+  "n": 55,
+  "topic": "Overcurrent (43)",
+  "q": "Overload protection may be omitted (433.3) only where, for example:",
+  "options": [
+   "Consequences of overload are negligible/unlikely, under the specific conditions BS 7671 lists",
+   "Never — overload protection is always mandatory with no exceptions",
+   "The circuit supplies socket outlets",
+   "The customer requests it in writing"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Consequences of overload are negligible/unlikely, under the specific conditions BS 7671 lists"
+ },
+ {
+  "n": 56,
+  "topic": "Overcurrent (43)",
+  "q": "Table 43.1 provides:",
+  "options": [
+   "Voltage drop limits",
+   "k-values for the adiabatic equation by conductor/insulation/joint",
+   "Zs values for RCDs",
+   "Cable colour codes"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "k-values for the adiabatic equation by conductor/insulation/joint"
+ },
+ {
+  "n": 57,
+  "topic": "Overcurrent (43)",
+  "q": "For a tinned soldered joint in copper with 60°C thermosetting insulation, a commonly referenced k-value example is around:",
+  "options": [
+   "76",
+   "94",
+   "122",
+   "143"
+  ],
+  "answer": "C",
+  "why": "Exact k-values depend on the specific combination — confirm against the current Table 43.1.",
+  "answerText": "122"
+ },
+ {
+  "n": 58,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "Surge Protective Devices (SPDs) protect against:",
+  "options": [
+   "Overload current only",
+   "Transient overvoltages (e.g. lightning, switching events)",
+   "Undervoltage only",
+   "Harmonic distortion only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Transient overvoltages (e.g. lightning, switching events)"
+ },
+ {
+  "n": 59,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "A risk assessment (or the simplified method) determines:",
+  "options": [
+   "The colour of cables required",
+   "Whether SPDs are required for a given installation",
+   "The size of the consumer unit only",
+   "Whether RCDs are needed"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Whether SPDs are required for a given installation"
+ },
+ {
+  "n": 60,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "A mechanical maintenance switch (537.3.2.4) must be capable of:",
+  "options": [
+   "Being operated remotely only",
+   "Being secured OFF (locking, or removal of a fuse/link) to prevent unintended reclosure",
+   "Switching under full load only",
+   "Isolating the neutral only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Being secured OFF (locking, or removal of a fuse/link) to prevent unintended reclosure"
+ },
+ {
+  "n": 61,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "A means of isolation must:",
+  "options": [
+   "Never be needed if an RCD is fitted",
+   "Disconnect all live supply conductors of the relevant part, and be identifiable and accessible",
+   "Only isolate the line conductor",
+   "Only be fitted at the main switchboard"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Disconnect all live supply conductors of the relevant part, and be identifiable and accessible"
+ },
+ {
+  "n": 62,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "A functional switch (e.g. a light switch) is used to:",
+  "options": [
+   "Provide isolation for maintenance",
+   "Control normal operation without necessarily disconnecting all poles",
+   "Provide overcurrent protection",
+   "Provide fault protection"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Control normal operation without necessarily disconnecting all poles"
+ },
+ {
+  "n": 63,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "Emergency switching devices must operate:",
+  "options": [
+   "Slowly, to avoid arcing",
+   "Rapidly, by a single action, to remove danger",
+   "Only after a time delay",
+   "Only when the RCD also trips"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Rapidly, by a single action, to remove danger"
+ },
+ {
+  "n": 64,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "A switch used for isolation should be installed so that it:",
+  "options": [
+   "Cannot be inadvertently or accidentally operated by unauthorised persons while isolated",
+   "Automatically resets after 30 minutes",
+   "Only isolates during working hours",
+   "Requires no marking or identification"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Cannot be inadvertently or accidentally operated by unauthorised persons while isolated"
+ },
+ {
+  "n": 65,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "Firefighter's switches (e.g. for discharge-tube signage) are typically:",
+  "options": [
+   "Coloured red, accessible to the fire service, with an indicator lamp",
+   "Coloured blue with no marking",
+   "Located inside a locked switch room only",
+   "Not required under BS 7671"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Coloured red, accessible to the fire service, with an indicator lamp"
+ },
+ {
+  "n": 66,
+  "topic": "Switching, Isolation & SPDs",
+  "q": "BS EN 61439-6 relates to:",
+  "options": [
+   "Cable colour identification",
+   "Busbar trunking systems",
+   "RCD test procedures",
+   "Insulation resistance testing"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Busbar trunking systems"
+ },
+ {
+  "n": 67,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "A cable's current-carrying capacity (Iz) is derived from the tabulated value (It) by applying:",
+  "options": [
+   "Rating factors for ambient temperature, grouping, thermal insulation etc.",
+   "Only the length of the cable",
+   "The colour of the cable",
+   "The supply voltage only"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Rating factors for ambient temperature, grouping, thermal insulation etc."
+ },
+ {
+  "n": 68,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "A cable in an ambient temperature above the tabulated reference has its capacity:",
+  "options": [
+   "Increased",
+   "Reduced, via an ambient temperature factor (Ca) less than 1",
+   "Unaffected",
+   "Doubled"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Reduced, via an ambient temperature factor (Ca) less than 1"
+ },
+ {
+  "n": 69,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "A grouping rating factor (Cg) is applied because:",
+  "options": [
+   "Grouped cables mutually heat each other, reducing safe current per cable",
+   "Grouping always increases capacity",
+   "Grouping has no thermal effect",
+   "Only three-phase cables are affected"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Grouped cables mutually heat each other, reducing safe current per cable"
+ },
+ {
+  "n": 70,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "A cable fully surrounded by thermal insulation has its capacity:",
+  "options": [
+   "Increased, since insulation retains heat usefully",
+   "Significantly reduced — a thermal insulation factor (Ci) less than 1 applies",
+   "Unaffected",
+   "Only relevant for SWA cable"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Significantly reduced — a thermal insulation factor (Ci) less than 1 applies"
+ },
+ {
+  "n": 71,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "For a 90°C cable at reference ambient 30°C, installed at 40°C, Ca is calculated using:",
+  "options": [
+   "Ca = (θz−θa)/(θz−θref)",
+   "Ca = √[(θz−θa)/(θz−θref)]",
+   "Ca = θz/θa",
+   "Ca = θref−θa"
+  ],
+  "answer": "B",
+  "why": "Here: √[(90−40)/(90−30)] = √(50/60) ≈ 0.91.",
+  "answerText": "Ca = √[(θz−θa)/(θz−θref)]"
+ },
+ {
+  "n": 72,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "The recommended maximum voltage drop, origin to load point, for a low-voltage public supply, is generally:",
+  "options": [
+   "3% for lighting, 5% for other uses",
+   "1% for all circuits",
+   "10% for all circuits",
+   "5% for lighting, 3% for other uses"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "3% for lighting, 5% for other uses"
+ },
+ {
+  "n": 73,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "Voltage drop in a cable run is approximately calculated using:",
+  "options": [
+   "mV/A/m × Ib × length(m) / 1000",
+   "Ib × csa only",
+   "length × csa",
+   "It can only be measured, not calculated"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "mV/A/m × Ib × length(m) / 1000"
+ },
+ {
+  "n": 74,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "Using mV/A/m=18, Ib=20A, length=15m, the approximate voltage drop is:",
+  "options": [
+   "1.8V",
+   "5.4V",
+   "18V",
+   "27V"
+  ],
+  "answer": "B",
+  "why": "(18×20×15)/1000 = 5.4V.",
+  "answerText": "5.4V"
+ },
+ {
+  "n": 75,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "The minimum copper line conductor csa generally quoted for a fixed power circuit is:",
+  "options": [
+   "1.0 mm²",
+   "1.5 mm²",
+   "2.5 mm²",
+   "4.0 mm²"
+  ],
+  "answer": "C",
+  "why": "1.5mm² is typical for lighting; 2.5mm² is the common general minimum for power — always check the specific circuit and exceptions.",
+  "answerText": "2.5 mm²"
+ },
+ {
+  "n": 76,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "A cable through a timber joist, outside a permitted safe zone, must (522.6.201) be:",
+  "options": [
+   "At any depth without restriction",
+   "At least 50mm from the top/bottom of the joist, or otherwise protected against damage",
+   "Painted red for visibility",
+   "Run only in steel conduit"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "At least 50mm from the top/bottom of the joist, or otherwise protected against damage"
+ },
+ {
+  "n": 77,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "A cable in a wall at less than 50mm depth, outside a safe zone, generally requires:",
+  "options": [
+   "No additional protection",
+   "Additional protection, typically 30mA RCD or robust mechanical protection",
+   "A different cable colour",
+   "A minimum csa of 10mm²"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Additional protection, typically 30mA RCD or robust mechanical protection"
+ },
+ {
+  "n": 78,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "Safe zones for cables in walls are generally defined as bands:",
+  "options": [
+   "Within 150mm of a wall/ceiling junction or corner, or running directly to/from an accessory",
+   "Only at the centre of the wall",
+   "At floor level only",
+   "There are no defined safe zones"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Within 150mm of a wall/ceiling junction or corner, or running directly to/from an accessory"
+ },
+ {
+  "n": 79,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "For a single-phase a.c. installation, the line conductor core colour is:",
+  "options": [
+   "Blue",
+   "Brown",
+   "Green/yellow",
+   "Black"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Brown"
+ },
+ {
+  "n": 80,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "The protective (earth) conductor is identified by:",
+  "options": [
+   "Brown insulation",
+   "Blue insulation",
+   "Green-and-yellow bi-colour combination",
+   "Black insulation"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "Green-and-yellow bi-colour combination"
+ },
+ {
+  "n": 81,
+  "topic": "Cables & Volt Drop (52)",
+  "q": "For a DC circuit, the colour identification for the positive conductor (L+) is:",
+  "options": [
+   "Blue",
+   "Grey",
+   "Brown",
+   "Black"
+  ],
+  "answer": "C",
+  "why": "DC positive is Brown; DC negative is Grey.",
+  "answerText": "Brown"
+ },
+ {
+  "n": 82,
+  "topic": "Earthing & Bonding (54)",
+  "q": "In a TN-S system, the earth path back to source is provided by:",
+  "options": [
+   "A separate local earth electrode only",
+   "The metallic sheath/armour of the supply cable",
+   "A PEN conductor",
+   "There is no earth path"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "The metallic sheath/armour of the supply cable"
+ },
+ {
+  "n": 83,
+  "topic": "Earthing & Bonding (54)",
+  "q": "In a TN-C-S system, within the installation the neutral and protective functions are:",
+  "options": [
+   "Combined throughout",
+   "Combined only on the supply side (PEN); separated into N and cpc within the installation",
+   "Never combined anywhere",
+   "Provided by a local electrode"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Combined only on the supply side (PEN); separated into N and cpc within the installation"
+ },
+ {
+  "n": 84,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Main protective bonding connects extraneous-conductive-parts to:",
+  "options": [
+   "The neutral bar directly",
+   "The main earthing terminal",
+   "The nearest socket outlet",
+   "Nothing — it's optional"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "The main earthing terminal"
+ },
+ {
+  "n": 85,
+  "topic": "Earthing & Bonding (54)",
+  "q": "The minimum copper-equivalent csa for main protective bonding per Table 54.8 is:",
+  "options": [
+   "2.5 mm²",
+   "6 mm²",
+   "10 mm²",
+   "16 mm²"
+  ],
+  "answer": "B",
+  "why": "6mm² is the BS 7671 table minimum, though DNOs often specify 10mm² in practice on PME supplies.",
+  "answerText": "6 mm²"
+ },
+ {
+  "n": 86,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Supplementary bonding conductors NOT mechanically protected need a minimum csa of:",
+  "options": [
+   "1.5 mm²",
+   "2.5 mm²",
+   "4 mm²",
+   "6 mm²"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "4 mm²"
+ },
+ {
+  "n": 87,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Supplementary bonding conductors that ARE mechanically protected need a minimum csa of:",
+  "options": [
+   "1.0 mm²",
+   "2.5 mm²",
+   "4 mm²",
+   "6 mm²"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "2.5 mm²"
+ },
+ {
+  "n": 88,
+  "topic": "Earthing & Bonding (54)",
+  "q": "A warning notice at a bonding connection should read:",
+  "options": [
+   "\"Danger – Live Parts\"",
+   "\"Safety Electrical Connection – Do Not Remove\"",
+   "\"Earth – Test Point Only\"",
+   "\"Isolate Before Use\""
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "\"Safety Electrical Connection – Do Not Remove\""
+ },
+ {
+  "n": 89,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Zs = Ze + (R1+R2) means:",
+  "options": [
+   "Zs is independent of the circuit's protective conductor resistance",
+   "Total loop impedance = external impedance + line and cpc resistance within the circuit",
+   "R1 and R2 refer to two separate earth electrodes",
+   "Ze is measured after the circuit is wired"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Total loop impedance = external impedance + line and cpc resistance within the circuit"
+ },
+ {
+  "n": 90,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Which system relies on the general mass of earth rather than a metallic path back to the source?",
+  "options": [
+   "TN-S",
+   "TN-C-S",
+   "TT",
+   "None — all use a local electrode"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "TT"
+ },
+ {
+  "n": 91,
+  "topic": "Earthing & Bonding (54)",
+  "q": "A PEN conductor is:",
+  "options": [
+   "A conductor combining protective conductor and neutral functions, used by the DNO in PME systems",
+   "A type of bonding conductor only",
+   "Only used in TT systems",
+   "A conductor used exclusively in SELV circuits"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "A conductor combining protective conductor and neutral functions, used by the DNO in PME systems"
+ },
+ {
+  "n": 92,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Under an \"open PEN\" fault on a PME supply, exposed-conductive-parts can become:",
+  "options": [
+   "Completely safe with no risk",
+   "Live at a dangerous voltage relative to true earth",
+   "Automatically disconnected instantly with no further action",
+   "Irrelevant to the design"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Live at a dangerous voltage relative to true earth"
+ },
+ {
+  "n": 93,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Which is generally NOT acceptable as the sole means of earthing for a TT installation?",
+  "options": [
+   "A driven earth rod/electrode",
+   "An earth mat or plate electrode",
+   "Reliance on the metallic water service pipe alone",
+   "A properly designed earth electrode system"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "Reliance on the metallic water service pipe alone"
+ },
+ {
+  "n": 94,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Bonding of simultaneously-accessible exposed and extraneous parts, beyond main bonding, is called:",
+  "options": [
+   "Main protective bonding",
+   "Supplementary (equipotential) bonding",
+   "Functional earthing",
+   "Isolation"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Supplementary (equipotential) bonding"
+ },
+ {
+  "n": 95,
+  "topic": "Earthing & Bonding (54)",
+  "q": "Functional earthing (Section 545, revised by A4) is provided:",
+  "options": [
+   "For electric shock protection only",
+   "For correct equipment operation and EMC, distinct from protective earthing",
+   "Only in agricultural locations",
+   "Instead of protective earthing, replacing it"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "For correct equipment operation and EMC, distinct from protective earthing"
+ },
+ {
+  "n": 96,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Initial verification of a new installation comprises:",
+  "options": [
+   "Inspection only",
+   "Testing only",
+   "Inspection followed by testing (dead tests, then live tests)",
+   "A visual check by the customer"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "Inspection followed by testing (dead tests, then live tests)"
+ },
+ {
+  "n": 97,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Which test is normally carried out FIRST in the dead-test sequence?",
+  "options": [
+   "Earth fault loop impedance",
+   "Continuity of protective conductors (incl. bonding)",
+   "RCD operation",
+   "Insulation resistance"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Continuity of protective conductors (incl. bonding)"
+ },
+ {
+  "n": 98,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "A ring final circuit continuity test (figure-of-eight method) confirms:",
+  "options": [
+   "The RCD operates correctly",
+   "No breaks or crossed connections in the ring, and correct polarity at each outlet",
+   "Voltage drop only",
+   "Earth electrode resistance"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "No breaks or crossed connections in the ring, and correct polarity at each outlet"
+ },
+ {
+  "n": 99,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Insulation resistance testing on a circuit up to 500V is typically carried out at:",
+  "options": [
+   "250V, minimum 0.5 MΩ",
+   "500V DC, minimum 1.0 MΩ",
+   "1000V, minimum 1.0 MΩ",
+   "50V, minimum 2.0 MΩ"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "500V DC, minimum 1.0 MΩ"
+ },
+ {
+  "n": 100,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "For SELV/PELV circuits, insulation resistance testing is typically carried out at:",
+  "options": [
+   "250V DC, minimum 0.5 MΩ",
+   "500V DC, minimum 1.0 MΩ",
+   "1000V DC, minimum 2.0 MΩ",
+   "No test is required"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "250V DC, minimum 0.5 MΩ"
+ },
+ {
+  "n": 101,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Before insulation resistance testing, you should typically:",
+  "options": [
+   "Nothing extra is needed",
+   "Disconnect/isolate voltage-sensitive electronics that could be damaged by the test voltage",
+   "Switch all RCDs to test position",
+   "Remove all fuses only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Disconnect/isolate voltage-sensitive electronics that could be damaged by the test voltage"
+ },
+ {
+  "n": 102,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Polarity verification confirms that:",
+  "options": [
+   "The voltage is correct",
+   "Single-pole devices switch the line conductor, and lampholder centre-pins connect to line not neutral",
+   "The RCD trips within the correct time",
+   "Cable colour matches wall colour"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Single-pole devices switch the line conductor, and lampholder centre-pins connect to line not neutral"
+ },
+ {
+  "n": 103,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Ze (external earth fault loop impedance) is measured:",
+  "options": [
+   "With main switch closed, main bonding in place, and the earthing conductor temporarily disconnected from the MET",
+   "With the supply completely disconnected",
+   "Only at socket outlets",
+   "It cannot be measured, only calculated"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "With main switch closed, main bonding in place, and the earthing conductor temporarily disconnected from the MET"
+ },
+ {
+  "n": 104,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "A general-purpose RCD tested at its rated residual current (IΔn) should disconnect within:",
+  "options": [
+   "40ms",
+   "300ms",
+   "1s",
+   "5s"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "300ms"
+ },
+ {
+  "n": 105,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "The same RCD, tested at 5×IΔn, should disconnect within:",
+  "options": [
+   "40ms",
+   "150ms",
+   "300ms",
+   "500ms"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "40ms"
+ },
+ {
+  "n": 106,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "An Electrical Installation Certificate (EIC) is used for:",
+  "options": [
+   "Periodic inspection of an existing installation",
+   "New installation work, or an addition/alteration including a new circuit",
+   "Minor alterations not involving a new circuit",
+   "PAT testing"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "New installation work, or an addition/alteration including a new circuit"
+ },
+ {
+  "n": 107,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "A Minor Electrical Installation Works Certificate is appropriate for:",
+  "options": [
+   "A brand-new consumer unit installation",
+   "Additions/alterations that do NOT include a new circuit",
+   "A full rewire",
+   "Any periodic inspection"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Additions/alterations that do NOT include a new circuit"
+ },
+ {
+  "n": 108,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "An Electrical Installation Condition Report (EICR) is used to:",
+  "options": [
+   "Certify new installation work",
+   "Report on the condition of an existing installation following periodic inspection",
+   "Replace the need for an EIC on new work",
+   "Certify PAT-tested appliances"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Report on the condition of an existing installation following periodic inspection"
+ },
+ {
+  "n": 109,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Observation code \"C1\" on an EICR means:",
+  "options": [
+   "Improvement recommended",
+   "Potentially dangerous — urgent remedial action required",
+   "Danger present — immediate remedial action required",
+   "Further investigation required"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "Danger present — immediate remedial action required"
+ },
+ {
+  "n": 110,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Observation code \"C2\" on an EICR means:",
+  "options": [
+   "Danger present — immediate action required",
+   "Potentially dangerous — urgent remedial action required",
+   "Improvement recommended, not presently dangerous",
+   "Compliant, no action needed"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Potentially dangerous — urgent remedial action required"
+ },
+ {
+  "n": 111,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Observation code \"FI\" on an EICR indicates:",
+  "options": [
+   "\"Fully Inspected\" — a pass code",
+   "Further investigation required without delay",
+   "The installation failed entirely",
+   "The fuse is incorrect"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Further investigation required without delay"
+ },
+ {
+  "n": 112,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "The typical maximum recommended interval before the next EICR for an owner-occupied domestic dwelling is generally:",
+  "options": [
+   "1 year",
+   "3 years",
+   "10 years, or at change of occupancy",
+   "25 years"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "10 years, or at change of occupancy"
+ },
+ {
+  "n": 113,
+  "topic": "Inspection & Testing (Pt 6)",
+  "q": "Under the Electrical Safety Standards in the Private Rented Sector Regulations, landlords in England must have an EICR at intervals not exceeding:",
+  "options": [
+   "1 year",
+   "5 years, or sooner as required",
+   "10 years",
+   "There is no requirement"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "5 years, or sooner as required"
+ },
+ {
+  "n": 114,
+  "topic": "Special Locations (Pt 7)",
+  "q": "In a bathroom (701), Zone 0 is defined as:",
+  "options": [
+   "The area more than 3m from the bath",
+   "The interior of the bath tub or shower basin itself",
+   "The whole bathroom floor",
+   "Only the area under the sink"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "The interior of the bath tub or shower basin itself"
+ },
+ {
+  "n": 115,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Zone 1 in a bathroom extends broadly to:",
+  "options": [
+   "Above zone 0 up to 2.25m from the floor, within the bath/shower boundary",
+   "The entire room",
+   "3m in every direction",
+   "Only above the shower head"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Above zone 0 up to 2.25m from the floor, within the bath/shower boundary"
+ },
+ {
+  "n": 116,
+  "topic": "Special Locations (Pt 7)",
+  "q": "The minimum IP rating required for equipment in Zone 0 of a bathroom is:",
+  "options": [
+   "IPX4",
+   "IPX5",
+   "IPX7",
+   "No rating required"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "IPX7"
+ },
+ {
+  "n": 117,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Supplementary bonding in a bathroom may be omitted, provided (among other conditions):",
+  "options": [
+   "The room has a window",
+   "All final circuits meet 411.3.2 disconnection times, have 30mA RCD protection, and main bonding is in place",
+   "The homeowner agrees in writing",
+   "It may never be omitted"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "All final circuits meet 411.3.2 disconnection times, have 30mA RCD protection, and main bonding is in place"
+ },
+ {
+  "n": 118,
+  "topic": "Special Locations (Pt 7)",
+  "q": "In a swimming pool location (702), Zone 0 covers:",
+  "options": [
+   "The interior of the pool basin",
+   "The whole pool hall",
+   "A 2m perimeter around the pool",
+   "Only underwater lighting"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "The interior of the pool basin"
+ },
+ {
+  "n": 119,
+  "topic": "Special Locations (Pt 7)",
+  "q": "For a pool with a diving board, Zone 1 typically extends vertically above the board to around:",
+  "options": [
+   "1.0m",
+   "1.5m",
+   "2.5m",
+   "4.0m"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "2.5m"
+ },
+ {
+  "n": 120,
+  "topic": "Special Locations (Pt 7)",
+  "q": "In a sauna (703), Zone 1 is generally the space:",
+  "options": [
+   "More than 2m above the floor",
+   "From floor level up to around 1.0m, near the heater",
+   "Only inside the heater casing",
+   "Outside the sauna cabin"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "From floor level up to around 1.0m, near the heater"
+ },
+ {
+  "n": 121,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Sauna Zone 3 generally starts:",
+  "options": [
+   "At floor level",
+   "Above around the 1.0m mark",
+   "Only above 3m",
+   "There is no Zone 3 in saunas"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Above around the 1.0m mark"
+ },
+ {
+  "n": 122,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Construction sites (704) typically use 110V CTE for portable tools because:",
+  "options": [
+   "It looks different from permanent supplies",
+   "It halves the shock voltage to earth (55V) in harsh, damp conditions",
+   "It is cheaper to install",
+   "BS 7671 does not address construction sites"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "It halves the shock voltage to earth (55V) in harsh, damp conditions"
+ },
+ {
+  "n": 123,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Agricultural/horticultural premises (705) require additional RCD protection because:",
+  "options": [
+   "Livestock can be more sensitive to shock, and the environment is damp/corrosive",
+   "There is no additional risk",
+   "Animals are unaffected by electricity",
+   "Section 705 only applies to arable farms"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Livestock can be more sensitive to shock, and the environment is damp/corrosive"
+ },
+ {
+  "n": 124,
+  "topic": "Special Locations (Pt 7)",
+  "q": "A caravan pitch electrical supply (708) is typically provided via:",
+  "options": [
+   "A hardwired connection with no plug",
+   "A weatherproof socket-outlet per pitch (commonly 16A), individually RCD-protected",
+   "A 13A domestic socket with no RCD",
+   "A shared, unprotected supply"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "A weatherproof socket-outlet per pitch (commonly 16A), individually RCD-protected"
+ },
+ {
+  "n": 125,
+  "topic": "Special Locations (Pt 7)",
+  "q": "The flexible cable connecting a caravan to its pitch supply should have a minimum csa of around:",
+  "options": [
+   "1.0 mm²",
+   "1.5 mm²",
+   "2.5 mm²",
+   "4.0 mm²"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "2.5 mm²"
+ },
+ {
+  "n": 126,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Marina (709) socket-outlets supplying pontoons/berths should be:",
+  "options": [
+   "Standard sockets with no special consideration",
+   "Individually 30mA RCD-protected, suitably rated for the marine environment",
+   "Fed from a single shared unprotected circuit",
+   "Prohibited under BS 7671"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Individually 30mA RCD-protected, suitably rated for the marine environment"
+ },
+ {
+  "n": 127,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Medical locations (710) often use an IT system in higher-risk 'Group 2' areas primarily because:",
+  "options": [
+   "It is cheaper",
+   "A first fault doesn't force immediate disconnection, so life-support equipment can keep running",
+   "It removes the need for any earthing",
+   "IT systems are mandatory in all medical rooms"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "A first fault doesn't force immediate disconnection, so life-support equipment can keep running"
+ },
+ {
+  "n": 128,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Amendment 4 revised Section 710 (medical locations) primarily around:",
+  "options": [
+   "Removing the requirement for supplementary bonding entirely",
+   "Enhanced supplementary bonding procedures and a schedule for recording resistance measurements",
+   "Banning IT systems in hospitals",
+   "Reducing disconnection times to zero"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Enhanced supplementary bonding procedures and a schedule for recording resistance measurements"
+ },
+ {
+  "n": 129,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Solar PV (712) DC-side installations need particular care because:",
+  "options": [
+   "DC arcs can be harder to extinguish, and can't be switched off at will while illuminated",
+   "DC has no associated shock risk",
+   "PV systems never produce DC",
+   "There is no specific PV guidance in BS 7671"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "DC arcs can be harder to extinguish, and can't be switched off at will while illuminated"
+ },
+ {
+  "n": 130,
+  "topic": "Special Locations (Pt 7)",
+  "q": "For EV charging (722) on a PME supply, a key safety concern is:",
+  "options": [
+   "Voltage drop only",
+   "Open-PEN fault risk making vehicle metalwork dangerously live — addressed by open-PEN detection or a TT arrangement",
+   "Cable colour",
+   "PME supplies need no special measures for EV charging"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Open-PEN fault risk making vehicle metalwork dangerously live — addressed by open-PEN detection or a TT arrangement"
+ },
+ {
+  "n": 131,
+  "topic": "Special Locations (Pt 7)",
+  "q": "RCD protection for an EV charge point commonly addresses smooth DC leakage by using:",
+  "options": [
+   "A Type AC RCD only",
+   "A Type B RCD, or Type A plus a 6mA DC RDC-DD",
+   "No RCD at all",
+   "A time-delayed (S-type) RCD only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "A Type B RCD, or Type A plus a 6mA DC RDC-DD"
+ },
+ {
+  "n": 132,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Temporary installations at exhibitions/fairgrounds require:",
+  "options": [
+   "No RCD protection because they're temporary",
+   "30mA RCD protection on socket-outlet/public-accessible circuits, equipment out of arm's reach where relevant",
+   "Only three-phase supplies",
+   "Permanent wiring methods only"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "30mA RCD protection on socket-outlet/public-accessible circuits, equipment out of arm's reach where relevant"
+ },
+ {
+  "n": 133,
+  "topic": "Special Locations (Pt 7)",
+  "q": "Restrictive conductive locations (706), e.g. inside a metal tank, impose extra precautions mainly because:",
+  "options": [
+   "Body resistance is effectively reduced by extensive contact with earthed metal, raising shock risk",
+   "There is no additional risk in confined metal spaces",
+   "It only relates to gas installations",
+   "The location is always outdoors"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Body resistance is effectively reduced by extensive contact with earthed metal, raising shock risk"
+ },
+ {
+  "n": 134,
+  "topic": "Prosumer & Amendment 4",
+  "q": "A prosumer's low-voltage installation (Part 8) is one that:",
+  "options": [
+   "Only consumes electricity",
+   "Both consumes AND can generate/store/potentially export electricity",
+   "Has no connection to the public supply",
+   "Is only found in industrial premises"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Both consumes AND can generate/store/potentially export electricity"
+ },
+ {
+  "n": 135,
+  "topic": "Prosumer & Amendment 4",
+  "q": "An EEMS (Electrical Energy Management System) is used to:",
+  "options": [
+   "Physically rewire an installation",
+   "Monitor and control generation, storage and consumption, potentially including automatic disconnection",
+   "Replace the main switch",
+   "Only measure voltage drop"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Monitor and control generation, storage and consumption, potentially including automatic disconnection"
+ },
+ {
+  "n": 136,
+  "topic": "Prosumer & Amendment 4",
+  "q": "A PEI (Power Electronic Interface, e.g. a PV/battery inverter) needs a suitable means of earthing in island mode because:",
+  "options": [
+   "Island mode never occurs",
+   "When disconnected from the DNO, the normal PME earth reference is unavailable, so an alternative is needed",
+   "Earthing is never required for inverters",
+   "It only applies to three-phase inverters"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "When disconnected from the DNO, the normal PME earth reference is unavailable, so an alternative is needed"
+ },
+ {
+  "n": 137,
+  "topic": "Prosumer & Amendment 4",
+  "q": "Amendment 4 introduced a completely new Chapter 57 covering:",
+  "options": [
+   "Voltage drop",
+   "Stationary secondary batteries (BESS) — siting, ventilation, fire risk, isolation",
+   "Cable colours",
+   "SELV circuits"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Stationary secondary batteries (BESS) — siting, ventilation, fire risk, isolation"
+ },
+ {
+  "n": 138,
+  "topic": "Prosumer & Amendment 4",
+  "q": "Amendment 4 introduced a new Section 716, addressing:",
+  "options": [
+   "Swimming pools",
+   "Power over Ethernet — thermal/derating where data cables carry DC power",
+   "Agricultural premises",
+   "Fire alarm systems"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Power over Ethernet — thermal/derating where data cables carry DC power"
+ },
+ {
+  "n": 139,
+  "topic": "Prosumer & Amendment 4",
+  "q": "Amendment 4 introduced a new Chapter 81 covering:",
+  "options": [
+   "An energy-efficiency assessment framework for LV installations",
+   "Emergency lighting only",
+   "Lightning protection",
+   "Data cabling standards"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "An energy-efficiency assessment framework for LV installations"
+ },
+ {
+  "n": 140,
+  "topic": "Prosumer & Amendment 4",
+  "q": "BS 7671 Amendment 4:2026 was published on:",
+  "options": [
+   "1 January 2026",
+   "15 April 2026",
+   "1 July 2026",
+   "31 December 2026"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "15 April 2026"
+ },
+ {
+  "n": 141,
+  "topic": "Prosumer & Amendment 4",
+  "q": "Chapter 57 guidance generally advises stationary secondary batteries should NOT be sited:",
+  "options": [
+   "In a garage",
+   "In roof spaces, due to detection, ventilation and fire-containment challenges",
+   "On an external wall",
+   "In a purpose-designed enclosure"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "In roof spaces, due to detection, ventilation and fire-containment challenges"
+ },
+ {
+  "n": 142,
+  "topic": "Prosumer & Amendment 4",
+  "q": "Which of these originates from Amendment 2:2022 rather than Amendment 4:2026?",
+  "options": [
+   "Chapter 57 (batteries)",
+   "Section 716 (PoE)",
+   "AFDD requirements (421.1.7) and the original Part 8 prosumer provisions",
+   "Chapter 81 (energy efficiency)"
+  ],
+  "answer": "C",
+  "why": "",
+  "answerText": "AFDD requirements (421.1.7) and the original Part 8 prosumer provisions"
+ },
+ {
+  "n": 143,
+  "topic": "Calculations",
+  "q": "A circuit has Ze=0.35Ω, R1=0.10Ω, R2=0.16Ω. What is Zs?",
+  "options": [
+   "0.35Ω",
+   "0.51Ω",
+   "0.61Ω",
+   "0.26Ω"
+  ],
+  "answer": "C",
+  "why": "Zs = 0.35 + (0.10+0.16) = 0.61Ω.",
+  "answerText": "0.61Ω"
+ },
+ {
+  "n": 144,
+  "topic": "Calculations",
+  "q": "A device has In=20A. After all rating factors, Iz=18.5A, and Ib=17A. Is Ib≤In≤Iz satisfied?",
+  "options": [
+   "Yes — 17≤20≤18.5 is satisfied",
+   "No — In (20A) exceeds Iz (18.5A)",
+   "It's irrelevant, only Ib matters",
+   "Yes, because Ib is less than In"
+  ],
+  "answer": "B",
+  "why": "In must not exceed Iz — here 20A>18.5A, so a larger cable or smaller device is needed.",
+  "answerText": "No — In (20A) exceeds Iz (18.5A)"
+ },
+ {
+  "n": 145,
+  "topic": "Calculations",
+  "q": "A cable has It=27A. Applying Cg=0.8 and Ca=0.94, what is Iz?",
+  "options": [
+   "20.3A",
+   "22.7A",
+   "25.4A",
+   "27.0A"
+  ],
+  "answer": "A",
+  "why": "27×0.94×0.8 = 20.3A.",
+  "answerText": "20.3A"
+ },
+ {
+  "n": 146,
+  "topic": "Calculations",
+  "q": "Adiabatic check: I=800A, t=0.2s, k=143. Minimum csa required?",
+  "options": [
+   "1.9 mm²",
+   "2.5 mm²",
+   "3.6 mm²",
+   "5.0 mm²"
+  ],
+  "answer": "B",
+  "why": "√(800²×0.2)=√128000≈357.8; 357.8/143≈2.5mm².",
+  "answerText": "2.5 mm²"
+ },
+ {
+  "n": 147,
+  "topic": "Calculations",
+  "q": "A 25m run carries 15A design current, with a tabulated 11 mV/A/m. What's the voltage drop, and does it meet a 5% (11.5V) limit on 230V?",
+  "options": [
+   "4.1V — complies",
+   "4.1V — does not comply",
+   "41V — does not comply",
+   "16.5V — does not comply"
+  ],
+  "answer": "A",
+  "why": "(11×15×25)/1000=4.125V, below the 11.5V limit.",
+  "answerText": "4.1V — complies"
+ },
+ {
+  "n": 148,
+  "topic": "Calculations",
+  "q": "Measured R1+R2=0.42Ω, Ze=0.30Ω. What is the calculated Zs?",
+  "options": [
+   "0.12Ω",
+   "0.42Ω",
+   "0.72Ω",
+   "0.30Ω"
+  ],
+  "answer": "C",
+  "why": "Zs = 0.30+0.42 = 0.72Ω.",
+  "answerText": "0.72Ω"
+ },
+ {
+  "n": 149,
+  "topic": "Calculations",
+  "q": "A ring's line conductor end-to-end resistance (r1) measures 0.8Ω, with r1=rn=r2. What would you expect the line-cpc reading at the ring's midpoint socket to be roughly?",
+  "options": [
+   "Approximately 0.2Ω, per the standard cross-connection ring test method",
+   "Exactly 0.8Ω",
+   "Exactly 1.6Ω",
+   "0Ω"
+  ],
+  "answer": "A",
+  "why": "The standard ring test should give a broadly consistent reading around a quarter of (r1+r2) at the midpoint, confirming no break.",
+  "answerText": "Approximately 0.2Ω, per the standard cross-connection ring test method"
+ },
+ {
+  "n": 150,
+  "topic": "Calculations",
+  "q": "For a three-phase balanced load, the design current Ib used to select a device is:",
+  "options": [
+   "Checked per line conductor, based on the current that conductor actually carries",
+   "Only the total three-phase power, never per-line current",
+   "Irrelevant — three-phase never needs overcurrent protection",
+   "Irrelevant to voltage drop"
+  ],
+  "answer": "A",
+  "why": "",
+  "answerText": "Checked per line conductor, based on the current that conductor actually carries"
+ },
+ {
+  "n": 151,
+  "topic": "Calculations",
+  "q": "A calculation gives a required csa of 4.3mm². The size you must select is:",
+  "options": [
+   "4.0mm² (round down, close enough)",
+   "6.0mm² (round up to the next standard size at or above the minimum)",
+   "Either is acceptable",
+   "2.5mm²"
+  ],
+  "answer": "B",
+  "why": "The selected csa must never be below the calculated minimum.",
+  "answerText": "6.0mm² (round up to the next standard size at or above the minimum)"
+ },
+ {
+  "n": 152,
+  "topic": "Calculations",
+  "q": "Two RCDs in series (100mA time-delayed main, 30mA instantaneous final circuit) achieve discrimination, meaning:",
+  "options": [
+   "Both will always trip simultaneously",
+   "Under a final-circuit fault, only the 30mA device should operate, leaving the rest energised",
+   "Discrimination isn't possible with RCDs",
+   "The 100mA device is redundant"
+  ],
+  "answer": "B",
+  "why": "",
+  "answerText": "Under a final-circuit fault, only the 30mA device should operate, leaving the rest energised"
+ }
+]

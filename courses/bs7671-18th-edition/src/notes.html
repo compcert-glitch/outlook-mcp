@@ -1,0 +1,189 @@
+<h3 class="nt-h" id="note-1">0. Exam technique &amp; format</h3>
+<p class="nt-lede"><em>What you are actually being tested on, and how to spend your revision time.</em></p>
+<ul class="nt-ul">
+<li><strong>Format:</strong> 60 questions</li>
+<li><strong>Time:</strong> 2 hours</li>
+<li><strong>Book status:</strong> Open book</li>
+<li><strong>Pass mark:</strong> ~60% (aim 80%+)</li>
+</ul>
+<p>The exam is <strong>open book</strong> — you are allowed your copy of BS 7671 and a scientific calculator (check your exam centre’s exact permitted-materials list, since some centres exclude the On-Site Guide). That changes what “revision” should mean:</p>
+<ul class="nt-ul">
+<li>You do <em>not</em> need to memorise every table value. You need to know the structure of the book cold, so you can land on the right regulation, chapter or table in well under a minute.</li>
+<li>Learn the <strong>Parts</strong> (1–8), and roughly which Chapter/Section covers what — that is the single biggest time-saver in the exam room.</li>
+<li>Where a question gives you numbers, work the calculation through properly rather than guessing — the formulas are simple once you know which one applies.</li>
+<li>Tab or flag the sections you personally find slow to locate (earthing systems, disconnection times, special locations) before exam day.</li>
+</ul>
+<div class="nt-note"><strong>Rule of thumb:</strong> if a question is really a “go and look this up” question, don’t fight it from memory — find the table. If it’s a “do you understand the principle” question, the book won’t save you, so that’s where genuine understanding matters most.</div>
+<h3 class="nt-h" id="note-2">1–2. Scope, purpose &amp; key definitions</h3>
+<p class="nt-lede"><em>Parts 1 and 2 set the scope of BS 7671 and define the vocabulary used throughout the rest of the book.</em></p>
+<h4 class="nt-sub">Structure of the book, at a glance</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Part</th><th>Covers</th></tr></thead><tbody><tr><td>1</td><td>Scope, object and fundamental principles</td></tr><tr><td>2</td><td>Definitions</td></tr><tr><td>3</td><td>Assessment of general characteristics</td></tr><tr><td>4</td><td>Protection for safety (shock, thermal, overcurrent, isolation &amp; switching)</td></tr><tr><td>5</td><td>Selection and erection of equipment (cables, earthing, switchgear)</td></tr><tr><td>6</td><td>Inspection and testing</td></tr><tr><td>7</td><td>Special installations or locations (bathrooms, pools, sites, EV charging…)</td></tr><tr><td>8</td><td>Prosumer’s installations, energy efficiency &amp; functional requirements</td></tr></tbody></table></div>
+<h4 class="nt-sub">Definitions worth knowing cold</h4>
+<ul class="nt-ul">
+<li><strong>Basic protection</strong> — protection against shock under normal, fault-free conditions (insulation, barriers, enclosures).</li>
+<li><strong>Fault protection</strong> — protection against shock under a single fault condition (earthing + automatic disconnection, or an equivalent measure).</li>
+<li><strong>Exposed-conductive-part</strong> — a conductive part of equipment, touchable, not normally live but can become live under fault.</li>
+<li><strong>Extraneous-conductive-part</strong> — a conductive part liable to introduce a potential, not part of the electrical installation (structural steel, incoming pipework).</li>
+<li><strong>Circuit protective conductor (cpc)</strong> — connects exposed-conductive-parts to the main earthing terminal.</li>
+<li><strong>Ze / Zs</strong> — external earth fault loop impedance / total earth fault loop impedance. <code>Zs = Ze + (R1+R2)</code>.</li>
+<li><strong>Prospective fault current (PFC)</strong> — the current that would flow for a fault of negligible impedance.</li>
+<li><strong>Diversity</strong> — the allowance made because not everything runs flat-out at once.</li>
+<li><strong>Competent person</strong> — has the skill, knowledge and experience to avoid danger to self and others.</li>
+</ul>
+<h3 class="nt-h" id="note-3">3. Assessment of general characteristics</h3>
+<p class="nt-lede"><em>Before design begins, Part 3 requires the whole picture of the supply, structure and environment to be understood.</em></p>
+<ul class="nt-ul">
+<li><strong>Purpose, supplies &amp; structure</strong> — maximum demand and diversity, number and type of live conductors, earthing arrangement, nature of the structure.</li>
+<li><strong>External influences</strong> — the AA/AB/AC… coding system (ambient temperature, altitude, presence of water, mechanical impact, presence of corrosive/polluting substances, and so on) that governs equipment selection (IP ratings, cable types, containment).</li>
+<li><strong>Compatibility</strong> — checking that one item of equipment (starting current, harmonics, earth leakage) won’t cause a harmful effect on other equipment or the supply itself.</li>
+<li><strong>Maintainability</strong> — the installation must be designed so inspection, testing and maintenance can actually be carried out.</li>
+</ul>
+<div class="nt-note">On an existing installation, this assessment extends to the condition of equipment to be reused and the characteristics of the existing supply — you cannot design an extension in isolation from what is already there.</div>
+<h3 class="nt-h" id="note-4">4.1. Protection against electric shock (411)</h3>
+<p class="nt-lede"><em>The core shock-protection regulation, and the one most calculation questions circle back to.</em></p>
+<h4 class="nt-sub">Maximum disconnection times — Table 41.1</h4>
+<p class="nt-lede"><em>Uo = 230V nominal</em></p>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>System</th><th>Final circuit ≤32A</th><th>Distribution circuits / &gt;32A</th></tr></thead><tbody><tr><td>TN</td><td>0.4s</td><td>5s</td></tr><tr><td>TT</td><td>0.2s</td><td>1s</td></tr></tbody></table></div>
+<h4 class="nt-sub">Additional protection — 30mA RCDs</h4>
+<p>Required (subject to the limited exceptions BS 7671 lists) for:</p>
+<ul class="nt-ul">
+<li>Socket-outlets rated up to 32A for use by ordinary persons (411.3.3).</li>
+<li>Mobile equipment not exceeding 32A used outdoors.</li>
+<li>AC final circuits supplying luminaires in domestic (dwelling) premises (411.3.4).</li>
+<li>Cables concealed in a wall/partition at less than 50mm depth, outside the permitted safe zones (522.6.202), unless otherwise protected.</li>
+</ul>
+<h4 class="nt-sub">The other protective measures</h4>
+<ul class="nt-ul">
+<li><strong>SELV / PELV</strong> (extra-low voltage): ≤50V a.c. / 120V ripple-free d.c., basic + fault protection both provided by the low voltage and source isolation itself.</li>
+<li><strong>Electrical separation (413)</strong> — a single circuit fed from an isolating source, live parts not connected to earth or another circuit.</li>
+<li><strong>Obstacles / placing out of reach</strong> — only where the installation is supervised or controlled by skilled/instructed persons, not for ordinary persons.</li>
+</ul>
+<div class="nt-note"><strong>TT reminder:</strong> Ze on a TT system is often too high for an overcurrent device alone to achieve ADS in time — an RCD is almost always the mechanism actually doing the fault-protection job.</div>
+<h3 class="nt-h" id="note-5">4.2. Protection against thermal effects &amp; fire (42)</h3>
+<p class="nt-lede"><em>Covers burns, fire risk from equipment, and (since Amendment 2) Arc Fault Detection Devices.</em></p>
+<ul class="nt-ul">
+<li>Fixed equipment likely to reach ignition temperatures must be positioned or guarded so nearby materials can’t be subjected to a dangerous temperature.</li>
+<li>Hand-held equipment: accessible non-metallic parts liable to be touched should not exceed <strong>65°C</strong> in normal use (Table 42.1).</li>
+<li>422 covers locations with particular fire risk — escape routes, high fire-load areas, and where a “significant quantity” of flammable liquid (generally treated as <strong>25 litres</strong>) is stored.</li>
+<li>Spotlights/luminaires near combustible surfaces: minimum spacing broadly increases with wattage (illustrative bands often quoted: ≤100W ≈0.5m, &gt;100–300W ≈0.8m, &gt;300–500W ≈1.0m — always confirm the current figures).</li>
+</ul>
+<h4 class="nt-sub">Arc Fault Detection Devices (AFDDs) — 421.1.7</h4>
+<p>AFDDs detect arcing faults (series/parallel) that conventional overcurrent devices and RCDs may not catch — a leading cause of electrical fires. Fitted <strong>at the origin of the final circuit</strong> they protect. Required as a minimum for single-phase a.c. final circuits ≤32A in higher-risk residential premises such as HMOs, purpose-built student accommodation and care homes; recommended more widely.</p>
+<h3 class="nt-h" id="note-6">4.3. Overcurrent protection (43 &amp; 434)</h3>
+<p class="nt-lede"><em>The rules and formulas behind selecting a protective device and checking a conductor survives a fault.</em></p>
+<ul class="nt-ul">
+<li><strong>Device selection:</strong> Ib ≤ In ≤ Iz</li>
+<li><strong>Effective operation:</strong> I2 ≤ 1.45 × Iz</li>
+<li><strong>Adiabatic (fault):</strong> S = √(I²t) / k</li>
+<li><strong>Ib</strong> — design current of the circuit. <strong>In</strong> — rated current of the device. <strong>Iz</strong> — the cable’s effective current-carrying capacity once all rating factors are applied.</li>
+<li>The breaking capacity of a device must be ≥ the prospective fault current at that point (or be backed up per 434.5.1).</li>
+<li>Table 43.1 gives k-values for the adiabatic equation, by conductor material, insulation type and joint (e.g. a tinned soldered copper joint with 60°C thermosetting insulation is a commonly cited example around k=122) — confirm the exact figure for your exact combination.</li>
+<li>Overload protection can only be omitted in the limited circumstances BS 7671 specifically allows (433.3) — it is not a general exemption.</li>
+</ul>
+<h3 class="nt-h" id="note-7">4.4/4.6/53. Overvoltage, switching, isolation &amp; SPDs</h3>
+<ul class="nt-ul">
+<li><strong>SPDs (surge protective devices)</strong> guard against transient overvoltages (lightning, switching events); a risk assessment (or the simplified method in 443) determines whether they’re required.</li>
+<li><strong>Isolation</strong> must disconnect all live supply conductors of the relevant part, be identifiable, accessible, and resist inadvertent/unauthorised reclosure while work is in progress.</li>
+<li><strong>Functional switching</strong> controls normal operation (a light switch) — it is not a substitute for isolation.</li>
+<li><strong>Emergency switching</strong> must act rapidly, by a single action, to remove danger.</li>
+<li><strong>Mechanical maintenance switches (537.3.2.4)</strong> must be securable in the OFF position (lockable, or by fuse/link removal).</li>
+<li><strong>Firefighter’s switches</strong> (e.g. for discharge-tube signage) — typically red, positioned for fire-service access, with an indicator lamp.</li>
+</ul>
+<h3 class="nt-h" id="note-8">5.2. Cable selection, current-carrying capacity &amp; voltage drop</h3>
+<p class="nt-lede"><em>Chapter 52 — how a cable’s tabulated rating becomes the real, installed-condition rating, and how voltage drop is checked.</em></p>
+<h4 class="nt-sub">Rating factors</h4>
+<p><code>Iz = It × Ca × Cg × Ci × (other relevant factors)</code></p>
+<ul class="nt-ul">
+<li><strong>Ca</strong> — ambient temperature (reduces Iz above the tabulated reference temperature).</li>
+<li><strong>Cg</strong> — grouping (bunched cables mutually heat each other).</li>
+<li><strong>Ci</strong> — thermal insulation (a cable fully surrounded by insulation can’t shed heat — the biggest single derating factor in domestic work).</li>
+<li>General form: <code>Ca = √[(θz − θa) / (θz − θref)]</code> — conductor operating temp, actual ambient, tabulated reference.</li>
+</ul>
+<h4 class="nt-sub">Voltage drop</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Use</th><th>Limit (public LV supply)</th></tr></thead><tbody><tr><td>Lighting</td><td>3%</td></tr><tr><td>Other uses</td><td>5%</td></tr></tbody></table></div>
+<p><code>Voltage drop (V) = mV/A/m × Ib × length (m) / 1000</code></p>
+<h4 class="nt-sub">Cable placement in structures (522.6.201/.202)</h4>
+<ul class="nt-ul">
+<li>Cables in joists: ≥50mm from the top/bottom, or mechanically protected, unless run in a permitted safe zone.</li>
+<li>Safe zones in walls: horizontal/vertical bands within 150mm of a wall/ceiling junction or corner, or running directly to/from an accessory.</li>
+<li>Outside a safe zone at &lt;50mm depth: needs 30mA RCD protection or robust mechanical protection.</li>
+</ul>
+<h4 class="nt-sub">Core colours</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Conductor</th><th>Colour</th></tr></thead><tbody><tr><td>Line (single-phase AC)</td><td>Brown</td></tr><tr><td>Neutral</td><td>Blue</td></tr><tr><td>Protective (earth)</td><td>Green &amp; yellow</td></tr><tr><td>DC positive (L+)</td><td>Brown</td></tr><tr><td>DC negative (L−)</td><td>Grey</td></tr></tbody></table></div>
+<h3 class="nt-h" id="note-9">5.4. Earthing arrangements &amp; bonding</h3>
+<p class="nt-lede"><em>Chapter 54 — how the earth path is formed, and what has to be bonded to it.</em></p>
+<h4 class="nt-sub">Earthing systems</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>System</th><th>Earth path back to source</th></tr></thead><tbody><tr><td>TN-S</td><td>Metallic cable sheath/armour from the DNO transformer</td></tr><tr><td>TN-C-S (PME)</td><td>Combined PEN conductor on the supply side; split into separate N and cpc within the installation</td></tr><tr><td>TT</td><td>No metallic path — relies on a local earth electrode</td></tr></tbody></table></div>
+<div class="nt-note"><strong>Open-PEN risk:</strong> if a PME neutral fails, exposed-conductive-parts can become live relative to true earth — the reason PME earthing carries restrictions in certain special locations and for EV charge points.</div>
+<h4 class="nt-sub">Bonding</h4>
+<ul class="nt-ul">
+<li><strong>Main protective bonding</strong> connects extraneous-conductive-parts (incoming water/gas pipes, structural steel) to the main earthing terminal. Table 54.8 minimum is 6mm² copper-equivalent (many DNOs specify a practical 10mm² minimum on PME supplies).</li>
+<li><strong>Supplementary bonding</strong>: minimum 4mm² if not mechanically protected, 2.5mm² if mechanically protected.</li>
+<li>Warning notice at a bonding connection: <em>“Safety Electrical Connection – Do Not Remove”</em> (514.13.1).</li>
+<li><strong>Functional earthing</strong> (Section 545, revised by A4) is distinct from protective earthing — it exists for correct operation of equipment and EMC, not shock protection.</li>
+</ul>
+<h3 class="nt-h" id="note-10">6. Inspection &amp; testing</h3>
+<p class="nt-lede"><em>Part 6 — the sequence, the tests, and how findings get certified.</em></p>
+<h4 class="nt-sub">Dead-test sequence (then live tests)</h4>
+<p>1. Continuity of protective conductors (including main &amp; supplementary bonding) 2. Continuity of ring final circuit conductors (figure-of-eight method) 3. Insulation resistance 4. Polarity (can be confirmed via the continuity tests) 5. Site-applied insulation / protection by SELV, PELV or electrical separation, where relevant</p>
+<p><em>Live tests:</em> Ze, then Zs, prospective fault current, RCD operation, phase sequence, functional testing.</p>
+<h4 class="nt-sub">Key test values</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Test</th><th>Voltage/condition</th><th>Minimum result</th></tr></thead><tbody><tr><td>Insulation resistance, up to 500V circuits</td><td>500V DC</td><td>1.0 MΩ</td></tr><tr><td>Insulation resistance, SELV/PELV</td><td>250V DC</td><td>0.5 MΩ</td></tr><tr><td>General RCD at IΔn</td><td>—</td><td>≤300ms</td></tr><tr><td>General RCD at 5×IΔn</td><td>—</td><td>≤40ms</td></tr></tbody></table></div>
+<p>Ze is measured with the main switch closed, main bonding in place, and the installation’s earthing conductor temporarily disconnected from the MET for the test.</p>
+<h4 class="nt-sub">Certification</h4>
+<ul class="nt-ul">
+<li><strong>EIC</strong> — new installation work, or any addition/alteration that includes a new circuit.</li>
+<li><strong>Minor Electrical Installation Works Certificate</strong> — alterations/additions with no new circuit.</li>
+<li><strong>EICR</strong> — periodic inspection of an existing installation.</li>
+</ul>
+<h4 class="nt-sub">EICR observation codes</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Code</th><th>Meaning</th></tr></thead><tbody><tr><td>C1</td><td>Danger present — immediate remedial action required</td></tr><tr><td>C2</td><td>Potentially dangerous — urgent remedial action required</td></tr><tr><td>C3</td><td>Improvement recommended</td></tr><tr><td>FI</td><td>Further investigation required, without delay</td></tr></tbody></table></div>
+<p>Typical maximum re-inspection intervals: owner-occupied domestic — 10 years or change of occupancy; private rented (England, statutory) — 5 years or sooner as required; commercial — 5 years; industrial — 3 years; construction site installations — 3 months. Always check the current guidance for the specific premises type.</p>
+<h3 class="nt-h" id="note-11">7. Special installations &amp; locations</h3>
+<p class="nt-lede"><em>Part 7 — extra rules for higher-risk or unusual environments. Learn the zone concept once and it transfers across sections.</em></p>
+<h4 class="nt-sub">701 — Bathrooms</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Zone</th><th>Extent</th><th>Min. IP</th></tr></thead><tbody><tr><td>0</td><td>Inside the bath/shower basin</td><td>IPX7</td></tr><tr><td>1</td><td>Above zone 0, up to 2.25m</td><td>IPX4</td></tr><tr><td>2</td><td>0.6m beyond zone 1</td><td>IPX4</td></tr></tbody></table></div>
+<p>Supplementary bonding may be omitted where all final circuits meet 411.3.2 disconnection times, have 30mA RCD additional protection, and main bonding is in place.</p>
+<h4 class="nt-sub">702 — Swimming pools</h4>
+<p>Zone 0 = the pool basin; zones 1 &amp; 2 extend outward and, above diving boards/platforms, vertically to around 2.5m.</p>
+<h4 class="nt-sub">703 — Saunas</h4>
+<p>Zoned by height rather than distance from a wet area — zone 1 broadly 0–1.0m near the heater, zone 3 generally starting above the 1.0m mark.</p>
+<h4 class="nt-sub">704 / 705 / 706 — Sites, agriculture, restrictive locations</h4>
+<ul class="nt-ul">
+<li><strong>Construction sites</strong>: reduced low voltage (110V CTE) for portable tools halves the shock voltage to earth (55V) in harsh conditions.</li>
+<li><strong>Agricultural/horticultural</strong>: extra RCD protection — livestock can be more sensitive to shock, and the environment is damp/corrosive.</li>
+<li><strong>Restrictive conductive locations</strong> (inside a tank/boiler): body resistance is effectively reduced by extensive contact with earthed metal, raising shock risk.</li>
+</ul>
+<h4 class="nt-sub">708 / 709 — Caravan parks &amp; marinas</h4>
+<p>Individually RCD-protected (30mA) socket-outlet per pitch/berth (caravan pitch typically 16A, flexible connecting cable minimum 2.5mm²).</p>
+<h4 class="nt-sub">710 — Medical locations (revised by A4)</h4>
+<p>Higher-risk (“Group 2”) areas such as operating theatres often use an IT system so a first fault doesn’t force immediate disconnection of life-support equipment. Amendment 4 added enhanced supplementary bonding procedures and a schedule for recording bonding-conductor resistance measurements.</p>
+<h4 class="nt-sub">712 — Solar PV</h4>
+<p>DC side needs particular care — DC arcs are harder to extinguish and can’t simply be switched off while the array is illuminated.</p>
+<h4 class="nt-sub">722 — EV charging</h4>
+<ul class="nt-ul">
+<li>PME (TN-C-S) supplies carry open-PEN risk to the vehicle’s exposed metalwork — addressed via open-PEN detection devices, or a TT arrangement at the charge point.</li>
+<li>EV charging equipment can introduce smooth DC leakage that blinds a standard RCD — addressed with a Type B RCD, or Type A plus a 6mA DC RDC-DD.</li>
+</ul>
+<h4 class="nt-sub">711 / 740 — Exhibitions &amp; fairgrounds</h4>
+<p>Temporary installations: 30mA RCD protection on socket-outlet and public-accessible circuits, equipment positioned out of arm’s reach where relevant.</p>
+<h3 class="nt-h" id="note-12">8. Prosumer's installations &amp; Amendment 4 (2026)</h3>
+<p class="nt-lede"><em>Part 8 (introduced by A2:2022) covers installations that both consume and generate/store energy. Amendment 4 (2026) builds on it.</em></p>
+<ul class="nt-ul">
+<li><strong>Prosumer’s installation</strong> — consumes AND can generate/store/export (PV, battery storage, V2G-capable EV charging).</li>
+<li><strong>EEMS</strong> (Electrical Energy Management System) — monitors and controls generation, storage and consumption, potentially including automatic disconnection functions.</li>
+<li><strong>PEI</strong> (Power Electronic/converter-based Interface) — e.g. a PV or battery inverter. In “island mode” (disconnected from the DNO), the normal PME earth reference is gone, so a suitable local means of earthing is required.</li>
+</ul>
+<h4 class="nt-sub">Amendment 4:2026 headline changes</h4>
+<p>Published <strong>15 April 2026</strong>; the previous edition (BS 7671:2018+A2:2022+A3:2024) is withdrawn roughly six months later.</p>
+<ul class="nt-ul">
+<li><strong>Chapter 57 (new):</strong> Stationary secondary batteries</li>
+<li><strong>Section 716 (new):</strong> Power over Ethernet</li>
+<li><strong>Section 545 (revised):</strong> Functional earthing/bonding</li>
+<li><strong>Section 710 (revised):</strong> Medical locations</li>
+<li><strong>Chapter 81 (new):</strong> Energy efficiency assessment</li>
+<li><strong>Chapter 57</strong> — battery energy storage systems: siting, ventilation, fire risk, isolation. Roof-space installation is generally discouraged (detection/containment difficulty).</li>
+<li><strong>Section 716</strong> — thermal/derating considerations where data cabling carries DC power at meaningful levels (PoE lighting, access points, cameras).</li>
+<li><strong>Chapter 81</strong> — a framework for assessing energy losses in LV installations, applying to new work and significant alterations.</li>
+</ul>
+<div class="nt-note">Don’t confuse eras: AFDDs and the original Part 8 provisions are <strong>Amendment 2:2022</strong>. Amendment 4:2026 is batteries, PoE, functional earthing, medical locations and energy efficiency.</div>

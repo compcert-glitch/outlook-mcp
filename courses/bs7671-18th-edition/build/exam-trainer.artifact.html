@@ -1,0 +1,933 @@
+<title>18th Edition Exam Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --paper:#F4F6F8; --surface:#FFFFFF; --surface-2:#EAEEF2; --surface-3:#DFE5EB;
+  --ink:#14181D; --ink-2:#4A545F; --ink-3:#6E7A87;
+  --line:#D6DDE4; --line-2:#C2CBD4;
+  --accent:#15618F; --accent-ink:#0F4A6E; --accent-soft:#E2EEF6;
+  --copper:#B0561F;
+  --ok:#1B7A4B; --ok-soft:#E1F1E8; --bad:#B3271E; --bad-soft:#FAE6E4; --warn:#A8710A; --warn-soft:#FBEFD9;
+  --shadow:0 1px 2px rgba(20,24,29,.06), 0 8px 24px -12px rgba(20,24,29,.18);
+  --radius:10px;
+  --f-ui:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-book:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-num:"IBM Plex Mono","SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#101418; --surface:#171C22; --surface-2:#1E252C; --surface-3:#28313A;
+    --ink:#E8EDF2; --ink-2:#A9B5C1; --ink-3:#7C8792;
+    --line:#28313A; --line-2:#36424D;
+    --accent:#4EA3DC; --accent-ink:#8CC6EC; --accent-soft:#16303F;
+    --copper:#E08A4E;
+    --ok:#46B37B; --ok-soft:#12281E; --bad:#E4695E; --bad-soft:#2E1614; --warn:#D9A23A; --warn-soft:#2A2010;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101418; --surface:#171C22; --surface-2:#1E252C; --surface-3:#28313A;
+  --ink:#E8EDF2; --ink-2:#A9B5C1; --ink-3:#7C8792;
+  --line:#28313A; --line-2:#36424D;
+  --accent:#4EA3DC; --accent-ink:#8CC6EC; --accent-soft:#16303F;
+  --copper:#E08A4E;
+  --ok:#46B37B; --ok-soft:#12281E; --bad:#E4695E; --bad-soft:#2E1614; --warn:#D9A23A; --warn-soft:#2A2010;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.tnum{font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--f-ui);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+/* ---------- home ---------- */
+.hero{border-bottom:1px solid var(--line);background:var(--surface)}
+.hero-in{max-width:920px;margin:0 auto;padding:44px 20px 34px}
+.mark{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.mark-glyph{width:26px;height:26px;border-radius:6px;background:var(--copper);color:#fff;display:grid;place-items:center;font-size:14px;flex:none}
+.mark-txt{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+h1{font-family:var(--f-ui);font-size:clamp(30px,5.4vw,44px);font-weight:700;letter-spacing:-.025em;line-height:1.08;margin:0 0 12px;text-wrap:balance}
+.hero p{font-family:var(--f-book);font-size:17px;line-height:1.6;color:var(--ink-2);margin:0;max-width:60ch}
+.specs{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
+.spec{flex:1 1 130px;padding:12px 16px;border-right:1px solid var(--line)}
+.spec:last-child{border-right:0}
+.spec b{display:block;font-family:var(--f-num);font-size:19px;font-weight:600;color:var(--ink);margin-top:3px}
+.section{padding:38px 0 0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px}
+h2{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0}
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.mode{position:relative;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.mode:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.mode.primary{border-color:var(--accent-ink);background:linear-gradient(var(--accent-soft),var(--surface) 70%)}
+.mode h3{font-size:19px;font-weight:700;letter-spacing:-.01em;margin:0}
+.mode p{font-family:var(--f-book);font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.mode .meta{font-family:var(--f-num);font-size:12px;color:var(--ink-3);margin-top:auto;padding-top:6px}
+.resume{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:var(--warn-soft);border:1px solid var(--warn);border-radius:var(--radius);padding:12px 16px;margin-bottom:14px}
+.resume p{margin:0;font-size:14px;flex:1 1 200px;color:var(--ink)}
+.topics{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.topic{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:12px 16px;transition:background .12s}
+.topic:last-child{border-bottom:0}
+.topic:hover{background:var(--surface-2)}
+.topic-name{font-size:15px;font-weight:500}
+.topic-bar{width:74px;height:5px;border-radius:3px;background:var(--surface-3);overflow:hidden}
+.topic-bar i{display:block;height:100%;background:var(--ok);border-radius:3px}
+.topic-n{font-family:var(--f-num);font-size:12.5px;color:var(--ink-3);min-width:66px;text-align:right}
+.hist{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.hist-row{display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.hist-row:last-child{border-bottom:0}
+.hist-row .pct{font-family:var(--f-num);font-weight:600;font-size:16px;min-width:52px}
+.hist-row .when{color:var(--ink-3);font-size:13px;margin-left:auto;font-family:var(--f-num)}
+.pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px}
+.pill.pass{background:var(--ok-soft);color:var(--ok)}
+.pill.fail{background:var(--bad-soft);color:var(--bad)}
+footer{margin-top:44px;padding:24px 0 40px;border-top:1px solid var(--line)}
+footer p{font-family:var(--f-book);font-size:13.5px;color:var(--ink-3);margin:0;max-width:70ch}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:9px 15px;font-size:14px;font-weight:600;letter-spacing:-.005em;transition:background .12s,border-color .12s}
+.btn:hover{background:var(--surface-2);border-color:var(--ink-3)}
+.btn.solid{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.solid:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+.btn.ghost{background:none;border-color:transparent;color:var(--ink-2)}
+.btn.ghost:hover{background:var(--surface-2);color:var(--ink)}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.btn.flagged{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+
+/* ---------- exam chrome ---------- */
+.bar{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar-in{max-width:920px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.bar-mode{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.bar-count{font-family:var(--f-num);font-size:13px;color:var(--ink-2);white-space:nowrap}
+.timer{font-family:var(--f-num);font-size:17px;font-weight:600;letter-spacing:.01em;padding:3px 10px;border-radius:6px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);white-space:nowrap}
+.timer.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.timer.crit{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.bar-sp{flex:1}
+.prog{height:3px;background:var(--surface-3)}
+.prog i{display:block;height:100%;background:var(--accent);transition:width .25s}
+
+.qwrap{max-width:720px;margin:0 auto;padding:30px 20px 130px}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.qnum{font-family:var(--f-num);font-size:12px;font-weight:600;color:#fff;background:var(--ink-2);padding:3px 9px;border-radius:5px;letter-spacing:.02em}
+.qtopic{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.qref{font-family:var(--f-num);font-weight:400;letter-spacing:0;color:var(--line-2)}
+.qtext{font-family:var(--f-book);font-size:21px;line-height:1.45;font-weight:600;letter-spacing:-.003em;margin:0 0 22px;text-wrap:pretty}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;gap:13px;align-items:flex-start;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px;transition:border-color .12s,background .12s}
+.opt:hover:not(.locked){border-color:var(--accent);background:var(--accent-soft)}
+.opt.locked{cursor:default}
+.opt-l{font-family:var(--f-num);font-size:13px;font-weight:600;width:25px;height:25px;flex:none;border-radius:6px;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--ink-2);background:var(--paper);margin-top:1px}
+.opt-t{font-family:var(--f-book);font-size:16.5px;line-height:1.45}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.sel .opt-l{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct .opt-l{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .opt-l{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt-mark{margin-left:auto;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding-top:4px;flex:none}
+.opt.correct .opt-mark{color:var(--ok)}
+.opt.wrong .opt-mark{color:var(--bad)}
+
+.explain{margin-top:18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:var(--surface);padding:14px 16px}
+.explain .eyebrow{margin-bottom:5px;display:block}
+.explain p{font-family:var(--f-book);font-size:15.5px;line-height:1.55;margin:0;color:var(--ink-2)}
+.explain p b{color:var(--ink)}
+.explain.ok{border-left-color:var(--ok)}
+.explain.no{border-left-color:var(--bad)}
+
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line)}
+.foot-in{max-width:720px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:9px}
+.foot-sp{flex:1}
+.kbd-hint{font-family:var(--f-num);font-size:11px;color:var(--ink-3);white-space:nowrap}
+@media (max-width:640px){.kbd-hint{display:none}}
+@media (max-width:600px){
+  .bar-in{padding:9px 12px;gap:9px}
+  .bar-mode,.hide-sm{display:none}
+  .btn .lbl{display:none}
+  .btn{padding:8px 11px}
+  .timer{font-size:16px;padding:3px 8px}
+  .qwrap{padding:24px 16px 120px}
+  .foot-in{padding:10px 12px;gap:7px}
+  .hero-in{padding:34px 16px 28px}
+  .wrap{padding:0 16px}
+}
+
+/* ---------- navigator ---------- */
+.navdrawer{position:fixed;inset:0;z-index:40;display:none}
+.navdrawer[data-open="1"]{display:block}
+.navdrawer .scrim{position:absolute;inset:0;background:rgba(10,14,18,.5)}
+.navpanel{position:absolute;right:0;top:0;bottom:0;width:min(340px,88vw);background:var(--surface);border-left:1px solid var(--line);padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:16px}
+.navgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:7px}
+.navchip{position:relative;font-family:var(--f-num);font-size:12.5px;font-weight:500;aspect-ratio:1;border:1px solid var(--line-2);border-radius:7px;background:var(--paper);color:var(--ink-2);display:grid;place-items:center}
+.navchip:hover{border-color:var(--accent)}
+.navchip.done{background:var(--surface-3);border-color:var(--line-2);color:var(--ink)}
+.navchip.cur{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft);color:var(--accent);font-weight:600}
+.navchip.flag::after{content:"";position:absolute;top:3px;right:3px;width:6px;height:6px;border-radius:50%;background:var(--warn)}
+.navchip.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.navchip.wrongc{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--ink-3)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:11px;height:11px;border-radius:3px;border:1px solid var(--line-2);display:block}
+
+/* ---------- results ---------- */
+.res-head{background:var(--surface);border-bottom:1px solid var(--line);padding:40px 0 32px}
+.dial{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;flex:none;position:relative}
+.dial::after{content:"";position:absolute;inset:13px;border-radius:50%;background:var(--surface)}
+.dial-in{position:relative;z-index:1;text-align:center}
+.dial-pct{font-family:var(--f-num);font-size:34px;font-weight:600;line-height:1}
+.dial-sub{font-family:var(--f-num);font-size:12px;color:var(--ink-3);margin-top:3px}
+.res-flex{display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.res-txt h1{font-size:clamp(26px,4.6vw,36px);margin-bottom:8px}
+.res-txt p{font-family:var(--f-book);font-size:16px;color:var(--ink-2);margin:0;max-width:52ch}
+.breakdown{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.bd-row{display:grid;grid-template-columns:1fr 110px 58px;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--line);font-size:14.5px}
+.bd-row:last-child{border-bottom:0}
+.bd-bar{height:6px;border-radius:3px;background:var(--surface-3);overflow:hidden}
+.bd-bar i{display:block;height:100%;border-radius:3px}
+.bd-n{font-family:var(--f-num);font-size:13px;color:var(--ink-2);text-align:right}
+.res-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+
+/* ---------- notes ---------- */
+.notes-layout{display:grid;grid-template-columns:216px 1fr;gap:36px;align-items:start;padding-top:30px}
+@media (max-width:860px){.notes-layout{grid-template-columns:1fr;gap:18px}.toc{position:static!important;max-height:none!important}}
+.toc{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;border-left:1px solid var(--line);padding-left:14px}
+.toc a{display:block;font-size:13px;color:var(--ink-3);text-decoration:none;padding:4px 0;line-height:1.35;border-left:2px solid transparent;margin-left:-16px;padding-left:14px}
+.toc a:hover{color:var(--accent)}
+.notes{padding-bottom:60px;min-width:0}
+.nt-h{font-size:22px;font-weight:700;letter-spacing:-.018em;margin:38px 0 4px;padding-top:14px;border-top:1px solid var(--line);scroll-margin-top:80px}
+.nt-h:first-child{margin-top:0;border-top:0;padding-top:0}
+.nt-sub{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);margin:24px 0 8px}
+.notes p{font-family:var(--f-book);font-size:16.5px;line-height:1.62;color:var(--ink-2);margin:11px 0;max-width:66ch}
+.notes p.nt-lede{color:var(--ink-3);font-size:15.5px;margin:6px 0 14px}
+.nt-ul{font-family:var(--f-book);font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:11px 0;padding-left:20px;max-width:66ch}
+.nt-ul li{margin:6px 0}
+.notes strong{color:var(--ink);font-weight:600}
+.notes code{font-family:var(--f-num);font-size:14px;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:var(--copper)}
+.nt-note{font-family:var(--f-book);font-size:15.5px;line-height:1.55;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--copper);border-radius:8px;padding:13px 16px;margin:16px 0;color:var(--ink-2);max-width:66ch}
+.tbl-wrap{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.nt-tbl{border-collapse:collapse;width:100%;font-size:14.5px;min-width:340px}
+.nt-tbl th{text-align:left;font-family:var(--f-ui);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding:9px 14px;background:var(--surface-2);border-bottom:1px solid var(--line);white-space:nowrap}
+.nt-tbl td{font-family:var(--f-book);padding:9px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top}
+.nt-tbl tr:last-child td{border-bottom:0}
+.nt-tbl td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+
+/* ---------- setup dialog ---------- */
+.modal{position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:20px}
+.modal[data-open="1"]{display:grid}
+.modal .scrim{position:absolute;inset:0;background:rgba(10,14,18,.55)}
+.sheet{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);width:min(560px,100%);max-height:86vh;overflow-y:auto;padding:24px}
+.sheet h3{font-size:21px;font-weight:700;letter-spacing:-.015em;margin:0 0 6px}
+.sheet > p{font-family:var(--f-book);font-size:15px;color:var(--ink-2);margin:0 0 18px}
+.checks{display:flex;flex-direction:column;gap:2px;margin-bottom:18px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.check{display:flex;align-items:center;gap:11px;padding:10px 14px;border-bottom:1px solid var(--line);cursor:pointer;font-size:14.5px}
+.check:last-child{border-bottom:0}
+.check:hover{background:var(--surface-2)}
+.check input{width:17px;height:17px;accent-color:var(--accent);flex:none}
+.check .c-n{margin-left:auto;font-family:var(--f-num);font-size:12px;color:var(--ink-3)}
+.sheet-actions{display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+
+<!-- ============ HOME ============ -->
+<main id="v-home">
+  <header class="hero">
+    <div class="hero-in">
+      <div class="mark"><span class="mark-glyph">⚡</span><span class="mark-txt">City &amp; Guilds 2382</span></div>
+      <h1>18th Edition Exam Trainer</h1>
+      <p>BS 7671:2018 + A2:2022 + A3:2024 + A4:2026. A 152-question bank with worked answers, plus revision notes — sit a full timed mock in the real exam format, or drill one topic at a time.</p>
+      <div class="specs">
+        <div class="spec"><span class="eyebrow">Mock format</span><b>60 questions</b></div>
+        <div class="spec"><span class="eyebrow">Time allowed</span><b>2 hours</b></div>
+        <div class="spec"><span class="eyebrow">Pass mark</span><b>60%</b></div>
+        <div class="spec"><span class="eyebrow">Question bank</span><b class="tnum">152</b></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="section">
+      <div class="section-head"><h2>Start a session</h2></div>
+      <div id="resume-slot"></div>
+      <div class="modes">
+        <button class="mode primary" data-start="mock">
+          <h3>Timed mock exam</h3>
+          <p>60 questions drawn across all 13 topics, 2-hour countdown, no feedback until you submit — exactly like the real thing.</p>
+          <span class="meta">60 questions · 120:00</span>
+        </button>
+        <button class="mode" data-start="practice">
+          <h3>Practise by topic</h3>
+          <p>Choose the areas you want to drill. Each answer is marked straight away with the reasoning behind it.</p>
+          <span class="meta">Pick topics · untimed</span>
+        </button>
+        <button class="mode" data-start="bank">
+          <h3>Work the whole bank</h3>
+          <p>All 152 questions in order, marked as you go. Your place is saved if you stop partway.</p>
+          <span class="meta">152 questions · untimed</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Topics</h2><span class="kbd-hint" id="topic-note">Tap a topic to drill it</span></div>
+      <div class="topics" id="topic-list"></div>
+    </section>
+
+    <section class="section" id="hist-section" hidden>
+      <div class="section-head"><h2>Your mock attempts</h2><button class="btn ghost" id="clear-hist">Clear</button></div>
+      <div class="hist" id="hist-list"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Revision notes</h2></div>
+      <div class="modes"><button class="mode" data-start="notes" style="grid-column:1/-1">
+        <h3>Read the revision notes</h3>
+        <p>The whole syllabus in order — book structure, disconnection times, rating factors, bonding sizes, zones, test values and the Amendment 4 changes.</p>
+        <span class="meta">12 sections</span>
+      </button></div>
+    </section>
+
+    <footer>
+      <p>A revision companion, not a substitute for BS 7671. The exam is open book — check figures against your own current copy, and confirm your exam centre's permitted-materials list before the day. Progress is stored in this browser only.</p>
+    </footer>
+  </div>
+</main>
+
+<!-- ============ EXAM ============ -->
+<main id="v-exam" hidden>
+  <div class="bar">
+    <div class="bar-in">
+      <button class="btn ghost" id="exit-exam" title="Back to start"><span aria-hidden="true">←</span><span class="lbl">Exit</span></button>
+      <span class="bar-mode" id="exam-mode">Mock exam</span>
+      <span class="bar-sp"></span>
+      <span class="bar-count tnum" id="exam-count">1 / 60</span>
+      <span class="timer tnum" id="exam-timer" hidden>120:00</span>
+      <button class="btn" id="open-nav" title="All questions"><span aria-hidden="true">☰</span><span class="lbl">Questions</span></button>
+    </div>
+    <div class="prog"><i id="exam-prog" style="width:0%"></i></div>
+  </div>
+
+  <div class="qwrap">
+    <div class="qhead"><span class="qnum tnum" id="q-num">Q1</span><span class="qtopic" id="q-topic"></span></div>
+    <h2 class="qtext" id="q-text" style="text-transform:none;letter-spacing:-.003em;color:var(--ink)"></h2>
+    <div class="opts" id="q-opts"></div>
+    <div id="q-explain"></div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-in">
+      <button class="btn" id="prev-q">← Back</button>
+      <button class="btn" id="flag-q">⚑ Flag</button>
+      <span class="foot-sp"></span>
+      <span class="kbd-hint">A–D select · ← → move · F flag</span>
+      <button class="btn solid" id="next-q">Next →</button>
+    </div>
+  </div>
+</main>
+
+<!-- ============ RESULTS ============ -->
+<main id="v-results" hidden>
+  <div class="res-head">
+    <div class="wrap">
+      <div class="res-flex">
+        <div class="dial" id="res-dial"><div class="dial-in"><div class="dial-pct tnum" id="res-pct">0%</div><div class="dial-sub" id="res-score">0 / 60</div></div></div>
+        <div class="res-txt">
+          <span class="eyebrow" id="res-eyebrow">Mock exam result</span>
+          <h1 id="res-title">Result</h1>
+          <p id="res-msg"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <section class="section">
+      <div class="section-head"><h2>By topic</h2><span class="kbd-hint">Weakest first</span></div>
+      <div class="breakdown" id="res-breakdown"></div>
+      <div class="res-actions">
+        <button class="btn solid" id="res-review">Review every question</button>
+        <button class="btn" id="res-wrong">Review what you got wrong</button>
+        <button class="btn" id="res-again">New mock exam</button>
+        <button class="btn ghost" id="res-home">Back to start</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ============ NOTES ============ -->
+<main id="v-notes" hidden>
+  <div class="bar"><div class="bar-in">
+    <button class="btn ghost" id="exit-notes"><span aria-hidden="true">←</span><span class="lbl">Exit</span></button>
+    <span class="bar-mode">Revision notes</span><span class="bar-sp"></span>
+    <span class="bar-count hide-sm">BS 7671 · 18th Edition</span>
+  </div></div>
+  <div class="wrap">
+    <div class="notes-layout">
+      <nav class="toc" id="toc" aria-label="Notes contents"></nav>
+      <article class="notes" id="notes-body"><h3 class="nt-h" id="note-1">0. Exam technique &amp; format</h3>
+<p class="nt-lede"><em>What you are actually being tested on, and how to spend your revision time.</em></p>
+<ul class="nt-ul">
+<li><strong>Format:</strong> 60 questions</li>
+<li><strong>Time:</strong> 2 hours</li>
+<li><strong>Book status:</strong> Open book</li>
+<li><strong>Pass mark:</strong> ~60% (aim 80%+)</li>
+</ul>
+<p>The exam is <strong>open book</strong> — you are allowed your copy of BS 7671 and a scientific calculator (check your exam centre’s exact permitted-materials list, since some centres exclude the On-Site Guide). That changes what “revision” should mean:</p>
+<ul class="nt-ul">
+<li>You do <em>not</em> need to memorise every table value. You need to know the structure of the book cold, so you can land on the right regulation, chapter or table in well under a minute.</li>
+<li>Learn the <strong>Parts</strong> (1–8), and roughly which Chapter/Section covers what — that is the single biggest time-saver in the exam room.</li>
+<li>Where a question gives you numbers, work the calculation through properly rather than guessing — the formulas are simple once you know which one applies.</li>
+<li>Tab or flag the sections you personally find slow to locate (earthing systems, disconnection times, special locations) before exam day.</li>
+</ul>
+<div class="nt-note"><strong>Rule of thumb:</strong> if a question is really a “go and look this up” question, don’t fight it from memory — find the table. If it’s a “do you understand the principle” question, the book won’t save you, so that’s where genuine understanding matters most.</div>
+<h3 class="nt-h" id="note-2">1–2. Scope, purpose &amp; key definitions</h3>
+<p class="nt-lede"><em>Parts 1 and 2 set the scope of BS 7671 and define the vocabulary used throughout the rest of the book.</em></p>
+<h4 class="nt-sub">Structure of the book, at a glance</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Part</th><th>Covers</th></tr></thead><tbody><tr><td>1</td><td>Scope, object and fundamental principles</td></tr><tr><td>2</td><td>Definitions</td></tr><tr><td>3</td><td>Assessment of general characteristics</td></tr><tr><td>4</td><td>Protection for safety (shock, thermal, overcurrent, isolation &amp; switching)</td></tr><tr><td>5</td><td>Selection and erection of equipment (cables, earthing, switchgear)</td></tr><tr><td>6</td><td>Inspection and testing</td></tr><tr><td>7</td><td>Special installations or locations (bathrooms, pools, sites, EV charging…)</td></tr><tr><td>8</td><td>Prosumer’s installations, energy efficiency &amp; functional requirements</td></tr></tbody></table></div>
+<h4 class="nt-sub">Definitions worth knowing cold</h4>
+<ul class="nt-ul">
+<li><strong>Basic protection</strong> — protection against shock under normal, fault-free conditions (insulation, barriers, enclosures).</li>
+<li><strong>Fault protection</strong> — protection against shock under a single fault condition (earthing + automatic disconnection, or an equivalent measure).</li>
+<li><strong>Exposed-conductive-part</strong> — a conductive part of equipment, touchable, not normally live but can become live under fault.</li>
+<li><strong>Extraneous-conductive-part</strong> — a conductive part liable to introduce a potential, not part of the electrical installation (structural steel, incoming pipework).</li>
+<li><strong>Circuit protective conductor (cpc)</strong> — connects exposed-conductive-parts to the main earthing terminal.</li>
+<li><strong>Ze / Zs</strong> — external earth fault loop impedance / total earth fault loop impedance. <code>Zs = Ze + (R1+R2)</code>.</li>
+<li><strong>Prospective fault current (PFC)</strong> — the current that would flow for a fault of negligible impedance.</li>
+<li><strong>Diversity</strong> — the allowance made because not everything runs flat-out at once.</li>
+<li><strong>Competent person</strong> — has the skill, knowledge and experience to avoid danger to self and others.</li>
+</ul>
+<h3 class="nt-h" id="note-3">3. Assessment of general characteristics</h3>
+<p class="nt-lede"><em>Before design begins, Part 3 requires the whole picture of the supply, structure and environment to be understood.</em></p>
+<ul class="nt-ul">
+<li><strong>Purpose, supplies &amp; structure</strong> — maximum demand and diversity, number and type of live conductors, earthing arrangement, nature of the structure.</li>
+<li><strong>External influences</strong> — the AA/AB/AC… coding system (ambient temperature, altitude, presence of water, mechanical impact, presence of corrosive/polluting substances, and so on) that governs equipment selection (IP ratings, cable types, containment).</li>
+<li><strong>Compatibility</strong> — checking that one item of equipment (starting current, harmonics, earth leakage) won’t cause a harmful effect on other equipment or the supply itself.</li>
+<li><strong>Maintainability</strong> — the installation must be designed so inspection, testing and maintenance can actually be carried out.</li>
+</ul>
+<div class="nt-note">On an existing installation, this assessment extends to the condition of equipment to be reused and the characteristics of the existing supply — you cannot design an extension in isolation from what is already there.</div>
+<h3 class="nt-h" id="note-4">4.1. Protection against electric shock (411)</h3>
+<p class="nt-lede"><em>The core shock-protection regulation, and the one most calculation questions circle back to.</em></p>
+<h4 class="nt-sub">Maximum disconnection times — Table 41.1</h4>
+<p class="nt-lede"><em>Uo = 230V nominal</em></p>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>System</th><th>Final circuit ≤32A</th><th>Distribution circuits / &gt;32A</th></tr></thead><tbody><tr><td>TN</td><td>0.4s</td><td>5s</td></tr><tr><td>TT</td><td>0.2s</td><td>1s</td></tr></tbody></table></div>
+<h4 class="nt-sub">Additional protection — 30mA RCDs</h4>
+<p>Required (subject to the limited exceptions BS 7671 lists) for:</p>
+<ul class="nt-ul">
+<li>Socket-outlets rated up to 32A for use by ordinary persons (411.3.3).</li>
+<li>Mobile equipment not exceeding 32A used outdoors.</li>
+<li>AC final circuits supplying luminaires in domestic (dwelling) premises (411.3.4).</li>
+<li>Cables concealed in a wall/partition at less than 50mm depth, outside the permitted safe zones (522.6.202), unless otherwise protected.</li>
+</ul>
+<h4 class="nt-sub">The other protective measures</h4>
+<ul class="nt-ul">
+<li><strong>SELV / PELV</strong> (extra-low voltage): ≤50V a.c. / 120V ripple-free d.c., basic + fault protection both provided by the low voltage and source isolation itself.</li>
+<li><strong>Electrical separation (413)</strong> — a single circuit fed from an isolating source, live parts not connected to earth or another circuit.</li>
+<li><strong>Obstacles / placing out of reach</strong> — only where the installation is supervised or controlled by skilled/instructed persons, not for ordinary persons.</li>
+</ul>
+<div class="nt-note"><strong>TT reminder:</strong> Ze on a TT system is often too high for an overcurrent device alone to achieve ADS in time — an RCD is almost always the mechanism actually doing the fault-protection job.</div>
+<h3 class="nt-h" id="note-5">4.2. Protection against thermal effects &amp; fire (42)</h3>
+<p class="nt-lede"><em>Covers burns, fire risk from equipment, and (since Amendment 2) Arc Fault Detection Devices.</em></p>
+<ul class="nt-ul">
+<li>Fixed equipment likely to reach ignition temperatures must be positioned or guarded so nearby materials can’t be subjected to a dangerous temperature.</li>
+<li>Hand-held equipment: accessible non-metallic parts liable to be touched should not exceed <strong>65°C</strong> in normal use (Table 42.1).</li>
+<li>422 covers locations with particular fire risk — escape routes, high fire-load areas, and where a “significant quantity” of flammable liquid (generally treated as <strong>25 litres</strong>) is stored.</li>
+<li>Spotlights/luminaires near combustible surfaces: minimum spacing broadly increases with wattage (illustrative bands often quoted: ≤100W ≈0.5m, &gt;100–300W ≈0.8m, &gt;300–500W ≈1.0m — always confirm the current figures).</li>
+</ul>
+<h4 class="nt-sub">Arc Fault Detection Devices (AFDDs) — 421.1.7</h4>
+<p>AFDDs detect arcing faults (series/parallel) that conventional overcurrent devices and RCDs may not catch — a leading cause of electrical fires. Fitted <strong>at the origin of the final circuit</strong> they protect. Required as a minimum for single-phase a.c. final circuits ≤32A in higher-risk residential premises such as HMOs, purpose-built student accommodation and care homes; recommended more widely.</p>
+<h3 class="nt-h" id="note-6">4.3. Overcurrent protection (43 &amp; 434)</h3>
+<p class="nt-lede"><em>The rules and formulas behind selecting a protective device and checking a conductor survives a fault.</em></p>
+<ul class="nt-ul">
+<li><strong>Device selection:</strong> Ib ≤ In ≤ Iz</li>
+<li><strong>Effective operation:</strong> I2 ≤ 1.45 × Iz</li>
+<li><strong>Adiabatic (fault):</strong> S = √(I²t) / k</li>
+<li><strong>Ib</strong> — design current of the circuit. <strong>In</strong> — rated current of the device. <strong>Iz</strong> — the cable’s effective current-carrying capacity once all rating factors are applied.</li>
+<li>The breaking capacity of a device must be ≥ the prospective fault current at that point (or be backed up per 434.5.1).</li>
+<li>Table 43.1 gives k-values for the adiabatic equation, by conductor material, insulation type and joint (e.g. a tinned soldered copper joint with 60°C thermosetting insulation is a commonly cited example around k=122) — confirm the exact figure for your exact combination.</li>
+<li>Overload protection can only be omitted in the limited circumstances BS 7671 specifically allows (433.3) — it is not a general exemption.</li>
+</ul>
+<h3 class="nt-h" id="note-7">4.4/4.6/53. Overvoltage, switching, isolation &amp; SPDs</h3>
+<ul class="nt-ul">
+<li><strong>SPDs (surge protective devices)</strong> guard against transient overvoltages (lightning, switching events); a risk assessment (or the simplified method in 443) determines whether they’re required.</li>
+<li><strong>Isolation</strong> must disconnect all live supply conductors of the relevant part, be identifiable, accessible, and resist inadvertent/unauthorised reclosure while work is in progress.</li>
+<li><strong>Functional switching</strong> controls normal operation (a light switch) — it is not a substitute for isolation.</li>
+<li><strong>Emergency switching</strong> must act rapidly, by a single action, to remove danger.</li>
+<li><strong>Mechanical maintenance switches (537.3.2.4)</strong> must be securable in the OFF position (lockable, or by fuse/link removal).</li>
+<li><strong>Firefighter’s switches</strong> (e.g. for discharge-tube signage) — typically red, positioned for fire-service access, with an indicator lamp.</li>
+</ul>
+<h3 class="nt-h" id="note-8">5.2. Cable selection, current-carrying capacity &amp; voltage drop</h3>
+<p class="nt-lede"><em>Chapter 52 — how a cable’s tabulated rating becomes the real, installed-condition rating, and how voltage drop is checked.</em></p>
+<h4 class="nt-sub">Rating factors</h4>
+<p><code>Iz = It × Ca × Cg × Ci × (other relevant factors)</code></p>
+<ul class="nt-ul">
+<li><strong>Ca</strong> — ambient temperature (reduces Iz above the tabulated reference temperature).</li>
+<li><strong>Cg</strong> — grouping (bunched cables mutually heat each other).</li>
+<li><strong>Ci</strong> — thermal insulation (a cable fully surrounded by insulation can’t shed heat — the biggest single derating factor in domestic work).</li>
+<li>General form: <code>Ca = √[(θz − θa) / (θz − θref)]</code> — conductor operating temp, actual ambient, tabulated reference.</li>
+</ul>
+<h4 class="nt-sub">Voltage drop</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Use</th><th>Limit (public LV supply)</th></tr></thead><tbody><tr><td>Lighting</td><td>3%</td></tr><tr><td>Other uses</td><td>5%</td></tr></tbody></table></div>
+<p><code>Voltage drop (V) = mV/A/m × Ib × length (m) / 1000</code></p>
+<h4 class="nt-sub">Cable placement in structures (522.6.201/.202)</h4>
+<ul class="nt-ul">
+<li>Cables in joists: ≥50mm from the top/bottom, or mechanically protected, unless run in a permitted safe zone.</li>
+<li>Safe zones in walls: horizontal/vertical bands within 150mm of a wall/ceiling junction or corner, or running directly to/from an accessory.</li>
+<li>Outside a safe zone at &lt;50mm depth: needs 30mA RCD protection or robust mechanical protection.</li>
+</ul>
+<h4 class="nt-sub">Core colours</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Conductor</th><th>Colour</th></tr></thead><tbody><tr><td>Line (single-phase AC)</td><td>Brown</td></tr><tr><td>Neutral</td><td>Blue</td></tr><tr><td>Protective (earth)</td><td>Green &amp; yellow</td></tr><tr><td>DC positive (L+)</td><td>Brown</td></tr><tr><td>DC negative (L−)</td><td>Grey</td></tr></tbody></table></div>
+<h3 class="nt-h" id="note-9">5.4. Earthing arrangements &amp; bonding</h3>
+<p class="nt-lede"><em>Chapter 54 — how the earth path is formed, and what has to be bonded to it.</em></p>
+<h4 class="nt-sub">Earthing systems</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>System</th><th>Earth path back to source</th></tr></thead><tbody><tr><td>TN-S</td><td>Metallic cable sheath/armour from the DNO transformer</td></tr><tr><td>TN-C-S (PME)</td><td>Combined PEN conductor on the supply side; split into separate N and cpc within the installation</td></tr><tr><td>TT</td><td>No metallic path — relies on a local earth electrode</td></tr></tbody></table></div>
+<div class="nt-note"><strong>Open-PEN risk:</strong> if a PME neutral fails, exposed-conductive-parts can become live relative to true earth — the reason PME earthing carries restrictions in certain special locations and for EV charge points.</div>
+<h4 class="nt-sub">Bonding</h4>
+<ul class="nt-ul">
+<li><strong>Main protective bonding</strong> connects extraneous-conductive-parts (incoming water/gas pipes, structural steel) to the main earthing terminal. Table 54.8 minimum is 6mm² copper-equivalent (many DNOs specify a practical 10mm² minimum on PME supplies).</li>
+<li><strong>Supplementary bonding</strong>: minimum 4mm² if not mechanically protected, 2.5mm² if mechanically protected.</li>
+<li>Warning notice at a bonding connection: <em>“Safety Electrical Connection – Do Not Remove”</em> (514.13.1).</li>
+<li><strong>Functional earthing</strong> (Section 545, revised by A4) is distinct from protective earthing — it exists for correct operation of equipment and EMC, not shock protection.</li>
+</ul>
+<h3 class="nt-h" id="note-10">6. Inspection &amp; testing</h3>
+<p class="nt-lede"><em>Part 6 — the sequence, the tests, and how findings get certified.</em></p>
+<h4 class="nt-sub">Dead-test sequence (then live tests)</h4>
+<p>1. Continuity of protective conductors (including main &amp; supplementary bonding) 2. Continuity of ring final circuit conductors (figure-of-eight method) 3. Insulation resistance 4. Polarity (can be confirmed via the continuity tests) 5. Site-applied insulation / protection by SELV, PELV or electrical separation, where relevant</p>
+<p><em>Live tests:</em> Ze, then Zs, prospective fault current, RCD operation, phase sequence, functional testing.</p>
+<h4 class="nt-sub">Key test values</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Test</th><th>Voltage/condition</th><th>Minimum result</th></tr></thead><tbody><tr><td>Insulation resistance, up to 500V circuits</td><td>500V DC</td><td>1.0 MΩ</td></tr><tr><td>Insulation resistance, SELV/PELV</td><td>250V DC</td><td>0.5 MΩ</td></tr><tr><td>General RCD at IΔn</td><td>—</td><td>≤300ms</td></tr><tr><td>General RCD at 5×IΔn</td><td>—</td><td>≤40ms</td></tr></tbody></table></div>
+<p>Ze is measured with the main switch closed, main bonding in place, and the installation’s earthing conductor temporarily disconnected from the MET for the test.</p>
+<h4 class="nt-sub">Certification</h4>
+<ul class="nt-ul">
+<li><strong>EIC</strong> — new installation work, or any addition/alteration that includes a new circuit.</li>
+<li><strong>Minor Electrical Installation Works Certificate</strong> — alterations/additions with no new circuit.</li>
+<li><strong>EICR</strong> — periodic inspection of an existing installation.</li>
+</ul>
+<h4 class="nt-sub">EICR observation codes</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Code</th><th>Meaning</th></tr></thead><tbody><tr><td>C1</td><td>Danger present — immediate remedial action required</td></tr><tr><td>C2</td><td>Potentially dangerous — urgent remedial action required</td></tr><tr><td>C3</td><td>Improvement recommended</td></tr><tr><td>FI</td><td>Further investigation required, without delay</td></tr></tbody></table></div>
+<p>Typical maximum re-inspection intervals: owner-occupied domestic — 10 years or change of occupancy; private rented (England, statutory) — 5 years or sooner as required; commercial — 5 years; industrial — 3 years; construction site installations — 3 months. Always check the current guidance for the specific premises type.</p>
+<h3 class="nt-h" id="note-11">7. Special installations &amp; locations</h3>
+<p class="nt-lede"><em>Part 7 — extra rules for higher-risk or unusual environments. Learn the zone concept once and it transfers across sections.</em></p>
+<h4 class="nt-sub">701 — Bathrooms</h4>
+<div class="tbl-wrap"><table class="nt-tbl"><thead><tr><th>Zone</th><th>Extent</th><th>Min. IP</th></tr></thead><tbody><tr><td>0</td><td>Inside the bath/shower basin</td><td>IPX7</td></tr><tr><td>1</td><td>Above zone 0, up to 2.25m</td><td>IPX4</td></tr><tr><td>2</td><td>0.6m beyond zone 1</td><td>IPX4</td></tr></tbody></table></div>
+<p>Supplementary bonding may be omitted where all final circuits meet 411.3.2 disconnection times, have 30mA RCD additional protection, and main bonding is in place.</p>
+<h4 class="nt-sub">702 — Swimming pools</h4>
+<p>Zone 0 = the pool basin; zones 1 &amp; 2 extend outward and, above diving boards/platforms, vertically to around 2.5m.</p>
+<h4 class="nt-sub">703 — Saunas</h4>
+<p>Zoned by height rather than distance from a wet area — zone 1 broadly 0–1.0m near the heater, zone 3 generally starting above the 1.0m mark.</p>
+<h4 class="nt-sub">704 / 705 / 706 — Sites, agriculture, restrictive locations</h4>
+<ul class="nt-ul">
+<li><strong>Construction sites</strong>: reduced low voltage (110V CTE) for portable tools halves the shock voltage to earth (55V) in harsh conditions.</li>
+<li><strong>Agricultural/horticultural</strong>: extra RCD protection — livestock can be more sensitive to shock, and the environment is damp/corrosive.</li>
+<li><strong>Restrictive conductive locations</strong> (inside a tank/boiler): body resistance is effectively reduced by extensive contact with earthed metal, raising shock risk.</li>
+</ul>
+<h4 class="nt-sub">708 / 709 — Caravan parks &amp; marinas</h4>
+<p>Individually RCD-protected (30mA) socket-outlet per pitch/berth (caravan pitch typically 16A, flexible connecting cable minimum 2.5mm²).</p>
+<h4 class="nt-sub">710 — Medical locations (revised by A4)</h4>
+<p>Higher-risk (“Group 2”) areas such as operating theatres often use an IT system so a first fault doesn’t force immediate disconnection of life-support equipment. Amendment 4 added enhanced supplementary bonding procedures and a schedule for recording bonding-conductor resistance measurements.</p>
+<h4 class="nt-sub">712 — Solar PV</h4>
+<p>DC side needs particular care — DC arcs are harder to extinguish and can’t simply be switched off while the array is illuminated.</p>
+<h4 class="nt-sub">722 — EV charging</h4>
+<ul class="nt-ul">
+<li>PME (TN-C-S) supplies carry open-PEN risk to the vehicle’s exposed metalwork — addressed via open-PEN detection devices, or a TT arrangement at the charge point.</li>
+<li>EV charging equipment can introduce smooth DC leakage that blinds a standard RCD — addressed with a Type B RCD, or Type A plus a 6mA DC RDC-DD.</li>
+</ul>
+<h4 class="nt-sub">711 / 740 — Exhibitions &amp; fairgrounds</h4>
+<p>Temporary installations: 30mA RCD protection on socket-outlet and public-accessible circuits, equipment positioned out of arm’s reach where relevant.</p>
+<h3 class="nt-h" id="note-12">8. Prosumer's installations &amp; Amendment 4 (2026)</h3>
+<p class="nt-lede"><em>Part 8 (introduced by A2:2022) covers installations that both consume and generate/store energy. Amendment 4 (2026) builds on it.</em></p>
+<ul class="nt-ul">
+<li><strong>Prosumer’s installation</strong> — consumes AND can generate/store/export (PV, battery storage, V2G-capable EV charging).</li>
+<li><strong>EEMS</strong> (Electrical Energy Management System) — monitors and controls generation, storage and consumption, potentially including automatic disconnection functions.</li>
+<li><strong>PEI</strong> (Power Electronic/converter-based Interface) — e.g. a PV or battery inverter. In “island mode” (disconnected from the DNO), the normal PME earth reference is gone, so a suitable local means of earthing is required.</li>
+</ul>
+<h4 class="nt-sub">Amendment 4:2026 headline changes</h4>
+<p>Published <strong>15 April 2026</strong>; the previous edition (BS 7671:2018+A2:2022+A3:2024) is withdrawn roughly six months later.</p>
+<ul class="nt-ul">
+<li><strong>Chapter 57 (new):</strong> Stationary secondary batteries</li>
+<li><strong>Section 716 (new):</strong> Power over Ethernet</li>
+<li><strong>Section 545 (revised):</strong> Functional earthing/bonding</li>
+<li><strong>Section 710 (revised):</strong> Medical locations</li>
+<li><strong>Chapter 81 (new):</strong> Energy efficiency assessment</li>
+<li><strong>Chapter 57</strong> — battery energy storage systems: siting, ventilation, fire risk, isolation. Roof-space installation is generally discouraged (detection/containment difficulty).</li>
+<li><strong>Section 716</strong> — thermal/derating considerations where data cabling carries DC power at meaningful levels (PoE lighting, access points, cameras).</li>
+<li><strong>Chapter 81</strong> — a framework for assessing energy losses in LV installations, applying to new work and significant alterations.</li>
+</ul>
+<div class="nt-note">Don’t confuse eras: AFDDs and the original Part 8 provisions are <strong>Amendment 2:2022</strong>. Amendment 4:2026 is batteries, PoE, functional earthing, medical locations and energy efficiency.</div></article>
+    </div>
+  </div>
+</main>
+
+<!-- ============ NAVIGATOR ============ -->
+<div class="navdrawer" id="navdrawer" data-open="0">
+  <div class="scrim" data-close-nav></div>
+  <aside class="navpanel">
+    <div class="section-head" style="margin:0"><h2>Questions</h2><button class="btn ghost" data-close-nav>Close</button></div>
+    <div class="legend">
+      <span><i style="background:var(--surface-3)"></i>Answered</span>
+      <span><i style="background:var(--warn)"></i>Flagged</span>
+      <span><i style="background:var(--paper)"></i>Not yet</span>
+    </div>
+    <div class="navgrid" id="navgrid"></div>
+    <button class="btn solid" id="submit-exam" style="width:100%">Submit exam</button>
+    <p style="font-family:var(--f-book);font-size:13.5px;color:var(--ink-3);margin:0" id="nav-note"></p>
+  </aside>
+</div>
+
+<!-- ============ TOPIC PICKER ============ -->
+<div class="modal" id="picker" data-open="0">
+  <div class="scrim" data-close-picker></div>
+  <div class="sheet">
+    <h3>Which topics?</h3>
+    <p>Questions are marked as you answer, with the reasoning shown straight away.</p>
+    <div class="checks" id="picker-list"></div>
+    <div class="sheet-actions">
+      <button class="btn ghost" id="pick-all">Select all</button>
+      <button class="btn ghost" data-close-picker>Cancel</button>
+      <button class="btn solid" id="pick-go">Start practice</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [{"n":1,"topic":"Exam Technique","q":"The City & Guilds 2382 18th Edition exam is:","options":["Closed book, 40 questions, 1 hour","Open book, 60 questions, 2 hours","Open book, 50 questions, 90 minutes","Closed book, 60 questions, 3 hours"],"answer":"B","answerText":"Open book, 60 questions, 2 hours","why":"It's open book — your copy of BS 7671 plus a calculator — 60 questions, 2 hours."},{"n":2,"topic":"Exam Technique","q":"What is the typical minimum pass mark, and the score you should really be aiming for?","options":["40%, aim 50%","50%, aim 60%","60%, aim 80%","75%, aim 90%"],"answer":"C","answerText":"60%, aim 80%","why":"Pass marks can vary slightly by cohort — treat 60% as the floor and aim well above it."},{"n":3,"topic":"Exam Technique","q":"Because the exam is open-book, your revision time is best spent:","options":["Memorising every table value word for word","Learning the structure of the book and practising finding the right clause/table quickly","Ignoring the book entirely","Reading only Part 1"],"answer":"B","answerText":"Learning the structure of the book and practising finding the right clause/table quickly","why":"The real skill tested is fast, accurate navigation and application — not rote recall."},{"n":4,"topic":"Exam Technique","q":"If a question gives you numerical data, the safest approach is:","options":["Guess based on similar past questions","Work the calculation through methodically using the correct formula and reference","Pick the middle option","Skip and never return to it"],"answer":"B","answerText":"Work the calculation through methodically using the correct formula and reference","why":""},{"n":5,"topic":"Exam Technique","q":"Which item is essential to bring to the exam alongside ID?","options":["A laptop","The current edition of BS 7671 and a scientific calculator","A copy of the On-Site Guide only","Your own printed notes"],"answer":"B","answerText":"The current edition of BS 7671 and a scientific calculator","why":"Check your exam centre's exact permitted-materials list beforehand — some restrict which additional guides are allowed."},{"n":6,"topic":"Definitions & Terms","q":"\"Basic protection\" refers to protection against electric shock:","options":["Under a single fault condition","Under normal, fault-free conditions","Only in special locations","Only for SELV circuits"],"answer":"B","answerText":"Under normal, fault-free conditions","why":"Fault protection is the single-fault-condition case (ADS, earthing, bonding)."},{"n":7,"topic":"Definitions & Terms","q":"What does \"Zs\" represent?","options":["The impedance of the earth electrode only","The total earth fault loop impedance (external + internal)","The prospective short-circuit current","The resistance of the line conductor only"],"answer":"B","answerText":"The total earth fault loop impedance (external + internal)","why":"Zs = Ze + (R1 + R2)."},{"n":8,"topic":"Definitions & Terms","q":"PME stands for:","options":["Protective Multiple Earthing","Portable Mains Equipment","Primary Motor Enclosure","Permanent Main Earth"],"answer":"A","answerText":"Protective Multiple Earthing","why":"PME describes a TN-C-S supply where the combined PEN conductor is earthed at multiple points by the DNO."},{"n":9,"topic":"Definitions & Terms","q":"In a TT earthing system, the installation's means of earthing is provided by:","options":["The supply cable sheath","A PEN conductor from the DNO","A local earth electrode","Bonding to gas and water pipes only"],"answer":"C","answerText":"A local earth electrode","why":""},{"n":10,"topic":"Definitions & Terms","q":"SELV is defined as:","options":["A system not exceeding 50V a.c., electrically separated from earth and other systems","Any circuit protected by an RCD","A circuit with a functional earth connection","A 110V site supply"],"answer":"A","answerText":"A system not exceeding 50V a.c., electrically separated from earth and other systems","why":""},{"n":11,"topic":"Definitions & Terms","q":"\"Prospective fault current\" (PFC) is:","options":["The current that would flow for a fault of negligible impedance","The maximum current a cable can carry continuously","The rated current of the protective device","The design current of the circuit"],"answer":"A","answerText":"The current that would flow for a fault of negligible impedance","why":""},{"n":12,"topic":"Definitions & Terms","q":"A \"competent person\" under BS 7671 is someone who:","options":["Holds a City & Guilds 2382 certificate only","Has the skill, knowledge and experience to avoid danger to themselves and others","Is employed by a DNO","Has more than 10 years' experience regardless of training"],"answer":"B","answerText":"Has the skill, knowledge and experience to avoid danger to themselves and others","why":""},{"n":13,"topic":"Definitions & Terms","q":"The term \"exposed-conductive-part\" describes:","options":["A touchable conductive part, not normally live, that can become live under fault conditions","Any conductive part of the installation, live or not","A live conductor with damaged insulation","The earth electrode"],"answer":"A","answerText":"A touchable conductive part, not normally live, that can become live under fault conditions","why":""},{"n":14,"topic":"Definitions & Terms","q":"An \"extraneous-conductive-part\" is:","options":["Part of the electrical installation","A conductive part liable to introduce a potential, not forming part of the electrical installation (e.g. structural steel)","A protective conductor","A bonding conductor"],"answer":"B","answerText":"A conductive part liable to introduce a potential, not forming part of the electrical installation (e.g. structural steel)","why":""},{"n":15,"topic":"Definitions & Terms","q":"What is a \"circuit protective conductor\" (cpc)?","options":["The conductor connecting exposed-conductive-parts to the main earthing terminal","The line conductor of a final circuit","A conductor used only for functional earthing","The neutral conductor"],"answer":"A","answerText":"The conductor connecting exposed-conductive-parts to the main earthing terminal","why":""},{"n":16,"topic":"Definitions & Terms","q":"RCBO is an abbreviation for:","options":["A device combining overcurrent and residual current protection in one unit","Ring Circuit Breaker Outlet","Radial Circuit Bonding Outlet","Residual Current Bonded Outlet"],"answer":"A","answerText":"A device combining overcurrent and residual current protection in one unit","why":""},{"n":17,"topic":"Definitions & Terms","q":"\"Diversity\" in an electrical installation refers to:","options":["The requirement to use different cable types on every circuit","The allowance made because not all connected loads run simultaneously at full demand","A type of earthing arrangement","The variation in supply voltage"],"answer":"B","answerText":"The allowance made because not all connected loads run simultaneously at full demand","why":""},{"n":18,"topic":"Assessing Characteristics","q":"Part 3 (Assessment of General Characteristics) requires the designer to consider all of the following EXCEPT:","options":["Purpose, supplies and structure of the installation","External influences (ambient temperature, water, etc.)","Compatibility of equipment characteristics","The exact make and model of every light fitting"],"answer":"D","answerText":"The exact make and model of every light fitting","why":""},{"n":19,"topic":"Assessing Characteristics","q":"\"External influences\", coded AA/AB/AC..., relate to:","options":["The financial cost of the installation","Environmental conditions affecting equipment selection (temperature, altitude, water, impact)","The supplier's tariff type","The manufacturer's nationality"],"answer":"B","answerText":"Environmental conditions affecting equipment selection (temperature, altitude, water, impact)","why":""},{"n":20,"topic":"Assessing Characteristics","q":"Before working on an existing installation, BS 7671 requires assessment of:","options":["Only the consumer unit","Supply/installation characteristics likely to affect the design, including maximum demand, earthing arrangement, and condition of equipment to be reused","Nothing — Part 3 is new-build only","The colour of existing cables only"],"answer":"B","answerText":"Supply/installation characteristics likely to affect the design, including maximum demand, earthing arrangement, and condition of equipment to be reused","why":""},{"n":21,"topic":"Assessing Characteristics","q":"Maximum demand of an installation is assessed:","options":["By adding the rated current of every appliance with no allowance","Taking diversity into account, using recognised guidance","By reference to postcode","It is not required under Part 3"],"answer":"B","answerText":"Taking diversity into account, using recognised guidance","why":""},{"n":22,"topic":"Assessing Characteristics","q":"Compatibility (Part 3) requires checking that:","options":["All equipment is the same colour","Equipment characteristics (starting current, harmonics, leakage) won't harmfully affect other equipment or the supply","Only British-made equipment is used","All circuits use the same device rating"],"answer":"B","answerText":"Equipment characteristics (starting current, harmonics, leakage) won't harmfully affect other equipment or the supply","why":""},{"n":23,"topic":"Assessing Characteristics","q":"Which is an example of \"AD\" (presence of water) external-influence classification?","options":["AD4 – splashing","AC2 – altitude","AA5 – high temperature","AB1 – dry"],"answer":"A","answerText":"AD4 – splashing","why":""},{"n":24,"topic":"Shock Protection (411)","q":"For a TN system, the maximum disconnection time for a final circuit ≤32A is:","options":["0.1s","0.2s","0.4s","5s"],"answer":"C","answerText":"0.4s","why":""},{"n":25,"topic":"Shock Protection (411)","q":"For a TT system, the maximum disconnection time for a final circuit ≤32A is:","options":["0.2s","0.4s","1s","5s"],"answer":"A","answerText":"0.2s","why":""},{"n":26,"topic":"Shock Protection (411)","q":"For distribution circuits (and final circuits >32A) on a TN system, the maximum disconnection time is:","options":["0.4s","1s","5s","No limit applies"],"answer":"C","answerText":"5s","why":""},{"n":27,"topic":"Shock Protection (411)","q":"Additional protection by a 30mA RCD (411.3.3) is required for socket outlets ≤32A for use by ordinary persons:","options":["Only in bathrooms","In all locations, with only very limited listed exceptions","Only for outdoor sockets","Only in commercial premises"],"answer":"B","answerText":"In all locations, with only very limited listed exceptions","why":""},{"n":28,"topic":"Shock Protection (411)","q":"In domestic premises, 30mA RCD additional protection is also specifically required for:","options":["AC final circuits supplying luminaires (lighting)","Immersion heaters only","Cooker circuits only","Nothing beyond socket outlets"],"answer":"A","answerText":"AC final circuits supplying luminaires (lighting)","why":"Regulation 411.3.4 extended the requirement to domestic lighting circuits."},{"n":29,"topic":"Shock Protection (411)","q":"Fault protection (single-fault-condition shock protection) is most commonly achieved by:","options":["Double insulation alone","Automatic Disconnection of Supply (ADS)","Warning labels on equipment","SELV only"],"answer":"B","answerText":"Automatic Disconnection of Supply (ADS)","why":""},{"n":30,"topic":"Shock Protection (411)","q":"Electrical separation (413) as a protective measure relies on:","options":["A single circuit from an isolating source, live parts not connected to earth or another circuit","A 30mA RCD","A TT earth electrode","PME bonding"],"answer":"A","answerText":"A single circuit from an isolating source, live parts not connected to earth or another circuit","why":""},{"n":31,"topic":"Shock Protection (411)","q":"SELV and PELV are protective measures classed under:","options":["Automatic disconnection of supply","Extra-low voltage (both basic and fault protection from the low voltage itself)","Electrical separation","Obstacles and placing out of reach"],"answer":"B","answerText":"Extra-low voltage (both basic and fault protection from the low voltage itself)","why":""},{"n":32,"topic":"Shock Protection (411)","q":"The nominal voltage limit for SELV/PELV under normal conditions is:","options":["12V a.c.","50V a.c. / 120V ripple-free d.c.","110V d.c.","230V a.c."],"answer":"B","answerText":"50V a.c. / 120V ripple-free d.c.","why":""},{"n":33,"topic":"Shock Protection (411)","q":"\"Obstacles\" and \"placing out of reach\" as protective measures are:","options":["Permitted for ordinary persons in all installations","Only permitted where supervised/controlled by skilled or instructed persons","Banned entirely under BS 7671","Only used in agricultural locations"],"answer":"B","answerText":"Only permitted where supervised/controlled by skilled or instructed persons","why":""},{"n":34,"topic":"Shock Protection (411)","q":"Basic protection by insulation of live parts requires the insulation to:","options":["Be removable with a standard tool for maintenance","Only be removable by destruction, solvents or heat — not by hand","Be any colour so long as present","Only cover conductors above 1mm²"],"answer":"B","answerText":"Only be removable by destruction, solvents or heat — not by hand","why":""},{"n":35,"topic":"Shock Protection (411)","q":"A barrier providing basic protection must give at least a degree of protection of:","options":["IPXXB (IP2X), or IPXXD on accessible horizontal top surfaces where required","IP44 in all cases","No specific rating is required","IP65 always"],"answer":"A","answerText":"IPXXB (IP2X), or IPXXD on accessible horizontal top surfaces where required","why":""},{"n":36,"topic":"Shock Protection (411)","q":"Which is correct about RCDs and TT systems?","options":["An RCD is never required on TT if Zs is low enough","Because Ze is often too high for overcurrent devices alone, an RCD is almost always essential for fault protection","TT systems cannot use RCDs","TT systems don't require an earth electrode"],"answer":"B","answerText":"Because Ze is often too high for overcurrent devices alone, an RCD is almost always essential for fault protection","why":""},{"n":37,"topic":"Shock Protection (411)","q":"To confirm automatic disconnection will occur in time on a TN system, you must check:","options":["Only the cable colour","That Zs does not exceed the tabulated maximum for that device and disconnection time","The length of cable only","The consumer unit's diameter"],"answer":"B","answerText":"That Zs does not exceed the tabulated maximum for that device and disconnection time","why":""},{"n":38,"topic":"Fire & Thermal (42)","q":"Arc Fault Detection Devices (AFDDs) are designed to:","options":["Detect overload current only","Detect arc faults that conventional overcurrent/RCD protection may miss, reducing fire risk","Replace RCDs entirely","Only function on three-phase circuits"],"answer":"B","answerText":"Detect arc faults that conventional overcurrent/RCD protection may miss, reducing fire risk","why":""},{"n":39,"topic":"Fire & Thermal (42)","q":"Under Regulation 421.1.7, AFDDs are required as a minimum for certain final circuits ≤32A in premises such as:","options":["Detached bungalows only","HMOs and similarly higher-risk residential premises listed in BS 7671","Garages only","All installations without exception"],"answer":"B","answerText":"HMOs and similarly higher-risk residential premises listed in BS 7671","why":""},{"n":40,"topic":"Fire & Thermal (42)","q":"Where fitted, an AFDD should be installed:","options":["At the furthest point of the circuit from the origin","At the origin of the final circuit it protects","Only at the main switchboard","In the socket outlet itself only"],"answer":"B","answerText":"At the origin of the final circuit it protects","why":""},{"n":41,"topic":"Fire & Thermal (42)","q":"Regulation 422 deals with:","options":["Precautions for locations with particular risks — fire, explosion, escape routes, high fire load","Voltage drop only","Cable colours","RCD selection"],"answer":"A","answerText":"Precautions for locations with particular risks — fire, explosion, escape routes, high fire load","why":""},{"n":42,"topic":"Fire & Thermal (42)","q":"For a luminaire close to combustible material rated over 300W up to 500W, minimum spacing guidance is broadly around:","options":["0.2m","0.5m","1.0m","2.0m"],"answer":"C","answerText":"1.0m","why":"Illustrative bands: ≤100W≈0.5m, >100–300W≈0.8m, >300–500W≈1.0m — confirm current figures."},{"n":43,"topic":"Fire & Thermal (42)","q":"A \"significant quantity\" of flammable liquid, for fire-risk assessment purposes, is generally taken as:","options":["1 litre","10 litres","25 litres","100 litres"],"answer":"C","answerText":"25 litres","why":""},{"n":44,"topic":"Fire & Thermal (42)","q":"Where a circuit passes through a fire-risk location (e.g. escape route), measures may include:","options":["Ignoring the risk if PVC insulated","Fire-resistant wiring systems, avoiding combustible surfaces, protection against mechanical damage","Only increasing cable csa","No special measures are ever needed"],"answer":"B","answerText":"Fire-resistant wiring systems, avoiding combustible surfaces, protection against mechanical damage","why":""},{"n":45,"topic":"Fire & Thermal (42)","q":"Thermal effects requirements (Chapter 42) primarily protect against:","options":["Burns and fire from heat generated by equipment or faults","Voltage drop","Electromagnetic interference","Corrosion of conductors"],"answer":"A","answerText":"Burns and fire from heat generated by equipment or faults","why":""},{"n":46,"topic":"Fire & Thermal (42)","q":"Fixed equipment likely to reach ignition temperatures should be:","options":["Installed with no consideration required","Positioned/guarded so adjacent materials can't reach a dangerous temperature, or mounted/enclosed to withstand it","Always mounted directly on timber","Wrapped in PVC tape"],"answer":"B","answerText":"Positioned/guarded so adjacent materials can't reach a dangerous temperature, or mounted/enclosed to withstand it","why":""},{"n":47,"topic":"Fire & Thermal (42)","q":"For hand-held equipment, the maximum accessible temperature for non-metallic parts liable to be touched is around:","options":["45°C","65°C","90°C","105°C"],"answer":"B","answerText":"65°C","why":""},{"n":48,"topic":"Overcurrent (43)","q":"The basic rule for selecting a protective device against overload (433.1) is:","options":["Ib ≤ In ≤ Iz, and I2 ≤ 1.45 Iz","Ib = In = Iz always exactly","In must always exceed Iz","Ib has no relationship to Iz"],"answer":"A","answerText":"Ib ≤ In ≤ Iz, and I2 ≤ 1.45 Iz","why":""},{"n":49,"topic":"Overcurrent (43)","q":"\"Ib\" represents:","options":["The rated current of the protective device","The design current of the circuit","The tabulated current-carrying capacity of the cable","The breaking capacity of the device"],"answer":"B","answerText":"The design current of the circuit","why":""},{"n":50,"topic":"Overcurrent (43)","q":"\"Iz\" represents:","options":["The design current","The rated current of the device","The cable's effective current-carrying capacity in its installed conditions","The prospective fault current"],"answer":"C","answerText":"The cable's effective current-carrying capacity in its installed conditions","why":""},{"n":51,"topic":"Overcurrent (43)","q":"The adiabatic equation for a conductor's thermal withstand under fault is:","options":["S = √(I²t) / k","S = I × t × k","S = k / (I × t)","S = √(I × t) / k²"],"answer":"A","answerText":"S = √(I²t) / k","why":""},{"n":52,"topic":"Overcurrent (43)","q":"Using S=√(I²t)/k, for I=1000A, t=0.4s, k=115, the minimum csa is approximately:","options":["2.75 mm²","5.5 mm²","8.7 mm²","11 mm²"],"answer":"B","answerText":"5.5 mm²","why":"√(1000²×0.4)=632.5; 632.5/115≈5.5mm²."},{"n":53,"topic":"Overcurrent (43)","q":"The breaking capacity of a protective device must be:","options":["Less than the prospective fault current at that point","Equal to or greater than the prospective fault current at that point (or backed up per 434.5.1)","Ignored if an RCD is fitted","Only relevant for three-phase circuits"],"answer":"B","answerText":"Equal to or greater than the prospective fault current at that point (or backed up per 434.5.1)","why":""},{"n":54,"topic":"Overcurrent (43)","q":"A \"distribution circuit\" (as opposed to a final circuit) is one that:","options":["Directly supplies current-using equipment only","Connects the origin (or a distribution board) to another board/consumer unit supplying final circuits","Only exists in industrial premises","Cannot exceed 32A"],"answer":"B","answerText":"Connects the origin (or a distribution board) to another board/consumer unit supplying final circuits","why":""},{"n":55,"topic":"Overcurrent (43)","q":"Overload protection may be omitted (433.3) only where, for example:","options":["Consequences of overload are negligible/unlikely, under the specific conditions BS 7671 lists","Never — overload protection is always mandatory with no exceptions","The circuit supplies socket outlets","The customer requests it in writing"],"answer":"A","answerText":"Consequences of overload are negligible/unlikely, under the specific conditions BS 7671 lists","why":""},{"n":56,"topic":"Overcurrent (43)","q":"Table 43.1 provides:","options":["Voltage drop limits","k-values for the adiabatic equation by conductor/insulation/joint","Zs values for RCDs","Cable colour codes"],"answer":"B","answerText":"k-values for the adiabatic equation by conductor/insulation/joint","why":""},{"n":57,"topic":"Overcurrent (43)","q":"For a tinned soldered joint in copper with 60°C thermosetting insulation, a commonly referenced k-value example is around:","options":["76","94","122","143"],"answer":"C","answerText":"122","why":"Exact k-values depend on the specific combination — confirm against the current Table 43.1."},{"n":58,"topic":"Switching, Isolation & SPDs","q":"Surge Protective Devices (SPDs) protect against:","options":["Overload current only","Transient overvoltages (e.g. lightning, switching events)","Undervoltage only","Harmonic distortion only"],"answer":"B","answerText":"Transient overvoltages (e.g. lightning, switching events)","why":""},{"n":59,"topic":"Switching, Isolation & SPDs","q":"A risk assessment (or the simplified method) determines:","options":["The colour of cables required","Whether SPDs are required for a given installation","The size of the consumer unit only","Whether RCDs are needed"],"answer":"B","answerText":"Whether SPDs are required for a given installation","why":""},{"n":60,"topic":"Switching, Isolation & SPDs","q":"A mechanical maintenance switch (537.3.2.4) must be capable of:","options":["Being operated remotely only","Being secured OFF (locking, or removal of a fuse/link) to prevent unintended reclosure","Switching under full load only","Isolating the neutral only"],"answer":"B","answerText":"Being secured OFF (locking, or removal of a fuse/link) to prevent unintended reclosure","why":""},{"n":61,"topic":"Switching, Isolation & SPDs","q":"A means of isolation must:","options":["Never be needed if an RCD is fitted","Disconnect all live supply conductors of the relevant part, and be identifiable and accessible","Only isolate the line conductor","Only be fitted at the main switchboard"],"answer":"B","answerText":"Disconnect all live supply conductors of the relevant part, and be identifiable and accessible","why":""},{"n":62,"topic":"Switching, Isolation & SPDs","q":"A functional switch (e.g. a light switch) is used to:","options":["Provide isolation for maintenance","Control normal operation without necessarily disconnecting all poles","Provide overcurrent protection","Provide fault protection"],"answer":"B","answerText":"Control normal operation without necessarily disconnecting all poles","why":""},{"n":63,"topic":"Switching, Isolation & SPDs","q":"Emergency switching devices must operate:","options":["Slowly, to avoid arcing","Rapidly, by a single action, to remove danger","Only after a time delay","Only when the RCD also trips"],"answer":"B","answerText":"Rapidly, by a single action, to remove danger","why":""},{"n":64,"topic":"Switching, Isolation & SPDs","q":"A switch used for isolation should be installed so that it:","options":["Cannot be inadvertently or accidentally operated by unauthorised persons while isolated","Automatically resets after 30 minutes","Only isolates during working hours","Requires no marking or identification"],"answer":"A","answerText":"Cannot be inadvertently or accidentally operated by unauthorised persons while isolated","why":""},{"n":65,"topic":"Switching, Isolation & SPDs","q":"Firefighter's switches (e.g. for discharge-tube signage) are typically:","options":["Coloured red, accessible to the fire service, with an indicator lamp","Coloured blue with no marking","Located inside a locked switch room only","Not required under BS 7671"],"answer":"A","answerText":"Coloured red, accessible to the fire service, with an indicator lamp","why":""},{"n":66,"topic":"Switching, Isolation & SPDs","q":"BS EN 61439-6 relates to:","options":["Cable colour identification","Busbar trunking systems","RCD test procedures","Insulation resistance testing"],"answer":"B","answerText":"Busbar trunking systems","why":""},{"n":67,"topic":"Cables & Volt Drop (52)","q":"A cable's current-carrying capacity (Iz) is derived from the tabulated value (It) by applying:","options":["Rating factors for ambient temperature, grouping, thermal insulation etc.","Only the length of the cable","The colour of the cable","The supply voltage only"],"answer":"A","answerText":"Rating factors for ambient temperature, grouping, thermal insulation etc.","why":""},{"n":68,"topic":"Cables & Volt Drop (52)","q":"A cable in an ambient temperature above the tabulated reference has its capacity:","options":["Increased","Reduced, via an ambient temperature factor (Ca) less than 1","Unaffected","Doubled"],"answer":"B","answerText":"Reduced, via an ambient temperature factor (Ca) less than 1","why":""},{"n":69,"topic":"Cables & Volt Drop (52)","q":"A grouping rating factor (Cg) is applied because:","options":["Grouped cables mutually heat each other, reducing safe current per cable","Grouping always increases capacity","Grouping has no thermal effect","Only three-phase cables are affected"],"answer":"A","answerText":"Grouped cables mutually heat each other, reducing safe current per cable","why":""},{"n":70,"topic":"Cables & Volt Drop (52)","q":"A cable fully surrounded by thermal insulation has its capacity:","options":["Increased, since insulation retains heat usefully","Significantly reduced — a thermal insulation factor (Ci) less than 1 applies","Unaffected","Only relevant for SWA cable"],"answer":"B","answerText":"Significantly reduced — a thermal insulation factor (Ci) less than 1 applies","why":""},{"n":71,"topic":"Cables & Volt Drop (52)","q":"For a 90°C cable at reference ambient 30°C, installed at 40°C, Ca is calculated using:","options":["Ca = (θz−θa)/(θz−θref)","Ca = √[(θz−θa)/(θz−θref)]","Ca = θz/θa","Ca = θref−θa"],"answer":"B","answerText":"Ca = √[(θz−θa)/(θz−θref)]","why":"Here: √[(90−40)/(90−30)] = √(50/60) ≈ 0.91."},{"n":72,"topic":"Cables & Volt Drop (52)","q":"The recommended maximum voltage drop, origin to load point, for a low-voltage public supply, is generally:","options":["3% for lighting, 5% for other uses","1% for all circuits","10% for all circuits","5% for lighting, 3% for other uses"],"answer":"A","answerText":"3% for lighting, 5% for other uses","why":""},{"n":73,"topic":"Cables & Volt Drop (52)","q":"Voltage drop in a cable run is approximately calculated using:","options":["mV/A/m × Ib × length(m) / 1000","Ib × csa only","length × csa","It can only be measured, not calculated"],"answer":"A","answerText":"mV/A/m × Ib × length(m) / 1000","why":""},{"n":74,"topic":"Cables & Volt Drop (52)","q":"Using mV/A/m=18, Ib=20A, length=15m, the approximate voltage drop is:","options":["1.8V","5.4V","18V","27V"],"answer":"B","answerText":"5.4V","why":"(18×20×15)/1000 = 5.4V."},{"n":75,"topic":"Cables & Volt Drop (52)","q":"The minimum copper line conductor csa generally quoted for a fixed power circuit is:","options":["1.0 mm²","1.5 mm²","2.5 mm²","4.0 mm²"],"answer":"C","answerText":"2.5 mm²","why":"1.5mm² is typical for lighting; 2.5mm² is the common general minimum for power — always check the specific circuit and exceptions."},{"n":76,"topic":"Cables & Volt Drop (52)","q":"A cable through a timber joist, outside a permitted safe zone, must (522.6.201) be:","options":["At any depth without restriction","At least 50mm from the top/bottom of the joist, or otherwise protected against damage","Painted red for visibility","Run only in steel conduit"],"answer":"B","answerText":"At least 50mm from the top/bottom of the joist, or otherwise protected against damage","why":""},{"n":77,"topic":"Cables & Volt Drop (52)","q":"A cable in a wall at less than 50mm depth, outside a safe zone, generally requires:","options":["No additional protection","Additional protection, typically 30mA RCD or robust mechanical protection","A different cable colour","A minimum csa of 10mm²"],"answer":"B","answerText":"Additional protection, typically 30mA RCD or robust mechanical protection","why":""},{"n":78,"topic":"Cables & Volt Drop (52)","q":"Safe zones for cables in walls are generally defined as bands:","options":["Within 150mm of a wall/ceiling junction or corner, or running directly to/from an accessory","Only at the centre of the wall","At floor level only","There are no defined safe zones"],"answer":"A","answerText":"Within 150mm of a wall/ceiling junction or corner, or running directly to/from an accessory","why":""},{"n":79,"topic":"Cables & Volt Drop (52)","q":"For a single-phase a.c. installation, the line conductor core colour is:","options":["Blue","Brown","Green/yellow","Black"],"answer":"B","answerText":"Brown","why":""},{"n":80,"topic":"Cables & Volt Drop (52)","q":"The protective (earth) conductor is identified by:","options":["Brown insulation","Blue insulation","Green-and-yellow bi-colour combination","Black insulation"],"answer":"C","answerText":"Green-and-yellow bi-colour combination","why":""},{"n":81,"topic":"Cables & Volt Drop (52)","q":"For a DC circuit, the colour identification for the positive conductor (L+) is:","options":["Blue","Grey","Brown","Black"],"answer":"C","answerText":"Brown","why":"DC positive is Brown; DC negative is Grey."},{"n":82,"topic":"Earthing & Bonding (54)","q":"In a TN-S system, the earth path back to source is provided by:","options":["A separate local earth electrode only","The metallic sheath/armour of the supply cable","A PEN conductor","There is no earth path"],"answer":"B","answerText":"The metallic sheath/armour of the supply cable","why":""},{"n":83,"topic":"Earthing & Bonding (54)","q":"In a TN-C-S system, within the installation the neutral and protective functions are:","options":["Combined throughout","Combined only on the supply side (PEN); separated into N and cpc within the installation","Never combined anywhere","Provided by a local electrode"],"answer":"B","answerText":"Combined only on the supply side (PEN); separated into N and cpc within the installation","why":""},{"n":84,"topic":"Earthing & Bonding (54)","q":"Main protective bonding connects extraneous-conductive-parts to:","options":["The neutral bar directly","The main earthing terminal","The nearest socket outlet","Nothing — it's optional"],"answer":"B","answerText":"The main earthing terminal","why":""},{"n":85,"topic":"Earthing & Bonding (54)","q":"The minimum copper-equivalent csa for main protective bonding per Table 54.8 is:","options":["2.5 mm²","6 mm²","10 mm²","16 mm²"],"answer":"B","answerText":"6 mm²","why":"6mm² is the BS 7671 table minimum, though DNOs often specify 10mm² in practice on PME supplies."},{"n":86,"topic":"Earthing & Bonding (54)","q":"Supplementary bonding conductors NOT mechanically protected need a minimum csa of:","options":["1.5 mm²","2.5 mm²","4 mm²","6 mm²"],"answer":"C","answerText":"4 mm²","why":""},{"n":87,"topic":"Earthing & Bonding (54)","q":"Supplementary bonding conductors that ARE mechanically protected need a minimum csa of:","options":["1.0 mm²","2.5 mm²","4 mm²","6 mm²"],"answer":"B","answerText":"2.5 mm²","why":""},{"n":88,"topic":"Earthing & Bonding (54)","q":"A warning notice at a bonding connection should read:","options":["\"Danger – Live Parts\"","\"Safety Electrical Connection – Do Not Remove\"","\"Earth – Test Point Only\"","\"Isolate Before Use\""],"answer":"B","answerText":"\"Safety Electrical Connection – Do Not Remove\"","why":""},{"n":89,"topic":"Earthing & Bonding (54)","q":"Zs = Ze + (R1+R2) means:","options":["Zs is independent of the circuit's protective conductor resistance","Total loop impedance = external impedance + line and cpc resistance within the circuit","R1 and R2 refer to two separate earth electrodes","Ze is measured after the circuit is wired"],"answer":"B","answerText":"Total loop impedance = external impedance + line and cpc resistance within the circuit","why":""},{"n":90,"topic":"Earthing & Bonding (54)","q":"Which system relies on the general mass of earth rather than a metallic path back to the source?","options":["TN-S","TN-C-S","TT","None — all use a local electrode"],"answer":"C","answerText":"TT","why":""},{"n":91,"topic":"Earthing & Bonding (54)","q":"A PEN conductor is:","options":["A conductor combining protective conductor and neutral functions, used by the DNO in PME systems","A type of bonding conductor only","Only used in TT systems","A conductor used exclusively in SELV circuits"],"answer":"A","answerText":"A conductor combining protective conductor and neutral functions, used by the DNO in PME systems","why":""},{"n":92,"topic":"Earthing & Bonding (54)","q":"Under an \"open PEN\" fault on a PME supply, exposed-conductive-parts can become:","options":["Completely safe with no risk","Live at a dangerous voltage relative to true earth","Automatically disconnected instantly with no further action","Irrelevant to the design"],"answer":"B","answerText":"Live at a dangerous voltage relative to true earth","why":""},{"n":93,"topic":"Earthing & Bonding (54)","q":"Which is generally NOT acceptable as the sole means of earthing for a TT installation?","options":["A driven earth rod/electrode","An earth mat or plate electrode","Reliance on the metallic water service pipe alone","A properly designed earth electrode system"],"answer":"C","answerText":"Reliance on the metallic water service pipe alone","why":""},{"n":94,"topic":"Earthing & Bonding (54)","q":"Bonding of simultaneously-accessible exposed and extraneous parts, beyond main bonding, is called:","options":["Main protective bonding","Supplementary (equipotential) bonding","Functional earthing","Isolation"],"answer":"B","answerText":"Supplementary (equipotential) bonding","why":""},{"n":95,"topic":"Earthing & Bonding (54)","q":"Functional earthing (Section 545, revised by A4) is provided:","options":["For electric shock protection only","For correct equipment operation and EMC, distinct from protective earthing","Only in agricultural locations","Instead of protective earthing, replacing it"],"answer":"B","answerText":"For correct equipment operation and EMC, distinct from protective earthing","why":""},{"n":96,"topic":"Inspection & Testing (Pt 6)","q":"Initial verification of a new installation comprises:","options":["Inspection only","Testing only","Inspection followed by testing (dead tests, then live tests)","A visual check by the customer"],"answer":"C","answerText":"Inspection followed by testing (dead tests, then live tests)","why":""},{"n":97,"topic":"Inspection & Testing (Pt 6)","q":"Which test is normally carried out FIRST in the dead-test sequence?","options":["Earth fault loop impedance","Continuity of protective conductors (incl. bonding)","RCD operation","Insulation resistance"],"answer":"B","answerText":"Continuity of protective conductors (incl. bonding)","why":""},{"n":98,"topic":"Inspection & Testing (Pt 6)","q":"A ring final circuit continuity test (figure-of-eight method) confirms:","options":["The RCD operates correctly","No breaks or crossed connections in the ring, and correct polarity at each outlet","Voltage drop only","Earth electrode resistance"],"answer":"B","answerText":"No breaks or crossed connections in the ring, and correct polarity at each outlet","why":""},{"n":99,"topic":"Inspection & Testing (Pt 6)","q":"Insulation resistance testing on a circuit up to 500V is typically carried out at:","options":["250V, minimum 0.5 MΩ","500V DC, minimum 1.0 MΩ","1000V, minimum 1.0 MΩ","50V, minimum 2.0 MΩ"],"answer":"B","answerText":"500V DC, minimum 1.0 MΩ","why":""},{"n":100,"topic":"Inspection & Testing (Pt 6)","q":"For SELV/PELV circuits, insulation resistance testing is typically carried out at:","options":["250V DC, minimum 0.5 MΩ","500V DC, minimum 1.0 MΩ","1000V DC, minimum 2.0 MΩ","No test is required"],"answer":"A","answerText":"250V DC, minimum 0.5 MΩ","why":""},{"n":101,"topic":"Inspection & Testing (Pt 6)","q":"Before insulation resistance testing, you should typically:","options":["Nothing extra is needed","Disconnect/isolate voltage-sensitive electronics that could be damaged by the test voltage","Switch all RCDs to test position","Remove all fuses only"],"answer":"B","answerText":"Disconnect/isolate voltage-sensitive electronics that could be damaged by the test voltage","why":""},{"n":102,"topic":"Inspection & Testing (Pt 6)","q":"Polarity verification confirms that:","options":["The voltage is correct","Single-pole devices switch the line conductor, and lampholder centre-pins connect to line not neutral","The RCD trips within the correct time","Cable colour matches wall colour"],"answer":"B","answerText":"Single-pole devices switch the line conductor, and lampholder centre-pins connect to line not neutral","why":""},{"n":103,"topic":"Inspection & Testing (Pt 6)","q":"Ze (external earth fault loop impedance) is measured:","options":["With main switch closed, main bonding in place, and the earthing conductor temporarily disconnected from the MET","With the supply completely disconnected","Only at socket outlets","It cannot be measured, only calculated"],"answer":"A","answerText":"With main switch closed, main bonding in place, and the earthing conductor temporarily disconnected from the MET","why":""},{"n":104,"topic":"Inspection & Testing (Pt 6)","q":"A general-purpose RCD tested at its rated residual current (IΔn) should disconnect within:","options":["40ms","300ms","1s","5s"],"answer":"B","answerText":"300ms","why":""},{"n":105,"topic":"Inspection & Testing (Pt 6)","q":"The same RCD, tested at 5×IΔn, should disconnect within:","options":["40ms","150ms","300ms","500ms"],"answer":"A","answerText":"40ms","why":""},{"n":106,"topic":"Inspection & Testing (Pt 6)","q":"An Electrical Installation Certificate (EIC) is used for:","options":["Periodic inspection of an existing installation","New installation work, or an addition/alteration including a new circuit","Minor alterations not involving a new circuit","PAT testing"],"answer":"B","answerText":"New installation work, or an addition/alteration including a new circuit","why":""},{"n":107,"topic":"Inspection & Testing (Pt 6)","q":"A Minor Electrical Installation Works Certificate is appropriate for:","options":["A brand-new consumer unit installation","Additions/alterations that do NOT include a new circuit","A full rewire","Any periodic inspection"],"answer":"B","answerText":"Additions/alterations that do NOT include a new circuit","why":""},{"n":108,"topic":"Inspection & Testing (Pt 6)","q":"An Electrical Installation Condition Report (EICR) is used to:","options":["Certify new installation work","Report on the condition of an existing installation following periodic inspection","Replace the need for an EIC on new work","Certify PAT-tested appliances"],"answer":"B","answerText":"Report on the condition of an existing installation following periodic inspection","why":""},{"n":109,"topic":"Inspection & Testing (Pt 6)","q":"Observation code \"C1\" on an EICR means:","options":["Improvement recommended","Potentially dangerous — urgent remedial action required","Danger present — immediate remedial action required","Further investigation required"],"answer":"C","answerText":"Danger present — immediate remedial action required","why":""},{"n":110,"topic":"Inspection & Testing (Pt 6)","q":"Observation code \"C2\" on an EICR means:","options":["Danger present — immediate action required","Potentially dangerous — urgent remedial action required","Improvement recommended, not presently dangerous","Compliant, no action needed"],"answer":"B","answerText":"Potentially dangerous — urgent remedial action required","why":""},{"n":111,"topic":"Inspection & Testing (Pt 6)","q":"Observation code \"FI\" on an EICR indicates:","options":["\"Fully Inspected\" — a pass code","Further investigation required without delay","The installation failed entirely","The fuse is incorrect"],"answer":"B","answerText":"Further investigation required without delay","why":""},{"n":112,"topic":"Inspection & Testing (Pt 6)","q":"The typical maximum recommended interval before the next EICR for an owner-occupied domestic dwelling is generally:","options":["1 year","3 years","10 years, or at change of occupancy","25 years"],"answer":"C","answerText":"10 years, or at change of occupancy","why":""},{"n":113,"topic":"Inspection & Testing (Pt 6)","q":"Under the Electrical Safety Standards in the Private Rented Sector Regulations, landlords in England must have an EICR at intervals not exceeding:","options":["1 year","5 years, or sooner as required","10 years","There is no requirement"],"answer":"B","answerText":"5 years, or sooner as required","why":""},{"n":114,"topic":"Special Locations (Pt 7)","q":"In a bathroom (701), Zone 0 is defined as:","options":["The area more than 3m from the bath","The interior of the bath tub or shower basin itself","The whole bathroom floor","Only the area under the sink"],"answer":"B","answerText":"The interior of the bath tub or shower basin itself","why":""},{"n":115,"topic":"Special Locations (Pt 7)","q":"Zone 1 in a bathroom extends broadly to:","options":["Above zone 0 up to 2.25m from the floor, within the bath/shower boundary","The entire room","3m in every direction","Only above the shower head"],"answer":"A","answerText":"Above zone 0 up to 2.25m from the floor, within the bath/shower boundary","why":""},{"n":116,"topic":"Special Locations (Pt 7)","q":"The minimum IP rating required for equipment in Zone 0 of a bathroom is:","options":["IPX4","IPX5","IPX7","No rating required"],"answer":"C","answerText":"IPX7","why":""},{"n":117,"topic":"Special Locations (Pt 7)","q":"Supplementary bonding in a bathroom may be omitted, provided (among other conditions):","options":["The room has a window","All final circuits meet 411.3.2 disconnection times, have 30mA RCD protection, and main bonding is in place","The homeowner agrees in writing","It may never be omitted"],"answer":"B","answerText":"All final circuits meet 411.3.2 disconnection times, have 30mA RCD protection, and main bonding is in place","why":""},{"n":118,"topic":"Special Locations (Pt 7)","q":"In a swimming pool location (702), Zone 0 covers:","options":["The interior of the pool basin","The whole pool hall","A 2m perimeter around the pool","Only underwater lighting"],"answer":"A","answerText":"The interior of the pool basin","why":""},{"n":119,"topic":"Special Locations (Pt 7)","q":"For a pool with a diving board, Zone 1 typically extends vertically above the board to around:","options":["1.0m","1.5m","2.5m","4.0m"],"answer":"C","answerText":"2.5m","why":""},{"n":120,"topic":"Special Locations (Pt 7)","q":"In a sauna (703), Zone 1 is generally the space:","options":["More than 2m above the floor","From floor level up to around 1.0m, near the heater","Only inside the heater casing","Outside the sauna cabin"],"answer":"B","answerText":"From floor level up to around 1.0m, near the heater","why":""},{"n":121,"topic":"Special Locations (Pt 7)","q":"Sauna Zone 3 generally starts:","options":["At floor level","Above around the 1.0m mark","Only above 3m","There is no Zone 3 in saunas"],"answer":"B","answerText":"Above around the 1.0m mark","why":""},{"n":122,"topic":"Special Locations (Pt 7)","q":"Construction sites (704) typically use 110V CTE for portable tools because:","options":["It looks different from permanent supplies","It halves the shock voltage to earth (55V) in harsh, damp conditions","It is cheaper to install","BS 7671 does not address construction sites"],"answer":"B","answerText":"It halves the shock voltage to earth (55V) in harsh, damp conditions","why":""},{"n":123,"topic":"Special Locations (Pt 7)","q":"Agricultural/horticultural premises (705) require additional RCD protection because:","options":["Livestock can be more sensitive to shock, and the environment is damp/corrosive","There is no additional risk","Animals are unaffected by electricity","Section 705 only applies to arable farms"],"answer":"A","answerText":"Livestock can be more sensitive to shock, and the environment is damp/corrosive","why":""},{"n":124,"topic":"Special Locations (Pt 7)","q":"A caravan pitch electrical supply (708) is typically provided via:","options":["A hardwired connection with no plug","A weatherproof socket-outlet per pitch (commonly 16A), individually RCD-protected","A 13A domestic socket with no RCD","A shared, unprotected supply"],"answer":"B","answerText":"A weatherproof socket-outlet per pitch (commonly 16A), individually RCD-protected","why":""},{"n":125,"topic":"Special Locations (Pt 7)","q":"The flexible cable connecting a caravan to its pitch supply should have a minimum csa of around:","options":["1.0 mm²","1.5 mm²","2.5 mm²","4.0 mm²"],"answer":"C","answerText":"2.5 mm²","why":""},{"n":126,"topic":"Special Locations (Pt 7)","q":"Marina (709) socket-outlets supplying pontoons/berths should be:","options":["Standard sockets with no special consideration","Individually 30mA RCD-protected, suitably rated for the marine environment","Fed from a single shared unprotected circuit","Prohibited under BS 7671"],"answer":"B","answerText":"Individually 30mA RCD-protected, suitably rated for the marine environment","why":""},{"n":127,"topic":"Special Locations (Pt 7)","q":"Medical locations (710) often use an IT system in higher-risk 'Group 2' areas primarily because:","options":["It is cheaper","A first fault doesn't force immediate disconnection, so life-support equipment can keep running","It removes the need for any earthing","IT systems are mandatory in all medical rooms"],"answer":"B","answerText":"A first fault doesn't force immediate disconnection, so life-support equipment can keep running","why":""},{"n":128,"topic":"Special Locations (Pt 7)","q":"Amendment 4 revised Section 710 (medical locations) primarily around:","options":["Removing the requirement for supplementary bonding entirely","Enhanced supplementary bonding procedures and a schedule for recording resistance measurements","Banning IT systems in hospitals","Reducing disconnection times to zero"],"answer":"B","answerText":"Enhanced supplementary bonding procedures and a schedule for recording resistance measurements","why":""},{"n":129,"topic":"Special Locations (Pt 7)","q":"Solar PV (712) DC-side installations need particular care because:","options":["DC arcs can be harder to extinguish, and can't be switched off at will while illuminated","DC has no associated shock risk","PV systems never produce DC","There is no specific PV guidance in BS 7671"],"answer":"A","answerText":"DC arcs can be harder to extinguish, and can't be switched off at will while illuminated","why":""},{"n":130,"topic":"Special Locations (Pt 7)","q":"For EV charging (722) on a PME supply, a key safety concern is:","options":["Voltage drop only","Open-PEN fault risk making vehicle metalwork dangerously live — addressed by open-PEN detection or a TT arrangement","Cable colour","PME supplies need no special measures for EV charging"],"answer":"B","answerText":"Open-PEN fault risk making vehicle metalwork dangerously live — addressed by open-PEN detection or a TT arrangement","why":""},{"n":131,"topic":"Special Locations (Pt 7)","q":"RCD protection for an EV charge point commonly addresses smooth DC leakage by using:","options":["A Type AC RCD only","A Type B RCD, or Type A plus a 6mA DC RDC-DD","No RCD at all","A time-delayed (S-type) RCD only"],"answer":"B","answerText":"A Type B RCD, or Type A plus a 6mA DC RDC-DD","why":""},{"n":132,"topic":"Special Locations (Pt 7)","q":"Temporary installations at exhibitions/fairgrounds require:","options":["No RCD protection because they're temporary","30mA RCD protection on socket-outlet/public-accessible circuits, equipment out of arm's reach where relevant","Only three-phase supplies","Permanent wiring methods only"],"answer":"B","answerText":"30mA RCD protection on socket-outlet/public-accessible circuits, equipment out of arm's reach where relevant","why":""},{"n":133,"topic":"Special Locations (Pt 7)","q":"Restrictive conductive locations (706), e.g. inside a metal tank, impose extra precautions mainly because:","options":["Body resistance is effectively reduced by extensive contact with earthed metal, raising shock risk","There is no additional risk in confined metal spaces","It only relates to gas installations","The location is always outdoors"],"answer":"A","answerText":"Body resistance is effectively reduced by extensive contact with earthed metal, raising shock risk","why":""},{"n":134,"topic":"Prosumer & Amendment 4","q":"A prosumer's low-voltage installation (Part 8) is one that:","options":["Only consumes electricity","Both consumes AND can generate/store/potentially export electricity","Has no connection to the public supply","Is only found in industrial premises"],"answer":"B","answerText":"Both consumes AND can generate/store/potentially export electricity","why":""},{"n":135,"topic":"Prosumer & Amendment 4","q":"An EEMS (Electrical Energy Management System) is used to:","options":["Physically rewire an installation","Monitor and control generation, storage and consumption, potentially including automatic disconnection","Replace the main switch","Only measure voltage drop"],"answer":"B","answerText":"Monitor and control generation, storage and consumption, potentially including automatic disconnection","why":""},{"n":136,"topic":"Prosumer & Amendment 4","q":"A PEI (Power Electronic Interface, e.g. a PV/battery inverter) needs a suitable means of earthing in island mode because:","options":["Island mode never occurs","When disconnected from the DNO, the normal PME earth reference is unavailable, so an alternative is needed","Earthing is never required for inverters","It only applies to three-phase inverters"],"answer":"B","answerText":"When disconnected from the DNO, the normal PME earth reference is unavailable, so an alternative is needed","why":""},{"n":137,"topic":"Prosumer & Amendment 4","q":"Amendment 4 introduced a completely new Chapter 57 covering:","options":["Voltage drop","Stationary secondary batteries (BESS) — siting, ventilation, fire risk, isolation","Cable colours","SELV circuits"],"answer":"B","answerText":"Stationary secondary batteries (BESS) — siting, ventilation, fire risk, isolation","why":""},{"n":138,"topic":"Prosumer & Amendment 4","q":"Amendment 4 introduced a new Section 716, addressing:","options":["Swimming pools","Power over Ethernet — thermal/derating where data cables carry DC power","Agricultural premises","Fire alarm systems"],"answer":"B","answerText":"Power over Ethernet — thermal/derating where data cables carry DC power","why":""},{"n":139,"topic":"Prosumer & Amendment 4","q":"Amendment 4 introduced a new Chapter 81 covering:","options":["An energy-efficiency assessment framework for LV installations","Emergency lighting only","Lightning protection","Data cabling standards"],"answer":"A","answerText":"An energy-efficiency assessment framework for LV installations","why":""},{"n":140,"topic":"Prosumer & Amendment 4","q":"BS 7671 Amendment 4:2026 was published on:","options":["1 January 2026","15 April 2026","1 July 2026","31 December 2026"],"answer":"B","answerText":"15 April 2026","why":""},{"n":141,"topic":"Prosumer & Amendment 4","q":"Chapter 57 guidance generally advises stationary secondary batteries should NOT be sited:","options":["In a garage","In roof spaces, due to detection, ventilation and fire-containment challenges","On an external wall","In a purpose-designed enclosure"],"answer":"B","answerText":"In roof spaces, due to detection, ventilation and fire-containment challenges","why":""},{"n":142,"topic":"Prosumer & Amendment 4","q":"Which of these originates from Amendment 2:2022 rather than Amendment 4:2026?","options":["Chapter 57 (batteries)","Section 716 (PoE)","AFDD requirements (421.1.7) and the original Part 8 prosumer provisions","Chapter 81 (energy efficiency)"],"answer":"C","answerText":"AFDD requirements (421.1.7) and the original Part 8 prosumer provisions","why":""},{"n":143,"topic":"Calculations","q":"A circuit has Ze=0.35Ω, R1=0.10Ω, R2=0.16Ω. What is Zs?","options":["0.35Ω","0.51Ω","0.61Ω","0.26Ω"],"answer":"C","answerText":"0.61Ω","why":"Zs = 0.35 + (0.10+0.16) = 0.61Ω."},{"n":144,"topic":"Calculations","q":"A device has In=20A. After all rating factors, Iz=18.5A, and Ib=17A. Is Ib≤In≤Iz satisfied?","options":["Yes — 17≤20≤18.5 is satisfied","No — In (20A) exceeds Iz (18.5A)","It's irrelevant, only Ib matters","Yes, because Ib is less than In"],"answer":"B","answerText":"No — In (20A) exceeds Iz (18.5A)","why":"In must not exceed Iz — here 20A>18.5A, so a larger cable or smaller device is needed."},{"n":145,"topic":"Calculations","q":"A cable has It=27A. Applying Cg=0.8 and Ca=0.94, what is Iz?","options":["20.3A","22.7A","25.4A","27.0A"],"answer":"A","answerText":"20.3A","why":"27×0.94×0.8 = 20.3A."},{"n":146,"topic":"Calculations","q":"Adiabatic check: I=800A, t=0.2s, k=143. Minimum csa required?","options":["1.9 mm²","2.5 mm²","3.6 mm²","5.0 mm²"],"answer":"B","answerText":"2.5 mm²","why":"√(800²×0.2)=√128000≈357.8; 357.8/143≈2.5mm²."},{"n":147,"topic":"Calculations","q":"A 25m run carries 15A design current, with a tabulated 11 mV/A/m. What's the voltage drop, and does it meet a 5% (11.5V) limit on 230V?","options":["4.1V — complies","4.1V — does not comply","41V — does not comply","16.5V — does not comply"],"answer":"A","answerText":"4.1V — complies","why":"(11×15×25)/1000=4.125V, below the 11.5V limit."},{"n":148,"topic":"Calculations","q":"Measured R1+R2=0.42Ω, Ze=0.30Ω. What is the calculated Zs?","options":["0.12Ω","0.42Ω","0.72Ω","0.30Ω"],"answer":"C","answerText":"0.72Ω","why":"Zs = 0.30+0.42 = 0.72Ω."},{"n":149,"topic":"Calculations","q":"A ring's line conductor end-to-end resistance (r1) measures 0.8Ω, with r1=rn=r2. What would you expect the line-cpc reading at the ring's midpoint socket to be roughly?","options":["Approximately 0.2Ω, per the standard cross-connection ring test method","Exactly 0.8Ω","Exactly 1.6Ω","0Ω"],"answer":"A","answerText":"Approximately 0.2Ω, per the standard cross-connection ring test method","why":"The standard ring test should give a broadly consistent reading around a quarter of (r1+r2) at the midpoint, confirming no break."},{"n":150,"topic":"Calculations","q":"For a three-phase balanced load, the design current Ib used to select a device is:","options":["Checked per line conductor, based on the current that conductor actually carries","Only the total three-phase power, never per-line current","Irrelevant — three-phase never needs overcurrent protection","Irrelevant to voltage drop"],"answer":"A","answerText":"Checked per line conductor, based on the current that conductor actually carries","why":""},{"n":151,"topic":"Calculations","q":"A calculation gives a required csa of 4.3mm². The size you must select is:","options":["4.0mm² (round down, close enough)","6.0mm² (round up to the next standard size at or above the minimum)","Either is acceptable","2.5mm²"],"answer":"B","answerText":"6.0mm² (round up to the next standard size at or above the minimum)","why":"The selected csa must never be below the calculated minimum."},{"n":152,"topic":"Calculations","q":"Two RCDs in series (100mA time-delayed main, 30mA instantaneous final circuit) achieve discrimination, meaning:","options":["Both will always trip simultaneously","Under a final-circuit fault, only the 30mA device should operate, leaving the rest energised","Discrimination isn't possible with RCDs","The 100mA device is redundant"],"answer":"B","answerText":"Under a final-circuit fault, only the 30mA device should operate, leaving the rest energised","why":""}];
+const PASS = 0.6, MOCK_N = 60, MOCK_MS = 120*60*1000;
+const TOPICS = [...new Set(QUESTIONS.map(q=>q.topic))];
+const byId = Object.fromEntries(QUESTIONS.map(q=>[q.n,q]));
+const $ = s=>document.querySelector(s);
+const K = {sess:'bs7671.session.v1', hist:'bs7671.history.v1', stats:'bs7671.stats.v1'};
+
+function load(k,f){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):f; }catch(e){ return f; } }
+function save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+function drop(k){ try{ localStorage.removeItem(k); }catch(e){} }
+
+let S = null;           // active session
+let tick = null;
+
+/* ---------- session construction ---------- */
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function mockIds(){
+  // proportional sample across topics, then top up / trim to exactly MOCK_N
+  const picked=[];
+  const pools = TOPICS.map(t=>({t, pool:shuffle(QUESTIONS.filter(q=>q.topic===t).map(q=>q.n))}));
+  pools.forEach(p=>{
+    const want = Math.round(p.pool.length/QUESTIONS.length*MOCK_N);
+    picked.push(...p.pool.splice(0, Math.min(want, p.pool.length)));
+  });
+  const spare = shuffle(pools.flatMap(p=>p.pool));
+  shuffle(picked);
+  while(picked.length < MOCK_N && spare.length) picked.push(spare.pop());
+  while(picked.length > MOCK_N) picked.pop();
+  return shuffle(picked);
+}
+
+function startSession(mode, opts={}){
+  let ids;
+  if(mode==='mock') ids = mockIds();
+  else if(mode==='bank') ids = QUESTIONS.map(q=>q.n);
+  else if(mode==='practice') ids = shuffle(QUESTIONS.filter(q=>opts.topics.includes(q.topic)).map(q=>q.n));
+  else ids = opts.ids || [];
+  S = { mode, ids, answers:{}, flags:[], idx:0, submitted:false,
+        endsAt: mode==='mock' ? Date.now()+MOCK_MS : null,
+        feedback: mode!=='mock', label: opts.label || null };
+  persist(); showExam();
+}
+
+function persist(){ if(S && !S.submitted && S.mode!=='review') save(K.sess,S); }
+
+/* ---------- views ---------- */
+function show(v){
+  ['home','exam','results','notes'].forEach(n=>$('#v-'+n).hidden = (n!==v));
+  window.scrollTo(0,0);
+}
+function goHome(){ stopTimer(); show('home'); renderHome(); }
+
+/* ---------- home ---------- */
+function renderHome(){
+  const stats = load(K.stats,{});
+  $('#topic-list').innerHTML = TOPICS.map(t=>{
+    const n = QUESTIONS.filter(q=>q.topic===t).length;
+    const st = stats[t];
+    const pct = st && st.seen ? Math.round(st.right/st.seen*100) : null;
+    return `<button class="topic" data-topic="${esc(t)}">
+      <span class="topic-name">${esc(t)}</span>
+      <span class="topic-bar" style="opacity:${pct===null?.4:1}" title="${pct===null?'Not attempted yet':pct+'% correct so far'}"><i style="width:${pct===null?0:pct}%;background:${pct===null?'var(--surface-3)':pct>=80?'var(--ok)':pct>=60?'var(--warn)':'var(--bad)'}"></i></span>
+      <span class="topic-n tnum">${pct===null? n+' Qs' : pct+'% · '+n}</span>
+    </button>`;
+  }).join('');
+
+  const hist = load(K.hist,[]);
+  $('#hist-section').hidden = !hist.length;
+  $('#hist-list').innerHTML = hist.slice(0,8).map(h=>{
+    const pct = Math.round(h.right/h.total*100);
+    return `<div class="hist-row">
+      <span class="pct tnum" style="color:${pct>=60?'var(--ok)':'var(--bad)'}">${pct}%</span>
+      <span class="pill ${pct>=60?'pass':'fail'}">${pct>=60?'Pass':'Below pass'}</span>
+      <span class="tnum" style="color:var(--ink-2)">${h.right} / ${h.total}</span>
+      <span class="when">${new Date(h.at).toLocaleDateString(undefined,{day:'numeric',month:'short'})}</span>
+    </div>`;
+  }).join('');
+
+  const saved = load(K.sess,null);
+  const slot = $('#resume-slot');
+  if(saved && saved.ids && saved.ids.length && Object.keys(saved.answers||{}).length){
+    const live = saved.mode!=='mock' || !saved.endsAt || saved.endsAt>Date.now();
+    slot.innerHTML = `<div class="resume">
+      <p><strong>${live?'Session in progress':'Mock exam timed out'}</strong> — ${modeName(saved.mode)}, ${Object.keys(saved.answers).length} of ${saved.ids.length} answered.</p>
+      ${live?'<button class="btn solid" id="do-resume">Resume</button>':'<button class="btn solid" id="do-resume">See result</button>'}
+      <button class="btn ghost" id="do-discard">Discard</button></div>`;
+    $('#do-resume').onclick = ()=>{ S = saved; if(!S.flags) S.flags=[];
+      if(S.mode==='mock' && S.endsAt && S.endsAt<=Date.now()) return submitExam();
+      showExam(); };
+    $('#do-discard').onclick = ()=>{ drop(K.sess); renderHome(); };
+  } else slot.innerHTML='';
+}
+function modeName(m){ return m==='mock'?'Timed mock exam':m==='bank'?'Full question bank':m==='review'?'Review':'Topic practice'; }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* ---------- exam rendering ---------- */
+function showExam(){ show('exam'); renderQ(); startTimer(); }
+
+function renderQ(){
+  const q = byId[S.ids[S.idx]];
+  $('#exam-mode').textContent = S.label || modeName(S.mode);
+  $('#exam-count').textContent = (S.idx+1)+' / '+S.ids.length;
+  $('#exam-prog').style.width = ((S.idx+1)/S.ids.length*100)+'%';
+  $('#q-num').textContent = 'Q'+(S.idx+1);
+  $('#q-topic').innerHTML = esc(q.topic)+' <span class="qref">#'+q.n+'</span>';
+  $('#q-text').textContent = q.q;
+
+  const given = S.answers[q.n];
+  const marked = S.feedback && given != null;
+  $('#q-opts').innerHTML = q.options.map((o,i)=>{
+    const L='ABCD'[i];
+    let cls='opt', mark='';
+    if(marked || S.submitted){
+      cls+=' locked';
+      if(L===q.answer){ cls+=' correct'; mark='Correct'; }
+      else if(L===given){ cls+=' wrong'; mark='Your answer'; }
+    } else if(L===given) cls+=' sel';
+    return `<button class="${cls}" data-pick="${L}">
+      <span class="opt-l">${L}</span><span class="opt-t">${esc(o)}</span>
+      ${mark?`<span class="opt-mark">${mark}</span>`:''}</button>`;
+  }).join('');
+
+  const ex = $('#q-explain');
+  if(marked || (S.submitted && given!=null) || (S.submitted && S.mode==='review')){
+    const right = given===q.answer;
+    ex.innerHTML = `<div class="explain ${right?'ok':'no'}">
+      <span class="eyebrow">${given==null?'Answer':right?'Correct':'The answer is '+q.answer}</span>
+      <p><b>${esc(q.answerText||q.options['ABCD'.indexOf(q.answer)])}</b>${q.why?' — '+esc(q.why):''}</p></div>`;
+  } else ex.innerHTML='';
+
+  $('#flag-q').classList.toggle('flagged', S.flags.includes(q.n));
+  $('#prev-q').disabled = S.idx===0;
+  const last = S.idx===S.ids.length-1;
+  $('#next-q').textContent = last ? (S.mode==='mock' && !S.submitted ? 'Finish →' : 'Done →') : 'Next →';
+  $('#exam-timer').hidden = !(S.mode==='mock' && !S.submitted);
+}
+
+function pick(L){
+  const q = byId[S.ids[S.idx]];
+  if(S.submitted || (S.feedback && S.answers[q.n]!=null)) return;
+  S.answers[q.n]=L;
+  if(S.feedback) bumpStat(q.topic, L===q.answer);
+  persist(); renderQ();
+  if(!S.feedback && S.idx < S.ids.length-1) setTimeout(()=>move(1), 140);
+}
+function bumpStat(topic, right){
+  const s = load(K.stats,{});
+  s[topic] = s[topic] || {seen:0,right:0};
+  s[topic].seen++; if(right) s[topic].right++;
+  save(K.stats,s);
+}
+function move(d){
+  const n = S.idx+d;
+  if(n<0) return;
+  if(n>=S.ids.length){
+    if(S.mode==='mock' && !S.submitted) return openNav();
+    return S.submitted ? showResults(S.last) : goHome();
+  }
+  S.idx=n; persist(); renderQ();
+}
+function toggleFlag(){
+  const n = S.ids[S.idx];
+  const i = S.flags.indexOf(n);
+  i>-1 ? S.flags.splice(i,1) : S.flags.push(n);
+  persist(); renderQ();
+}
+
+/* ---------- timer ---------- */
+function startTimer(){
+  stopTimer();
+  if(S.mode!=='mock' || S.submitted) return;
+  const paint = ()=>{
+    const left = S.endsAt - Date.now();
+    const el = $('#exam-timer');
+    if(left<=0){ el.textContent='0:00'; return submitExam(); }
+    const total = Math.ceil(left/1000);
+    el.textContent = Math.floor(total/60)+':'+String(total%60).padStart(2,'0');
+    el.className = 'timer tnum' + (left<2*60000?' crit':left<10*60000?' warn':'');
+  };
+  paint(); tick = setInterval(paint,1000);
+}
+function stopTimer(){ if(tick){ clearInterval(tick); tick=null; } }
+
+/* ---------- navigator ---------- */
+function openNav(){
+  $('#navgrid').innerHTML = S.ids.map((n,i)=>{
+    let cls='navchip';
+    const given=S.answers[n];
+    if(S.submitted||S.feedback){ if(given!=null) cls += given===byId[n].answer?' right':' wrongc'; }
+    else if(given!=null) cls+=' done';
+    if(S.flags.includes(n)) cls+=' flag';
+    if(i===S.idx) cls+=' cur';
+    return `<button class="${cls}" data-goto="${i}">${i+1}</button>`;
+  }).join('');
+  const un = S.ids.filter(n=>S.answers[n]==null).length;
+  const fl = S.flags.length;
+  $('#submit-exam').hidden = S.submitted || S.mode!=='mock';
+  $('#nav-note').textContent = S.submitted ? 'Reviewing your answers.'
+    : S.mode==='mock' ? `${un} unanswered${fl?', '+fl+' flagged':''}. Unanswered questions are marked wrong.`
+    : `${un} still to answer${fl?', '+fl+' flagged':''}.`;
+  $('#navdrawer').dataset.open='1';
+}
+function closeNav(){ $('#navdrawer').dataset.open='0'; }
+
+/* ---------- submit & results ---------- */
+function submitExam(){
+  stopTimer();
+  S.submitted = true; S.feedback = true;
+  const rows = S.ids.map(n=>({q:byId[n], given:S.answers[n]||null}));
+  const right = rows.filter(r=>r.given===r.q.answer).length;
+  const perTopic = {};
+  rows.forEach(r=>{
+    const t=r.q.topic;
+    perTopic[t]=perTopic[t]||{seen:0,right:0};
+    perTopic[t].seen++; if(r.given===r.q.answer) perTopic[t].right++;
+  });
+  const res = {right, total:S.ids.length, perTopic, at:Date.now(), mode:S.mode};
+  S.last = res;
+  if(S.mode==='mock'){
+    const h = load(K.hist,[]); h.unshift(res); save(K.hist, h.slice(0,25));
+    const st = load(K.stats,{});
+    Object.entries(perTopic).forEach(([t,v])=>{ st[t]=st[t]||{seen:0,right:0}; st[t].seen+=v.seen; st[t].right+=v.right; });
+    save(K.stats,st);
+  }
+  drop(K.sess);
+  closeNav(); showResults(res);
+}
+
+function showResults(res){
+  show('results');
+  const pct = Math.round(res.right/res.total*100);
+  const pass = pct >= PASS*100;
+  const col = pass ? (pct>=80?'var(--ok)':'var(--warn)') : 'var(--bad)';
+  $('#res-dial').style.background = `conic-gradient(${col} ${pct*3.6}deg, var(--surface-3) 0)`;
+  $('#res-pct').textContent = pct+'%';
+  $('#res-pct').style.color = col;
+  $('#res-score').textContent = res.right+' / '+res.total;
+  $('#res-title').textContent = pct>=80 ? 'Comfortably through' : pass ? 'A pass, but tight' : 'Not there yet';
+  $('#res-msg').textContent = pct>=80
+    ? 'That is the margin you want going into the real exam. Keep the weakest topics below ticking over and sit another mock closer to the day.'
+    : pass ? 'Above the 60% floor, but the target is 80% — at this margin a couple of unlucky topics would fail you. Drill the weakest areas below.'
+    : `You need ${Math.ceil(res.total*PASS)} correct to pass, ${Math.ceil(res.total*PASS)-res.right} more than this attempt. Work the lowest-scoring topics below, then sit another mock.`;
+
+  const rows = Object.entries(res.perTopic).map(([t,v])=>({t,...v,pct:Math.round(v.right/v.seen*100)}))
+    .sort((a,b)=>a.pct-b.pct || b.seen-a.seen);
+  $('#res-breakdown').innerHTML = rows.map(r=>`<div class="bd-row">
+    <span>${esc(r.t)}</span>
+    <span class="bd-bar"><i style="width:${r.pct}%;background:${r.pct>=80?'var(--ok)':r.pct>=60?'var(--warn)':'var(--bad)'}"></i></span>
+    <span class="bd-n tnum">${r.right}/${r.seen}</span></div>`).join('');
+
+  const wrong = S.ids.filter(n=>S.answers[n]!==byId[n].answer);
+  $('#res-wrong').disabled = !wrong.length;
+  $('#res-wrong').textContent = wrong.length ? `Review the ${wrong.length} you missed` : 'Nothing missed';
+  $('#res-wrong').onclick = ()=>reviewSet(wrong, 'Review · missed');
+  $('#res-review').onclick = ()=>reviewSet(S.ids.slice(), 'Review · all answers');
+}
+function reviewSet(ids, label){
+  const answers = {...S.answers};
+  S = {mode:'review', ids, answers, flags:[], idx:0, submitted:true, feedback:true, endsAt:null, label, last:S.last};
+  show('exam'); renderQ();
+}
+
+/* ---------- notes ---------- */
+function openNotes(){
+  show('notes');
+  const hs=[...document.querySelectorAll('.nt-h')];
+  $('#toc').innerHTML = hs.map(h=>`<a href="#${h.id}">${esc(h.textContent)}</a>`).join('');
+}
+
+/* ---------- topic picker ---------- */
+function openPicker(preselect){
+  $('#picker-list').innerHTML = TOPICS.map(t=>{
+    const n = QUESTIONS.filter(q=>q.topic===t).length;
+    const on = preselect ? t===preselect : false;
+    return `<label class="check"><input type="checkbox" value="${esc(t)}"${on?' checked':''}>
+      <span>${esc(t)}</span><span class="c-n">${n}</span></label>`;
+  }).join('');
+  $('#picker').dataset.open='1';
+}
+function closePicker(){ $('#picker').dataset.open='0'; }
+
+/* ---------- events ---------- */
+document.addEventListener('click', e=>{
+  const start = e.target.closest('[data-start]');
+  if(start){
+    const m = start.dataset.start;
+    if(m==='notes') return openNotes();
+    if(m==='practice') return openPicker(null);
+    if(m==='mock' && load(K.sess,null)) drop(K.sess);
+    return startSession(m);
+  }
+  const topic = e.target.closest('[data-topic]');
+  if(topic) return openPicker(topic.dataset.topic);
+
+  const pickBtn = e.target.closest('[data-pick]');
+  if(pickBtn) return pick(pickBtn.dataset.pick);
+
+  const goto = e.target.closest('[data-goto]');
+  if(goto){ S.idx = +goto.dataset.goto; persist(); closeNav(); renderQ(); return; }
+
+  if(e.target.closest('[data-close-nav]')) return closeNav();
+  if(e.target.closest('[data-close-picker]')) return closePicker();
+});
+
+$('#next-q').onclick = ()=>move(1);
+$('#prev-q').onclick = ()=>move(-1);
+$('#flag-q').onclick = toggleFlag;
+$('#open-nav').onclick = openNav;
+$('#submit-exam').onclick = ()=>{
+  const un = S.ids.filter(n=>S.answers[n]==null).length;
+  if(un && !confirm(`${un} question${un>1?'s are':' is'} unanswered and will be marked wrong. Submit anyway?`)) return;
+  submitExam();
+};
+$('#exit-exam').onclick = ()=>{ if(S.submitted && S.last) return showResults(S.last); persist(); goHome(); };
+$('#exit-notes').onclick = goHome;
+$('#res-home').onclick = goHome;
+$('#res-again').onclick = ()=>startSession('mock');
+$('#clear-hist').onclick = ()=>{ if(confirm('Clear your saved attempts and topic scores?')){ drop(K.hist); drop(K.stats); renderHome(); } };
+$('#pick-all').onclick = ()=>document.querySelectorAll('#picker-list input').forEach(i=>i.checked=true);
+$('#pick-go').onclick = ()=>{
+  const topics=[...document.querySelectorAll('#picker-list input:checked')].map(i=>i.value);
+  if(!topics.length) return;
+  closePicker();
+  startSession('practice',{topics, label: topics.length===1?'Practice · '+topics[0]:'Topic practice'});
+};
+
+document.addEventListener('keydown', e=>{
+  if($('#v-exam').hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  if($('#picker').dataset.open==='1') return;
+  const k = e.key.toUpperCase();
+  if($('#navdrawer').dataset.open==='1'){ if(k==='ESCAPE') closeNav(); return; }
+  if('ABCD'.includes(k) && k.length===1){ e.preventDefault(); pick(k); }
+  else if('1234'.includes(k)){ e.preventDefault(); pick('ABCD'['1234'.indexOf(k)]); }
+  else if(e.key==='ArrowRight'||e.key==='Enter'){ e.preventDefault(); move(1); }
+  else if(e.key==='ArrowLeft'){ e.preventDefault(); move(-1); }
+  else if(k==='F'){ e.preventDefault(); toggleFlag(); }
+});
+
+renderHome();
+</script>
