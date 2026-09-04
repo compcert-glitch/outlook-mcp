@@ -1,4 +1,4 @@
-<title>Ridgeline Solar</title>
+<title>Solar Roof</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -39,6 +39,8 @@
 
   --good:        #1E6B45;
   --good-soft:   #E3F0E9;
+  --flag:        #A0301F;   /* the roof needs doing first */
+  --flag-soft:   #FBEAE7;
 
   --shadow-1: 0 1px 2px rgba(15,22,32,.06), 0 8px 24px -12px rgba(15,22,32,.18);
   --shadow-2: 0 2px 4px rgba(15,22,32,.07), 0 24px 48px -20px rgba(15,22,32,.28);
@@ -79,6 +81,8 @@
 
     --good:        #5FBF8E;
     --good-soft:   #10241A;
+    --flag:        #E08578;
+    --flag-soft:   #2A1614;
 
     --shadow-1: 0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
     --shadow-2: 0 2px 4px rgba(0,0,0,.5), 0 24px 48px -20px rgba(0,0,0,.8);
@@ -116,6 +120,8 @@
 
   --good:        #5FBF8E;
   --good-soft:   #10241A;
+  --flag:        #E08578;
+  --flag-soft:   #2A1614;
 
   --shadow-1: 0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
   --shadow-2: 0 2px 4px rgba(0,0,0,.5), 0 24px 48px -20px rgba(0,0,0,.8);
@@ -476,6 +482,38 @@ input[type="range"]::-moz-range-thumb {
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
+/* Roof-condition gate — advisory that changes state with the answer */
+.advisory {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .7rem;
+  align-items: start;
+  padding: .8rem .9rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  font-size: .8125rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.advisory .adv-mark {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .625rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: .12rem;
+  white-space: nowrap;
+}
+.advisory strong { font-weight: 600; color: var(--ink); }
+.advisory[data-state="stop"] {
+  border-left-color: var(--flag);
+  background: var(--flag-soft);
+}
+.advisory[data-state="stop"] .adv-mark { color: var(--flag); }
+.advisory[data-state="stop"] strong { color: var(--flag); }
+
 .est-note {
   font-size: .8125rem;
   line-height: 1.5;
@@ -894,7 +932,7 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
 
 <header class="site-head">
   <div class="wrap head-in">
-    <a class="brand" href="#top" aria-label="Ridgeline Solar — home">
+    <a class="brand" href="#top" aria-label="Solar Roof — home">
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
         <path d="M2 12.5 13 3.5l11 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
         <rect x="5.5" y="14" width="6.5" height="4.6" fill="var(--accent)"/>
@@ -902,7 +940,7 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
         <rect x="5.5" y="19.6" width="6.5" height="4.6" fill="currentColor" opacity=".28"/>
         <rect x="13.6" y="19.6" width="6.5" height="4.6" fill="var(--accent)" opacity=".55"/>
       </svg>
-      <span class="brand-name">Ridgeline<span>.</span></span>
+      <span class="brand-name">Solar Roof<span>.</span></span>
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="#estimate">Estimate</a>
@@ -984,6 +1022,17 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
           </div>
 
           <div class="field">
+            <label for="roof">Roof covering — age and condition</label>
+            <select id="roof">
+              <option value="good">Re-covered in the last 15 years</option>
+              <option value="sound" selected>Sound, roughly 15–30 years old</option>
+              <option value="ageing">30+ years, or slipped tiles and brittle felt</option>
+              <option value="due">Due for re-covering within 5 years</option>
+              <option value="unknown">I don't know</option>
+            </select>
+          </div>
+
+          <div class="field">
             <div class="slider-top">
               <label for="panels">Panels that fit</label>
               <span class="slider-val" id="panelsOut">12 panels · 5.28 kWp</span>
@@ -1034,6 +1083,15 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
             <div class="out-cell"><span class="k">Indicative cost</span><span class="v mono" id="outCost">£14,800</span></div>
             <div class="out-cell"><span class="k">Pays for itself in</span><span class="v mono" id="outPayback">13.6 yrs</span></div>
           </div>
+
+          <div class="advisory" id="advisory" data-state="note">
+            <span class="adv-mark" id="advMark">Roof</span>
+            <p id="advText">
+              Typical for a house of that age. We lift tiles at the fixing points and check the
+              battens and felt at survey — no allowance added yet.
+            </p>
+          </div>
+
           <p class="est-note">
             Assumes 26.5p/kWh import, 15p/kWh SEG export, 440 W panels and 0.5% annual degradation.
             A real design needs a roof survey — pitch, purlin spacing, string layout and your DNO's
@@ -1639,7 +1697,7 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col foot-about">
-        <h4>Ridgeline Solar</h4>
+        <h4>Solar Roof</h4>
         <p>
           MCS-certified solar, battery storage and EV charging for homes and businesses across
           England, Wales and Scotland. Installing since 2011.
@@ -1676,14 +1734,14 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
 
     <div class="foot-legal">
       <span>
-        Ridgeline Solar Ltd · Registered in England &amp; Wales · MCS NAP-00000 · TrustMark 000000<br>
+        Solar Roof Ltd · Registered in England &amp; Wales · MCS NAP-00000 · TrustMark 000000<br>
         RECC member · NICEIC approved contractor · IWA insurance-backed warranty
       </span>
       <span>Prices include 0% VAT under the domestic energy-saving materials relief to 31 Mar 2027.</span>
     </div>
 
     <p class="demo-flag">
-      DEMO SITE — Ridgeline Solar is a fictional company built as a design reference. Company name,
+      DEMO SITE — Solar Roof is a fictional company built as a design reference. Company name,
       phone number, email, certificate numbers, install case studies and headline figures are
       placeholders and must be replaced with verified details before this page is published.
       Tariff and cost assumptions are documented in the estimator note and should be reviewed
@@ -1714,8 +1772,41 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
   var $ = function (id) { return document.getElementById(id); };
 
   var els = {
-    region: $("region"), orient: $("orient"), pitch: $("pitch"),
+    region: $("region"), orient: $("orient"), pitch: $("pitch"), roof: $("roof"),
     panels: $("panels"), shade: $("shade"), battery: $("battery"), usage: $("usage")
+  };
+
+  /* Roof-condition gate. An array is fixed into the rafters and lasts 25 years;
+     the covering underneath it has to outlive the array, or you pay to strip and
+     refit. `extra` is the remedial allowance folded into the indicative cost. */
+  var ROOF = {
+    good: {
+      state: "note", mark: "Roof", extra: 0,
+      text: "Nothing to do first. Fixings go into the rafters, not the tiles, and a " +
+            "covering that new will comfortably outlast the array."
+    },
+    sound: {
+      state: "note", mark: "Roof", extra: 0,
+      text: "Typical for a house of that age. We lift tiles at the fixing points and " +
+            "check the battens and felt at survey — no allowance added yet."
+    },
+    ageing: {
+      state: "note", mark: "+ £850", extra: 850,
+      text: "<strong>£850 allowed</strong> for replacing battens and patching felt at the " +
+            "fixing points. That is in the cost above. If the survey finds the whole " +
+            "covering is going, we'll say so rather than fit over it."
+    },
+    due: {
+      state: "stop", mark: "Do this first", extra: 0,
+      text: "<strong>Re-cover the roof before the array goes on.</strong> Stripping and " +
+            "refitting the panels afterwards costs £1,400–£2,200 and buys you nothing. " +
+            "Get the roof done, then come back to us — the figures above still hold."
+    },
+    unknown: {
+      state: "note", mark: "Roof", extra: 0,
+      text: "Most people don't. The survey settles it in twenty minutes — rafter depth, " +
+            "batten condition, felt and any spread at the ridge — before you commit to anything."
+    }
   };
 
   function gbp(n) { return "£" + Math.round(n).toLocaleString("en-GB"); }
@@ -1755,10 +1846,12 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
       expTot  += exp;
     }
 
-    var cost = 3200 + kwp * 1050 + (usable > 0 ? 2100 + usable * 380 : 0);
+    var roof = ROOF[els.roof.value] || ROOF.sound;
+    var cost = 3200 + kwp * 1050 + (usable > 0 ? 2100 + usable * 380 : 0) + roof.extra;
     var saving = selfTot * IMPORT_P + expTot * EXPORT_P;
 
     return {
+      roof: roof,
       panels: panels, kwp: kwp, annual: annual, months: months,
       self: selfTot, exp: expTot,
       bill: selfTot * IMPORT_P, seg: expTot * EXPORT_P,
@@ -1907,6 +2000,10 @@ table.price tr.hi th, table.price tr.hi td { background: var(--accent-soft); }
     $("rowBill").textContent = gbp(d.bill);
     $("rowSeg").textContent  = gbp(d.seg);
     $("rowCo2").textContent  = d.co2.toFixed(2) + " t/yr";
+
+    $("advisory").setAttribute("data-state", d.roof.state);
+    $("advMark").textContent = d.roof.mark;
+    $("advText").innerHTML   = d.roof.text;
 
     $("splitSelf").style.width = (selfPct * 100).toFixed(1) + "%";
     $("splitExp").style.width  = ((1 - selfPct) * 100).toFixed(1) + "%";
