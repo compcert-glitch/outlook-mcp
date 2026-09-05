@@ -1,0 +1,685 @@
+<title>Week 1 Fee Board Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+:root{
+  --ground:#EEF1F0;
+  --surface:#FBFCFC;
+  --surface-2:#E7ECEB;
+  --ink:#14201E;
+  --ink-2:#43524F;
+  --muted:#6B7A77;
+  --rule:#D5DCDA;
+  --rule-strong:#B9C4C1;
+  --accent:#07717A;
+  --accent-soft:#DCEAEA;
+  --good:#12804E;
+  --behind:#B58A00;
+  --critical:#AD2340;
+  --track:#E1E7E6;
+
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --page:1180px;
+  --prose:64ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1413;
+    --surface:#151D1C;
+    --surface-2:#1C2625;
+    --ink:#E7EEEC;
+    --ink-2:#B8C6C3;
+    --muted:#869693;
+    --rule:#24302E;
+    --rule-strong:#33413F;
+    --accent:#4FBCC4;
+    --accent-soft:#12302F;
+    --good:#3F9E74;
+    --behind:#D2A017;
+    --critical:#E4697E;
+    --track:#222D2C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1413;
+  --surface:#151D1C;
+  --surface-2:#1C2625;
+  --ink:#E7EEEC;
+  --ink-2:#B8C6C3;
+  --muted:#869693;
+  --rule:#24302E;
+  --rule-strong:#33413F;
+  --accent:#4FBCC4;
+  --accent-soft:#12302F;
+  --good:#3F9E74;
+  --behind:#D2A017;
+  --critical:#E4697E;
+  --track:#222D2C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{
+  max-width:var(--page);
+  margin:0 auto;
+  padding:clamp(20px,4vw,56px) clamp(16px,4vw,44px) 80px;
+  display:flex;
+  flex-direction:column;
+  gap:clamp(32px,4vw,52px);
+}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.015em}
+p{margin:0}
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* ---------- masthead ---------- */
+.masthead{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding-bottom:26px;
+  border-bottom:2px solid var(--ink);
+}
+.masthead-top{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+}
+.masthead h1{
+  font-size:clamp(30px,5.2vw,50px);
+  font-weight:700;
+  line-height:1.03;
+}
+.standfirst{
+  max-width:var(--prose);
+  color:var(--ink-2);
+  font-size:17px;
+}
+.standfirst strong{color:var(--ink);font-weight:600}
+
+/* ---------- headline figures ---------- */
+.figures{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+}
+.fig{
+  background:var(--surface);
+  padding:20px 22px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.fig-val{
+  font-family:var(--f-mono);
+  font-variant-numeric:tabular-nums;
+  font-size:clamp(26px,3.4vw,34px);
+  font-weight:600;
+  letter-spacing:-.02em;
+  line-height:1.05;
+}
+.fig-note{font-size:13.5px;color:var(--muted);line-height:1.45}
+.fig.is-gap{background:var(--accent-soft)}
+.fig.is-gap .fig-val{color:var(--critical)}
+
+/* ---------- section furniture ---------- */
+section{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;flex-direction:column;gap:7px}
+.sec-head h2{font-size:clamp(20px,2.6vw,26px);font-weight:600}
+.sec-head p{max-width:var(--prose);color:var(--ink-2);font-size:15.5px}
+
+/* ---------- chart ---------- */
+.chart{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  padding:clamp(16px,2.4vw,28px);
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.chart-scale{
+  position:relative;
+  height:19px;
+  margin-left:var(--label-w,168px);
+  border-bottom:1px solid var(--rule-strong);
+}
+.tick{
+  position:absolute;
+  top:0;
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  color:var(--muted);
+  transform:translateX(-50%);
+  white-space:nowrap;
+}
+.row{
+  display:grid;
+  grid-template-columns:var(--label-w,168px) 1fr;
+  align-items:center;
+  gap:0;
+  padding:5px 0;
+  border-bottom:1px solid var(--rule);
+}
+.row:last-of-type{border-bottom:0}
+.row-label{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  padding-right:14px;
+  min-width:0;
+}
+.row-id{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:.02em;
+}
+.row-who{
+  font-size:13px;
+  color:var(--muted);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.plot{
+  position:relative;
+  height:30px;
+}
+.zero,.hundred{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:1px;
+}
+.zero{background:var(--rule-strong)}
+.hundred{background:var(--ink-2);opacity:.45}
+.bar{
+  position:absolute;
+  top:7px;
+  height:16px;
+  border-radius:0 3px 3px 0;
+}
+.bar.neg{border-radius:3px 0 0 3px}
+.bar.s-good{background:var(--good)}
+.bar.s-behind{background:var(--behind)}
+.bar.s-critical{background:var(--critical)}
+.bar-val{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--f-mono);
+  font-variant-numeric:tabular-nums;
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--ink);
+  white-space:nowrap;
+}
+.no-target{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:12.5px;
+  color:var(--muted);
+  font-style:italic;
+}
+.dashline{
+  position:absolute;
+  top:14px;
+  height:2px;
+  background:repeating-linear-gradient(90deg,var(--rule-strong) 0 5px,transparent 5px 10px);
+}
+.chart-foot{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  align-items:center;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--rule);
+  margin-left:var(--label-w,168px);
+}
+.key{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2)}
+.chip{width:11px;height:11px;border-radius:2px;flex:none}
+.chip.s-good{background:var(--good)}
+.chip.s-behind{background:var(--behind)}
+.chip.s-critical{background:var(--critical)}
+
+/* ---------- ledger ---------- */
+.scroll{overflow-x:auto;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px}
+caption{
+  text-align:left;
+  padding:14px 18px;
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border-bottom:1px solid var(--rule);
+}
+th,td{
+  padding:9px 14px;
+  text-align:right;
+  border-bottom:1px solid var(--rule);
+  font-size:14px;
+}
+th{
+  font-family:var(--f-display);
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--muted);
+  white-space:nowrap;
+}
+th:first-child,td:first-child{text-align:left}
+th:nth-child(2),td:nth-child(2){text-align:left}
+tbody td{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+tbody td:first-child{font-weight:600}
+tbody td:nth-child(2){font-family:var(--f-body);color:var(--ink-2)}
+tbody tr:last-child td{border-bottom:0}
+tfoot td{
+  font-family:var(--f-mono);
+  font-variant-numeric:tabular-nums;
+  font-weight:600;
+  border-top:2px solid var(--ink);
+  border-bottom:0;
+  background:var(--surface-2);
+}
+tfoot td:nth-child(2){font-family:var(--f-body);font-weight:400;color:var(--ink-2)}
+/* the actions table is prose, not figures - keep its columns reading as text */
+.actions th:nth-child(3),.actions td:nth-child(3),
+.actions th:nth-child(4),.actions td:nth-child(4){text-align:left}
+.actions tbody td:nth-child(2),
+.actions tbody td:nth-child(3),
+.actions tbody td:nth-child(4){font-family:var(--f-body);color:var(--ink-2)}
+.actions tbody td:nth-child(4){color:var(--muted);white-space:nowrap}
+.actions td:first-child{color:var(--muted)}
+.v-neg{color:var(--critical)}
+.v-pos{color:var(--good)}
+.dim{color:var(--muted)}
+
+/* ---------- findings ---------- */
+.findings{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+}
+.finding{
+  background:var(--surface);
+  padding:20px 22px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.finding h3{font-size:16px;font-weight:600;line-height:1.3}
+.finding p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.finding .num{font-weight:600;color:var(--ink)}
+.tagline{
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+
+/* ---------- queries / actions ---------- */
+.queries{
+  border-left:3px solid var(--behind);
+  background:var(--surface);
+  padding:22px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.queries ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:11px}
+.queries li{font-size:15px;color:var(--ink-2);line-height:1.55}
+.queries li strong{color:var(--ink);font-weight:600}
+
+.source{
+  font-size:13.5px;
+  color:var(--muted);
+  max-width:var(--prose);
+  border-top:1px solid var(--rule);
+  padding-top:18px;
+  line-height:1.55;
+}
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="eyebrow">Crawford &amp; CO Surveyors &middot; Fee board</span>
+      <span class="eyebrow">Prepared 5 September 2026</span>
+    </div>
+    <h1>Week 1 Fee Board Review</h1>
+    <p class="standfirst">Ten teams, four posting days, <strong>£246,274</strong> of fee income against a board target of <strong>£350,604</strong>. The week closed at <strong>70.2% of target</strong>, and two teams account for more than two thirds of the shortfall. Week 2's target steps up 20.4%.</p>
+  </header>
+
+  <div class="figures">
+    <div class="fig">
+      <span class="eyebrow">Week 1 income</span>
+      <span class="fig-val">£246,274</span>
+      <span class="fig-note">Posted Tue–Fri. Monday column blank across every team.</span>
+    </div>
+    <div class="fig">
+      <span class="eyebrow">Week 1 target</span>
+      <span class="fig-val">£350,604</span>
+      <span class="fig-note">Company target line as written on the board.</span>
+    </div>
+    <div class="fig is-gap">
+      <span class="eyebrow">Variance</span>
+      <span class="fig-val">−£104,330</span>
+      <span class="fig-note">70.2% of target achieved. Eight of nine trading teams behind.</span>
+    </div>
+    <div class="fig">
+      <span class="eyebrow">Week 2 target</span>
+      <span class="fig-val">£422,287</span>
+      <span class="fig-note">+20.4% on Week 1. Holding Week 1's rate leaves a £176k gap.</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <h2>Where the week landed, team by team</h2>
+      <p>Fee income posted against each team's own weekly target. The solid line marks 100% of target; bars are labelled with the percentage achieved so the ranking does not depend on colour alone.</p>
+    </div>
+
+    <div class="chart">
+      <div class="chart-scale">
+        <span class="tick" style="left:4.55%">0%</span>
+        <span class="tick" style="left:27.3%">50%</span>
+        <span class="tick" style="left:50%">100%</span>
+        <span class="tick" style="left:72.7%">150%</span>
+        <span class="tick" style="left:95.5%">200%</span>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T1</span><span class="row-who">KP</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-good" style="left:4.55%;width:79.5%"></span>
+          <span class="bar-val" style="left:calc(84.1% + 10px)">175.0%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T10</span><span class="row-who">GA</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-behind" style="left:4.55%;width:39.9%"></span>
+          <span class="bar-val" style="left:calc(44.4% + 10px)">87.7%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T9</span><span class="row-who">JW</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-behind" style="left:4.55%;width:29.7%"></span>
+          <span class="bar-val" style="left:calc(34.3% + 10px)">65.4%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T6</span><span class="row-who">NR, EB, BF</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-critical" style="left:4.55%;width:25.8%"></span>
+          <span class="bar-val" style="left:calc(30.3% + 10px)">56.7%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T2</span><span class="row-who">JW</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-critical" style="left:4.55%;width:18.5%"></span>
+          <span class="bar-val" style="left:calc(23.0% + 10px)">40.7%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T3</span><span class="row-who">EP, CW, AL</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-critical" style="left:4.55%;width:18.5%"></span>
+          <span class="bar-val" style="left:calc(26.7% + 10px)">40.6%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T5</span><span class="row-who">HH</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-critical" style="left:4.55%;width:16.1%"></span>
+          <span class="bar-val" style="left:calc(20.7% + 10px)">35.5%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T8</span><span class="row-who">KG</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar s-critical" style="left:4.55%;width:15.1%"></span>
+          <span class="bar-val" style="left:calc(19.7% + 10px)">33.3%</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T7</span><span class="row-who">JM</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="bar neg s-critical" style="left:3.78%;width:.77%"></span>
+          <span class="bar-val" style="left:calc(4.55% + 10px)">−1.7% &middot; −£100 posted</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-label"><span class="row-id">T4</span><span class="row-who dim">unassigned</span></div>
+        <div class="plot">
+          <span class="zero" style="left:4.55%"></span><span class="hundred" style="left:50%"></span>
+          <span class="dashline" style="left:4.55%;width:45.45%"></span>
+          <span class="no-target" style="left:calc(50% + 10px)">no target set, no income posted</span>
+        </div>
+      </div>
+
+      <div class="chart-foot">
+        <span class="key"><span class="chip s-good"></span>At or above target</span>
+        <span class="key"><span class="chip s-behind"></span>Behind (60–99%)</span>
+        <span class="key"><span class="chip s-critical"></span>Critically behind (under 60%)</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The ledger</h2>
+      <p>Week 1 as posted. Variance is fee income less target; the percentage column is income as a share of target.</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <caption>Week 1 — fee income against target, by team</caption>
+        <thead>
+          <tr>
+            <th scope="col">Team</th>
+            <th scope="col">Surveyors</th>
+            <th scope="col">Income</th>
+            <th scope="col">Target</th>
+            <th scope="col">Variance</th>
+            <th scope="col">% of target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>T1</td><td>KP</td><td>8,192</td><td>4,682</td><td class="v-pos">+3,510</td><td class="v-pos">175.0%</td></tr>
+          <tr><td>T10</td><td>GA</td><td>58,053</td><td>66,165</td><td class="v-neg">−8,112</td><td>87.7%</td></tr>
+          <tr><td>T9</td><td>JW</td><td>11,733</td><td>17,947</td><td class="v-neg">−6,214</td><td>65.4%</td></tr>
+          <tr><td>T6</td><td>NR, EB, BF</td><td>117,120</td><td>206,681</td><td class="v-neg">−89,561</td><td>56.7%</td></tr>
+          <tr><td>T2</td><td>JW</td><td>13,880</td><td>34,140</td><td class="v-neg">−20,260</td><td>40.7%</td></tr>
+          <tr><td>T3</td><td>EP, CW, AL</td><td>26,281</td><td>64,774</td><td class="v-neg">−38,493</td><td>40.6%</td></tr>
+          <tr><td>T5</td><td>HH</td><td>6,730</td><td>18,940</td><td class="v-neg">−12,210</td><td>35.5%</td></tr>
+          <tr><td>T8</td><td>KG</td><td>4,506</td><td>13,520</td><td class="v-neg">−9,014</td><td>33.3%</td></tr>
+          <tr><td>T7</td><td>JM</td><td class="v-neg">−100</td><td>6,020</td><td class="v-neg">−6,120</td><td class="v-neg">−1.7%</td></tr>
+          <tr><td>T4</td><td>unassigned</td><td class="dim">0</td><td class="dim">0</td><td class="dim">—</td><td class="dim">n/a</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Sum of teams</td><td>ten team lines</td>
+            <td>246,395</td><td>432,869</td>
+            <td class="v-neg">−186,474</td><td>56.9%</td>
+          </tr>
+          <tr>
+            <td>Board total line</td><td>as written on the board</td>
+            <td>246,274</td><td>350,604</td>
+            <td class="v-neg">−104,330</td><td>70.2%</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What the week actually shows</h2>
+      <p>Five points worth the meeting's time. Everything below is arithmetic off the board, not interpretation of anyone's performance.</p>
+    </div>
+    <div class="findings">
+
+      <div class="finding">
+        <span class="tagline">Concentration</span>
+        <h3>Two teams carry 69% of the shortfall</h3>
+        <p>T6 (NR, EB, BF) is <span class="num">−£89,561</span> and T3 (EP, CW, AL) is <span class="num">−£38,493</span>. Between them that is <span class="num">£128,054</span> of the <span class="num">£186,474</span> gap against team targets. Fixing the other seven lines entirely would not close it.</p>
+      </div>
+
+      <div class="finding">
+        <span class="tagline">Engine room</span>
+        <h3>T6 is still half the practice</h3>
+        <p>T6 posted <span class="num">£117,120</span> — <span class="num">48%</span> of all fee income this week — while running at 56.7% of its own target. It is simultaneously the largest earner and the largest absolute miss, so its target is the one that most needs testing against realistic capacity.</p>
+      </div>
+
+      <div class="finding">
+        <span class="tagline">Zero lines</span>
+        <h3>Two team lines produced nothing</h3>
+        <p>T7 (JM) posted <span class="num">−£100</span> for the week — a credit or adjustment against no fees at all. T4 sits at zero income against a zero target: a whole team line on the board carrying neither work nor expectation.</p>
+      </div>
+
+      <div class="finding">
+        <span class="tagline">Rhythm</span>
+        <h3>Delivery is extremely lumpy</h3>
+        <p>Thursday alone brought <span class="num">£111,626</span>, against <span class="num">£31,908</span> on Wednesday and <span class="num">£24,175</span> on Friday — Thursday was <span class="num">4.6×</span> Friday. Fee posting is bunching rather than flowing, which makes any single day a poor read on the week.</p>
+      </div>
+
+      <div class="finding">
+        <span class="tagline">Week ahead</span>
+        <h3>The target rises as the gap opens</h3>
+        <p>Week 2's board target is <span class="num">£422,287</span>, up <span class="num">20.4%</span> on Week 1. Repeating Week 1's income would put the practice <span class="num">£176,013</span> behind for Week 2 alone, and roughly <span class="num">£280,000</span> behind across the fortnight.</p>
+      </div>
+
+      <div class="finding">
+        <span class="tagline">Bright spot</span>
+        <h3>One team beat its number</h3>
+        <p>T1 (KP) posted <span class="num">£8,192</span> against <span class="num">£4,682</span> — <span class="num">175%</span> of target and the only line in surplus. Small in absolute terms, but worth asking what the pipeline looked like going into the week.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Queries on the board itself</h2>
+      <p>Four things to settle before Week 2 is written up, because they change what the numbers mean.</p>
+    </div>
+    <div class="queries">
+      <ol>
+        <li><strong>The team targets and the company target do not agree.</strong> The ten team weekly targets sum to <span class="num">£432,869</span>, but the company target line reads <span class="num">£350,604</span> — a difference of <span class="num">£82,265</span>, or 23%. Week 2 shows the same pattern: <span class="num">£559,217</span> against <span class="num">£422,287</span>. Whichever is the real number, the practice is currently reviewing itself against two of them.</li>
+        <li><strong>Monday is blank on every row.</strong> No income and no target is recorded for Monday anywhere on the board. If that is a bank holiday or a non-posting day it should be struck through; if it is a missing day, the week's income is understated.</li>
+        <li><strong>Wednesday does not cross-cast.</strong> The team figures sum to <span class="num">£32,109</span> against a total line of <span class="num">£31,908</span> — <span class="num">£201</span> unaccounted for. Tuesday, Thursday and Friday all reconcile to the pound, so this is a single posting error rather than a systemic one.</li>
+        <li><strong>The monthly block is not covered by this review.</strong> The columns to the right of W4 carry the year to date and were not legible enough to reconcile. They should be pulled from the accounts system rather than read off the board before anyone quotes them.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>For decision at the meeting</h2>
+      <p>Six items. The first two are the ones that change the number.</p>
+    </div>
+    <div class="scroll">
+      <table class="actions">
+        <caption>Proposed actions</caption>
+        <thead>
+          <tr><th scope="col">#</th><th scope="col">Action</th><th scope="col">Owner</th><th scope="col">By</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Review T6's weekly target against actual surveyor capacity across NR, EB and BF — confirm or reset</td><td>MD with T6 leads</td><td>Before Week 2 close</td></tr>
+          <tr><td>2</td><td>Pipeline review for T3 — establish whether 40.6% is instruction volume, report turnaround or invoicing lag</td><td>EP</td><td>Wed</td></tr>
+          <tr><td>3</td><td>Explain the T7 position — what the −£100 relates to and what work is booked for the coming fortnight</td><td>JM</td><td>Meeting</td></tr>
+          <tr><td>4</td><td>Confirm the status of the T4 line — retire it, reassign it, or set a target against it</td><td>MD</td><td>Meeting</td></tr>
+          <tr><td>5</td><td>Reconcile the team targets to the company target line and correct the board</td><td>Accounts</td><td>Mon</td></tr>
+          <tr><td>6</td><td>Agree whether fees are posted daily on completion or weekly in batch — the Thursday spike suggests batching</td><td>Accounts</td><td>Meeting</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Appendix — the daily grid as transcribed</h2>
+      <p>Fee income posted by day. Monday is blank on the board for every team and is omitted.</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <caption>Week 1 daily posting — income by team</caption>
+        <thead>
+          <tr><th scope="col">Team</th><th scope="col">Surveyors</th><th scope="col">Tue</th><th scope="col">Wed</th><th scope="col">Thu</th><th scope="col">Fri</th><th scope="col">Week 1</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>T1</td><td>KP</td><td>3,252</td><td>1,513</td><td>2,559</td><td>869</td><td>8,192</td></tr>
+          <tr><td>T2</td><td>JW</td><td>3,510</td><td class="dim">0</td><td>6,290</td><td>4,080</td><td>13,880</td></tr>
+          <tr><td>T3</td><td>EP, CW, AL</td><td>13,420</td><td>1,805</td><td>9,787</td><td>1,270</td><td>26,281</td></tr>
+          <tr><td>T4</td><td>unassigned</td><td class="dim">0</td><td class="dim">0</td><td class="dim">0</td><td class="dim">0</td><td class="dim">0</td></tr>
+          <tr><td>T5</td><td>HH</td><td>5,455</td><td class="dim">0</td><td>725</td><td>550</td><td>6,730</td></tr>
+          <tr><td>T6</td><td>NR, EB, BF</td><td>31,221</td><td>27,615</td><td>50,785</td><td>7,698</td><td>117,120</td></tr>
+          <tr><td>T7</td><td>JM</td><td class="dim">0</td><td class="v-neg">−100</td><td class="dim">0</td><td class="dim">0</td><td class="v-neg">−100</td></tr>
+          <tr><td>T8</td><td>KG</td><td>1,444</td><td>761</td><td>1,385</td><td>918</td><td>4,506</td></tr>
+          <tr><td>T9</td><td>JW</td><td>5,603</td><td>515</td><td>4,249</td><td>1,216</td><td>11,733</td></tr>
+          <tr><td>T10</td><td>GA</td><td>14,660</td><td class="dim">0</td><td>35,846</td><td>7,575</td><td>58,053</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Board total</td><td>as written</td><td>78,565</td><td>31,908</td><td>111,626</td><td>24,175</td><td>246,274</td></tr>
+          <tr><td>Board target</td><td>as written</td><td>87,651</td><td>88,084</td><td>90,893</td><td>89,801</td><td>350,604</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <p class="source">Source: the fee board photographed 5 September 2026, transcribed in full. Tuesday, Thursday and Friday sum exactly to the board's own total line, and Wednesday differs by £201, so the transcription is sound. Two figures were recovered arithmetically from the total row where the handwriting was unclear — T6 Tuesday (£31,221) and T10 Thursday (£35,846) — and should be checked against the accounts system. Monthly columns to the right of W4 are excluded for the reason given above. All figures are fee income in pounds sterling.</p>
+
+</div>
