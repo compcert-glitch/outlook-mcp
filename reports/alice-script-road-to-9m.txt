@@ -1,0 +1,147 @@
+YEAR TO DATE & THE ROAD TO £9 MILLION — PRESENTER SCRIPT FOR ALICE
+Crawford & CO Surveyors · managers' meeting · prepared 5 September 2026
+
+RUN TIME: approx 3m 50s (433 spoken words + 41.4s of pauses, at 138 words per minute).
+Kept under the 4-minute limit with about 10s of headroom for a slower delivery.
+
+HOW TO USE THIS FILE
+- Paste each slide's block into your AI voice tool as you go, or paste the whole
+  thing if the tool handles slide breaks itself.
+- The <break time="0.7s"/> tags are SSML. ElevenLabs, Azure and Amazon Polly all
+  read them natively, and they are what stop the delivery running together into
+  one long sentence.
+- If your tool does NOT accept SSML, replace every tag with an ellipsis and a new
+  line — most engines pause on those. There is a tag-free version at the end.
+- Figures are written as words on purpose ("two hundred and forty six thousand"),
+  because voice engines misread "£246,274" more often than not.
+- The same script is already in the PowerPoint speaker notes, slide by slide.
+
+======================================================================
+THE SCRIPT
+======================================================================
+
+[SLIDE 1 — Title — The Road to £9 Million]   (~24s)
+
+Good morning. <break time="0.7s"/> This is where we stand for the year, <break time="0.4s"/> and what it takes to finish at nine million. <break time="0.9s"/> Five point eight eight million invoiced to the sixth of September. <break time="0.6s"/> Sixty five per cent of the way. <break time="0.7s"/> Three point one two million still to go. <break time="0.9s"/>
+
+[SLIDE 2 — Q1 — A slow start]   (~19s)
+
+Quarter one. <break time="0.6s"/> We invoiced two point zero nine million against a target of two point eight three million. <break time="0.7s"/> Seventy four per cent. <break time="0.6s"/> Seven hundred and thirty eight thousand behind. <break time="0.8s"/> The deepest hole we dug all year. <break time="0.9s"/>
+
+[SLIDE 3 — Q2 — The recovery]   (~22s)
+
+Quarter two was much better. <break time="0.6s"/> Two point three four million against two point five five. <break time="0.6s"/> Ninety two per cent. <break time="0.7s"/> April was within two thousand pounds of target, <break time="0.4s"/> and June was our best month of the year at eight hundred and forty eight thousand. <break time="0.9s"/>
+
+[SLIDE 4 — The year so far, quarter by quarter]   (~23s)
+
+Put the three quarters side by side. <break time="0.7s"/> Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/> then sixty four. <break time="0.8s"/> We recovered in quarter two and then gave it back in July and August. <break time="0.7s"/> Those two months together came in at just over half of target. <break time="0.9s"/>
+
+[SLIDE 5 — Where we stand — £5.88m of £9m]   (~27s)
+
+So here is the position. <break time="0.6s"/> Five point eight eight million banked, <break time="0.5s"/> three point one two million to go. <break time="0.8s"/> We have averaged seven hundred and four thousand a month. <break time="0.6s"/> We need eight hundred and twenty one thousand. <break time="0.8s"/> That is a sixteen per cent uplift. <break time="0.5s"/> Not a different business. <break time="0.4s"/> Sixteen per cent. <break time="0.9s"/>
+
+[SLIDE 6 — September — the last month of Q3]   (~28s)
+
+September is the last month of quarter three. <break time="0.7s"/> It needs eight hundred and twenty one thousand. <break time="0.6s"/> Two hundred and forty six thousand is already banked from week one. <break time="0.7s"/> That leaves five hundred and seventy five thousand across the three weeks left. <break time="0.7s"/> One hundred and ninety two thousand a week. <break time="0.6s"/> We beat that pace last week. <break time="0.9s"/>
+
+[SLIDE 7 — The plan — four months at £820,902]   (~28s)
+
+The whole year in one picture. <break time="0.7s"/> Teal is what we have invoiced. <break time="0.5s"/> Gold is what is still required. <break time="0.8s"/> Eight hundred and twenty one thousand a month, <break time="0.4s"/> for four months. <break time="0.8s"/> Our best month this year was June, <break time="0.4s"/> at eight hundred and forty eight thousand. <break time="0.7s"/> So we need a June. <break time="0.5s"/> Four times over. <break time="0.9s"/>
+
+[SLIDE 8 — The bonus — £5,000 each per £200,000 over £9m]   (~28s)
+
+Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared. <break time="0.8s"/> For every two hundred thousand pounds over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.9s"/> Nine point two million is five thousand. <break time="0.5s"/> Nine point six is fifteen. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="1s"/>
+
+[SLIDE 9 — The stretch — what £10m actually takes]   (~32s)
+
+Let us be straight about ten million. <break time="0.7s"/> Nine million needs a sixteen per cent uplift. <break time="0.6s"/> Ten million needs fifty four per cent, <break time="0.5s"/> above the best month we have had. <break time="0.8s"/> It is a stretch. <break time="0.4s"/> It is not impossible. <break time="0.7s"/> But only if quarter four looks nothing like July and August. <break time="0.8s"/> Nine million is the commitment. <break time="0.5s"/> Ten million is the prize. <break time="0.5s"/> Thank you.
+
+======================================================================
+PLAIN VERSION — NO SSML TAGS (pauses become line breaks and ellipses)
+======================================================================
+
+[SLIDE 1 — Title — The Road to £9 Million]
+
+Good morning.
+
+This is where we stand for the year, ... and what it takes to finish at nine million.
+
+Five point eight eight million invoiced to the sixth of September. ... Sixty five per cent of the way.
+
+Three point one two million still to go.
+
+[SLIDE 2 — Q1 — A slow start]
+
+Quarter one. ... We invoiced two point zero nine million against a target of two point eight three million.
+
+Seventy four per cent. ... Seven hundred and thirty eight thousand behind.
+
+The deepest hole we dug all year.
+
+[SLIDE 3 — Q2 — The recovery]
+
+Quarter two was much better. ... Two point three four million against two point five five. ... Ninety two per cent.
+
+April was within two thousand pounds of target, ... and June was our best month of the year at eight hundred and forty eight thousand.
+
+[SLIDE 4 — The year so far, quarter by quarter]
+
+Put the three quarters side by side.
+
+Seventy four per cent, ... then ninety two, ... then sixty four.
+
+We recovered in quarter two and then gave it back in July and August.
+
+Those two months together came in at just over half of target.
+
+[SLIDE 5 — Where we stand — £5.88m of £9m]
+
+So here is the position. ... Five point eight eight million banked, ... three point one two million to go.
+
+We have averaged seven hundred and four thousand a month. ... We need eight hundred and twenty one thousand.
+
+That is a sixteen per cent uplift. ... Not a different business. ... Sixteen per cent.
+
+[SLIDE 6 — September — the last month of Q3]
+
+September is the last month of quarter three.
+
+It needs eight hundred and twenty one thousand. ... Two hundred and forty six thousand is already banked from week one.
+
+That leaves five hundred and seventy five thousand across the three weeks left.
+
+One hundred and ninety two thousand a week. ... We beat that pace last week.
+
+[SLIDE 7 — The plan — four months at £820,902]
+
+The whole year in one picture.
+
+Teal is what we have invoiced. ... Gold is what is still required.
+
+Eight hundred and twenty one thousand a month, ... for four months.
+
+Our best month this year was June, ... at eight hundred and forty eight thousand.
+
+So we need a June. ... Four times over.
+
+[SLIDE 8 — The bonus — £5,000 each per £200,000 over £9m]
+
+Now the part worth staying for.
+
+Nine million is the goal. ... Everything above it is shared.
+
+For every two hundred thousand pounds over nine million, ... five thousand pounds each.
+
+Nine point two million is five thousand. ... Nine point six is fifteen. ... And ten million ... is twenty five thousand pounds each.
+
+[SLIDE 9 — The stretch — what £10m actually takes]
+
+Let us be straight about ten million.
+
+Nine million needs a sixteen per cent uplift. ... Ten million needs fifty four per cent, ... above the best month we have had.
+
+It is a stretch. ... It is not impossible.
+
+But only if quarter four looks nothing like July and August.
+
+Nine million is the commitment. ... Ten million is the prize. ... Thank you.

@@ -28,3 +28,28 @@ accounts system.
   the script; both the notes and the standalone file are generated from them.
 
 Run time is approximately 3m 43s at 138 words per minute, inside the 4-minute limit.
+
+## Year to date — the road to £9m
+
+- `ytd-road-to-9m.pptx` — nine slides: Q1, Q2, the year so far, where we stand
+  against £9m, what September must deliver, the plan to year end, the bonus
+  ladder, and what £10m actually takes. Script in the speaker notes.
+- `alice-script-road-to-9m.txt` — the same script standalone, approx 3m 50s.
+- `ytd-data.js` — the monthly transcription, the reconciliation against the
+  board's own monthly total row, the run-rate arithmetic and the bonus ladder.
+  `node reports/ytd-data.js` re-derives every figure in the deck.
+- `ytd-deck-generator.js` — rebuilds the deck.
+
+CONFIDENCE ON THE MONTHLY FIGURES. The monthly half of the board is written at
+two heights per team and the top-left corner is under camera glare. Of the
+twelve monthly totals that could be checked against the board's own total row,
+five reconcile to within £4 (May, Jun and Aug actual; Feb, Mar and Aug target).
+Three need checking before these figures are quoted outside the meeting:
+
+- July actual: the team rows sum to £670,538, the board total row reads £609,584.
+- T1's January and February are under the glare and are imputed at T1's own
+  monthly mean of £23,201.
+- January, April and May targets are out by £5,500, £6,000 and £3,294.
+
+The year-to-date total of £5,880,571 therefore carries an uncertainty of roughly
+£60k, or 2% of the remaining gap to £9m.
