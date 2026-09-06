@@ -1,0 +1,125 @@
+WEEK 1 FEE BOARD REVIEW — PRESENTER SCRIPT FOR ALICE
+Crawford & CO Surveyors · managers' meeting · prepared 5 September 2026
+
+RUN TIME: approx 3m 43s (416 spoken words + 42.4s of pauses, at 138 words per minute).
+Kept under the 4-minute limit with about 17s of headroom for a slower delivery.
+
+HOW TO USE THIS FILE
+- Paste each slide's block into your AI voice tool as you go, or paste the whole
+  thing if the tool handles slide breaks itself.
+- The <break time="0.7s"/> tags are SSML. ElevenLabs, Azure and Amazon Polly all
+  read them natively, and they are what stop the delivery running together into
+  one long sentence.
+- If your tool does NOT accept SSML, replace every tag with an ellipsis and a new
+  line — most engines pause on those. There is a tag-free version at the end.
+- Figures are written as words on purpose ("two hundred and forty six thousand"),
+  because voice engines misread "£246,274" more often than not.
+- The same script is already in the PowerPoint speaker notes, slide by slide.
+
+======================================================================
+THE SCRIPT
+======================================================================
+
+[SLIDE 1 — Title slide]   (~25s)
+
+Good morning. <break time="0.7s"/> This is the Week One fee board review. <break time="0.6s"/> Five charts, <break time="0.3s"/> four minutes. <break time="0.8s"/> The headline. <break time="0.5s"/> We invoiced two hundred and forty six thousand pounds against a target of three hundred and fifty thousand. <break time="0.7s"/> Seventy per cent of target. <break time="0.4s"/> A shortfall of one hundred and four thousand. <break time="0.9s"/>
+
+[SLIDE 2 — Graph 1 — Where the week landed]   (~26s)
+
+Start with the whole practice. <break time="0.6s"/> The teal bar is what we invoiced. <break time="0.4s"/> The pale bar is target. <break time="0.7s"/> Eight of our nine trading teams finished behind. <break time="0.5s"/> One finished ahead. <break time="0.8s"/> And note this. <break time="0.4s"/> Monday is blank on the board for every team. <break time="0.6s"/> So this is a four day week as recorded. <break time="0.9s"/>
+
+[SLIDE 3 — Graph 2 — Who the gap belongs to]   (~32s)
+
+This is the chart that matters. <break time="0.7s"/> Each team's shortfall in pounds, <break time="0.4s"/> not percentages. <break time="0.7s"/> Team Six is eighty nine thousand behind. <break time="0.5s"/> Team Three, <break time="0.3s"/> thirty eight thousand. <break time="0.7s"/> Together, <break time="0.3s"/> sixty nine per cent of the entire gap. <break time="0.9s"/> Close every other team's shortfall in full, <break time="0.5s"/> and we would still be well behind. <break time="0.7s"/> So today is mostly about Team Six and Team Three. <break time="0.9s"/>
+
+[SLIDE 4 — Graph 3 — How the week flowed]   (~27s)
+
+Now the shape of the week. <break time="0.6s"/> Thursday, <break time="0.3s"/> one hundred and eleven thousand pounds. <break time="0.5s"/> Friday, <break time="0.3s"/> twenty four thousand. <break time="0.7s"/> Thursday was four and a half times Friday, <break time="0.5s"/> against a flat daily target of about eighty eight thousand. <break time="0.8s"/> Fees are not flowing. <break time="0.4s"/> They are bunching. <break time="0.6s"/> That may be invoicing rather than delivery. <break time="0.9s"/>
+
+[SLIDE 5 — Graph 4 — Where the income comes from]   (~27s)
+
+Where the income actually comes from. <break time="0.6s"/> Team Six alone is forty eight per cent of everything we invoiced. <break time="0.6s"/> Three teams carry eighty two per cent. <break time="0.8s"/> That is a concentration risk as much as a performance question. <break time="0.6s"/> Team Six is our biggest earner and our biggest miss. <break time="0.5s"/> Is its target set against real capacity? <break time="0.9s"/>
+
+[SLIDE 6 — Graph 5 — The target rises as the gap opens]   (~27s)
+
+Week Two. <break time="0.6s"/> The target rises to four hundred and twenty two thousand. <break time="0.5s"/> Twenty per cent up on Week One. <break time="0.8s"/> Repeat this week's performance <break time="0.4s"/> and we finish a further one hundred and seventy six thousand behind. <break time="0.7s"/> Roughly two hundred and eighty thousand across the fortnight. <break time="0.6s"/> The gap widens while we talk about it. <break time="0.9s"/>
+
+[SLIDE 7 — Queries on the board itself]   (~29s)
+
+Three queries on the board itself. <break time="0.7s"/> One. <break time="0.4s"/> Our team targets add up to four hundred and thirty two thousand, <break time="0.4s"/> but the company line reads three hundred and fifty. <break time="0.6s"/> Eighty two thousand apart. <break time="0.7s"/> Two. <break time="0.4s"/> Monday is blank everywhere. <break time="0.6s"/> Three. <break time="0.4s"/> Wednesday is out by two hundred and one pounds. <break time="0.5s"/> The other three days balance exactly. <break time="0.9s"/>
+
+[SLIDE 8 — For decision today]   (~30s)
+
+Six actions. <break time="0.6s"/> One. <break time="0.3s"/> Review Team Six's target against real capacity. <break time="0.5s"/> Two. <break time="0.3s"/> Pipeline review for Team Three. <break time="0.5s"/> Three. <break time="0.3s"/> Team Seven to explain the position. <break time="0.5s"/> Four. <break time="0.3s"/> Decide the future of the Team Four line. <break time="0.5s"/> Five. <break time="0.3s"/> Accounts to reconcile the two target figures. <break time="0.5s"/> Six. <break time="0.3s"/> Confirm how often we post fees. <break time="0.9s"/> The first two change the number. <break time="0.5s"/> Thank you.
+
+======================================================================
+PLAIN VERSION — NO SSML TAGS (pauses become line breaks and ellipses)
+======================================================================
+
+[SLIDE 1 — Title slide]
+
+Good morning.
+
+This is the Week One fee board review. ... Five charts, ... four minutes.
+
+The headline. ... We invoiced two hundred and forty six thousand pounds against a target of three hundred and fifty thousand.
+
+Seventy per cent of target. ... A shortfall of one hundred and four thousand.
+
+[SLIDE 2 — Graph 1 — Where the week landed]
+
+Start with the whole practice. ... The teal bar is what we invoiced. ... The pale bar is target.
+
+Eight of our nine trading teams finished behind. ... One finished ahead.
+
+And note this. ... Monday is blank on the board for every team. ... So this is a four day week as recorded.
+
+[SLIDE 3 — Graph 2 — Who the gap belongs to]
+
+This is the chart that matters.
+
+Each team's shortfall in pounds, ... not percentages.
+
+Team Six is eighty nine thousand behind. ... Team Three, ... thirty eight thousand.
+
+Together, ... sixty nine per cent of the entire gap.
+
+Close every other team's shortfall in full, ... and we would still be well behind.
+
+So today is mostly about Team Six and Team Three.
+
+[SLIDE 4 — Graph 3 — How the week flowed]
+
+Now the shape of the week. ... Thursday, ... one hundred and eleven thousand pounds. ... Friday, ... twenty four thousand.
+
+Thursday was four and a half times Friday, ... against a flat daily target of about eighty eight thousand.
+
+Fees are not flowing. ... They are bunching. ... That may be invoicing rather than delivery.
+
+[SLIDE 5 — Graph 4 — Where the income comes from]
+
+Where the income actually comes from. ... Team Six alone is forty eight per cent of everything we invoiced. ... Three teams carry eighty two per cent.
+
+That is a concentration risk as much as a performance question. ... Team Six is our biggest earner and our biggest miss. ... Is its target set against real capacity?
+
+[SLIDE 6 — Graph 5 — The target rises as the gap opens]
+
+Week Two. ... The target rises to four hundred and twenty two thousand. ... Twenty per cent up on Week One.
+
+Repeat this week's performance ... and we finish a further one hundred and seventy six thousand behind.
+
+Roughly two hundred and eighty thousand across the fortnight. ... The gap widens while we talk about it.
+
+[SLIDE 7 — Queries on the board itself]
+
+Three queries on the board itself.
+
+One. ... Our team targets add up to four hundred and thirty two thousand, ... but the company line reads three hundred and fifty. ... Eighty two thousand apart.
+
+Two. ... Monday is blank everywhere. ... Three. ... Wednesday is out by two hundred and one pounds. ... The other three days balance exactly.
+
+[SLIDE 8 — For decision today]
+
+Six actions. ... One. ... Review Team Six's target against real capacity. ... Two. ... Pipeline review for Team Three. ... Three. ... Team Seven to explain the position. ... Four. ... Decide the future of the Team Four line. ... Five. ... Accounts to reconcile the two target figures. ... Six. ... Confirm how often we post fees.
+
+The first two change the number. ... Thank you.

@@ -15,3 +15,16 @@ Friday sum exactly to the board's total line; Wednesday differs by £201. Two fi
 were recovered arithmetically from the total row where the handwriting was unclear —
 T6 Tuesday (£31,221) and T10 Thursday (£35,846) — and should be confirmed against the
 accounts system.
+
+## Presentation
+
+- `week1-fee-board-review.pptx` — eight slides, five charts, with Alice's script
+  already in the speaker notes slide by slide.
+- `alice-presenter-script.txt` — the same script as a standalone file for pasting
+  into a voice tool. SSML `<break time="0.7s"/>` tags set the pacing; a tag-free
+  version is appended at the end of the file.
+- `week1-deck-generator.js` — regenerates the deck. `npm install pptxgenjs`, then
+  `node reports/week1-deck-generator.js`. Edit the `addNotes()` blocks to change
+  the script; both the notes and the standalone file are generated from them.
+
+Run time is approximately 3m 43s at 138 words per minute, inside the 4-minute limit.
