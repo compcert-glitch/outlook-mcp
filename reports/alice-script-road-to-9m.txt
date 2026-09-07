@@ -1,8 +1,8 @@
 YEAR TO DATE & THE ROAD TO £9 MILLION — PRESENTER SCRIPT FOR ALICE
 Crawford & CO Surveyors · managers' meeting · prepared 5 September 2026
 
-RUN TIME: approx 3m 53s (432 spoken words + 44.9s of pauses, at 138 words per minute).
-Kept under the 4-minute limit with about 7s of headroom for a slower delivery.
+RUN TIME: approx 3m 54s (434 spoken words + 44.9s of pauses, at 138 words per minute).
+Kept under the 4-minute limit with about 6s of headroom for a slower delivery.
 
 HOW TO USE THIS FILE
 - Paste each slide's block into your AI voice tool as you go, or paste the whole
@@ -40,9 +40,9 @@ Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/
 
 So here is the position. <break time="0.6s"/> Five point eight eight million banked, <break time="0.5s"/> three point one two million to go. <break time="0.8s"/> We have averaged seven hundred and four thousand a month. <break time="0.6s"/> We need eight hundred and twenty one thousand. <break time="0.8s"/> That is a sixteen per cent uplift. <break time="0.5s"/> Not a different business. <break time="0.4s"/> Sixteen per cent. <break time="0.9s"/>
 
-[SLIDE 6 — September — the last month of Q3]   (~28s)
+[SLIDE 6 — September — the last month of Q3]   (~29s)
 
-September is the last month of quarter three. <break time="0.7s"/> It needs eight hundred and twenty one thousand. <break time="0.6s"/> Two hundred and forty six thousand is already banked from week one. <break time="0.7s"/> That leaves five hundred and seventy five thousand across the three weeks left. <break time="0.7s"/> One hundred and ninety two thousand a week. <break time="0.6s"/> We beat that pace last week. <break time="0.9s"/>
+September is the last month of quarter three. <break time="0.7s"/> It needs eight hundred and twenty one thousand. <break time="0.6s"/> Two hundred and forty six thousand is already banked from the first four days. <break time="0.7s"/> That leaves five hundred and seventy five thousand across the three weeks left. <break time="0.7s"/> One hundred and ninety two thousand a week. <break time="0.6s"/> We beat that pace last week. <break time="0.9s"/>
 
 [SLIDE 7 — The plan — four months at £820,902]   (~26s)
 
@@ -108,7 +108,7 @@ That is a sixteen per cent uplift. ... Not a different business. ... Sixteen per
 
 September is the last month of quarter three.
 
-It needs eight hundred and twenty one thousand. ... Two hundred and forty six thousand is already banked from week one.
+It needs eight hundred and twenty one thousand. ... Two hundred and forty six thousand is already banked from the first four days.
 
 That leaves five hundred and seventy five thousand across the three weeks left.
 

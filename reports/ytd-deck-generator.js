@@ -149,18 +149,18 @@ s.addNotes(`So here is the position. <break time="0.6s"/> Five point eight eight
 // =====================================================================
 s=p.addSlide();
 head(s,'THE LAST MONTH OF Q3','What September has to deliver',
-  'September needs £820,902. £246,274 is already banked from week one, which leaves £574,628 across the three weeks that remain.');
+  'September needs £820,902. £246,274 is already banked from 1–4 September, leaving £574,628 across the three full weeks that remain — with 28–30 September as headroom.');
 s.addChart(p.ChartType.bar,[
-  {name:'Already invoiced', labels:['Week 1','Week 2','Week 3','Week 4'],values:[SEPT,0,0,0]},
-  {name:'Still to invoice', labels:['Week 1','Week 2','Week 3','Week 4'],values:[0,191543,191543,191542]},
+  {name:'Already invoiced', labels:['1–4 Sep','7–11 Sep','14–18 Sep','21–25 Sep'],values:[SEPT,0,0,0]},
+  {name:'Still to invoice', labels:['1–4 Sep','7–11 Sep','14–18 Sep','21–25 Sep'],values:[0,191543,191543,191542]},
 ],{...frame,x:MGN,y:2.4,w:8.4,h:4.2,barDir:'col',barGrouping:'stacked',barGapWidthPct:55,
   chartColors:[TEAL,GOLD],showLegend:true,legendPos:'b',legendFontFace:B,legendFontSize:11.5,legendColor:MUTED,
   dataLabelPosition:'ctr',dataLabelFormatCode:'£#,##0',dataLabelColor:PAPER,valAxisLabelFormatCode:'£#,##0',
   valAxisMaxVal:300000});
 statCard(s,9.35,2.4,3.38,1.55,'SEPTEMBER NEEDS',f(REQD),null,{big:26,vc:GOLD});
-statCard(s,9.35,4.1,3.38,1.35,'BANKED, WEEK 1',f(SEPT),null,{big:26,vc:TEAL});
-statCard(s,9.35,5.6,3.38,1.35,'PER WEEK, W2–W4','£191,543',null,{big:26});
-s.addNotes(`September is the last month of quarter three. <break time="0.7s"/> It needs eight hundred and twenty one thousand. <break time="0.6s"/> Two hundred and forty six thousand is already banked from week one. <break time="0.7s"/> That leaves five hundred and seventy five thousand across the three weeks left. <break time="0.7s"/> One hundred and ninety two thousand a week. <break time="0.6s"/> We beat that pace last week. <break time="0.9s"/>`);
+statCard(s,9.35,4.1,3.38,1.35,'BANKED, 1–4 SEP',f(SEPT),null,{big:26,vc:TEAL});
+statCard(s,9.35,5.6,3.38,1.35,'PER WEEK, REMAINING','£191,543',null,{big:26});
+s.addNotes(`September is the last month of quarter three. <break time="0.7s"/> It needs eight hundred and twenty one thousand. <break time="0.6s"/> Two hundred and forty six thousand is already banked from the first four days. <break time="0.7s"/> That leaves five hundred and seventy five thousand across the three weeks left. <break time="0.7s"/> One hundred and ninety two thousand a week. <break time="0.6s"/> We beat that pace last week. <break time="0.9s"/>`);
 
 // =====================================================================
 // 7  THE PLAN TO £9M
@@ -195,7 +195,7 @@ const leads=[
   {id:'T5', who:'HH',          pct:63,  q4:54770,  act:'£222,219 behind. Convert what is already in the pipeline'},
   {id:'T9', who:'JW',          pct:75,  q4:34063,  act:'Steady all year. Clear the August carry-over and lift the weekly rate'},
   {id:'T8', who:'KG',          pct:70,  q4:30932,  act:'£92,546 behind. Review instruction volume against surveyor availability'},
-  {id:'T1', who:'KP',          pct:83,  q4:27043,  act:'Beat target in week one. Keep that weekly discipline through Q4'},
+  {id:'T1', who:'KP',          pct:83,  q4:27043,  act:'Beat target in the opening week of September. Keep that discipline through Q4'},
   {id:'T2', who:'JW',          pct:25,  q4:21408,  act:'25% for the year — our biggest concern. Full pipeline review this week'},
   {id:'T4', who:'unallocated', pct:39,  q4:18529,  act:'No lead on the board. Ownership to be resolved before Q4 starts'},
   {id:'T7', who:'JM',          pct:58,  q4:6463,   act:'Smallest line. Confirm what is booked for the rest of the year'},
