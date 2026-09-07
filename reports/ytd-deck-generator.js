@@ -179,27 +179,28 @@ s.addNotes(`The whole year in one picture. <break time="0.7s"/> Teal is what we 
 // =====================================================================
 s=p.addSlide(); s.background={color:DARK};
 head(s,'IF WE BEAT IT','£5,000 each for every £200,000 over £9m',
-  'The nine million is the goal. Everything above it is shared — and it steps up every two hundred thousand.',true);
-const rungs=[['£9.2m','£5,000'],['£9.4m','£10,000'],['£9.6m','£15,000'],['£9.8m','£20,000'],['£10.0m','£25,000']];
+  'For Emily, Stuart, Cassie and Megan. Nine million is the goal — everything above it is shared, and it steps up every two hundred thousand.',true);
+const rungs=[['£9.2m','£5,000','£20,000'],['£9.4m','£10,000','£40,000'],
+             ['£9.6m','£15,000','£60,000'],['£9.8m','£20,000','£80,000'],
+             ['£10.0m','£25,000','£100,000']];
 rungs.forEach((rg,i)=>{
-  const last=i===4;
-  const x=MGN+i*2.47;
-  s.addShape(p.ShapeType.rect,{x,y:2.5,w:2.3,h:2.5,
+  const last=i===4, x=MGN+i*2.47;
+  s.addShape(p.ShapeType.rect,{x,y:2.55,w:2.3,h:2.45,
     fill:{color:last?GOLD:PANEL},line:{color:last?GOLD:PANEL_L,width:1}});
-  s.addText(rg[0],{x:x+0.2,y:2.72,w:1.9,h:0.4,isTextBox:true,margin:0,
+  s.addText(rg[0],{x:x+0.15,y:2.74,w:2.0,h:0.34,isTextBox:true,margin:0,
     fontFace:M,fontSize:14,bold:true,color:last?INK:MUTED_D,align:'center'});
-  s.addText(rg[1],{x:x+0.15,y:3.3,w:2.0,h:0.75,isTextBox:true,margin:0,
-    fontFace:H,fontSize:last?32:28,bold:true,color:last?INK:PAPER_D,align:'center'});
-  s.addText('each',{x:x+0.2,y:4.15,w:1.9,h:0.3,isTextBox:true,margin:0,
+  s.addText(rg[1],{x:x+0.12,y:3.18,w:2.06,h:0.72,isTextBox:true,margin:0,
+    fontFace:H,fontSize:last?31:27,bold:true,color:last?INK:PAPER_D,align:'center'});
+  s.addText('each',{x:x+0.15,y:3.92,w:2.0,h:0.28,isTextBox:true,margin:0,
     fontFace:B,fontSize:12,color:last?INK:MUTED_D,align:'center'});
-  if(last) s.addText('the one to aim at',{x:x+0.15,y:4.5,w:2.0,h:0.3,isTextBox:true,margin:0,
-    fontFace:B,fontSize:11,bold:true,italic:true,color:INK,align:'center'});
+  s.addText(rg[2]+' in total',{x:x+0.12,y:4.34,w:2.06,h:0.3,isTextBox:true,margin:0,
+    fontFace:M,fontSize:11,bold:true,color:last?INK:TEAL_LT,align:'center'});
 });
-s.addText('Ten million means twenty five thousand pounds each. That is one million pounds of fee income above the goal — and roughly a June, four times over, plus a little more.',
-  {x:MGN,y:5.35,w:12.13,h:0.5,isTextBox:true,margin:0,fontFace:B,fontSize:15,color:PAPER_D});
-s.addText('Scheme applies per team manager. Confirm eligibility, the payment date, and whether the trigger is invoiced fees or cash collected, before this is announced beyond this room.',
-  {x:MGN,y:6.5,w:12.13,h:0.4,isTextBox:true,margin:0,fontFace:B,fontSize:11,italic:true,color:MUTED_D});
-s.addNotes(`Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared. <break time="0.8s"/> For every two hundred thousand pounds over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.9s"/> Nine point two million is five thousand. <break time="0.5s"/> Nine point six is fifteen. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="1s"/>`);
+s.addText('Ten million means £25,000 each — £100,000 shared between the four of you, out of £1,000,000 of fee income above the goal.',
+  {x:MGN,y:5.3,w:12.13,h:0.5,isTextBox:true,margin:0,fontFace:B,fontSize:15,color:PAPER_D});
+s.addText('The scheme pays 10% of everything above £9m, at every rung. Confirm the payment date and whether the trigger is invoiced fees or cash collected before this is announced.',
+  {x:MGN,y:6.45,w:12.13,h:0.45,isTextBox:true,margin:0,fontFace:B,fontSize:11,italic:true,color:MUTED_D});
+s.addNotes(`Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared between the four of you. <break time="0.6s"/> Emily, <break time="0.25s"/> Stuart, <break time="0.25s"/> Cassie <break time="0.25s"/> and Megan. <break time="0.9s"/> For every two hundred thousand over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.8s"/> Nine point six million is fifteen thousand. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="1s"/>`);
 
 // =====================================================================
 // 9  TEN MILLION
@@ -209,7 +210,7 @@ head(s,'THE STRETCH','What ten million actually takes',
   'It is one million pounds above the goal. Here is the size of it, honestly, so we go after it with our eyes open.',true);
 statCard(s,MGN,2.55,3.9,2.1,'PER MONTH FOR £9M',f(REQD),'a 16% uplift on our year average',{dark:true,big:30,vc:PAPER_D});
 statCard(s,MGN+4.12,2.55,3.9,2.1,'PER MONTH FOR £10M','£1,084,060','a 54% uplift — and 28% above our best month',{dark:true,big:30,vc:GOLD_LT});
-statCard(s,MGN+8.24,2.55,3.9,2.1,'THE PRIZE','£25,000','each, if we get there',{dark:true,big:30,vc:GOLD_LT});
+statCard(s,MGN+8.24,2.55,3.9,2.1,'THE PRIZE','£25,000','each for Emily, Stuart, Cassie and Megan',{dark:true,big:30,vc:GOLD_LT});
 const asks=[
   'Close the Q1 habits — that quarter cost us £738,273 and we never got it back',
   'July and August ran at 53% of target. Q4 cannot look like that',

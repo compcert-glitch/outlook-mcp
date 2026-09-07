@@ -34,6 +34,10 @@ Run time is approximately 3m 43s at 138 words per minute, inside the 4-minute li
 - `ytd-road-to-9m.pptx` — nine slides: Q1, Q2, the year so far, where we stand
   against £9m, what September must deliver, the plan to year end, the bonus
   ladder, and what £10m actually takes. Script in the speaker notes.
+
+  The bonus scheme pays Emily, Stuart, Cassie and Megan — £5,000 each for every
+  £200,000 above £9m, so £25,000 each and £100,000 in total at £10m. That is 10%
+  of the excess at every rung.
 - `alice-script-road-to-9m.txt` — the same script standalone, approx 3m 50s.
 - `ytd-data.js` — the monthly transcription, the reconciliation against the
   board's own monthly total row, the run-rate arithmetic and the bonus ladder.

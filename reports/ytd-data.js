@@ -87,13 +87,14 @@ console.log(`uplift needed for £10m   : +${Math.round(((need10/monthsRemaining)
 console.log('best month so far (Jun)  :', f(Math.max(...monthAct)));
 
 console.log('\n=== BONUS LADDER (integer arithmetic) ===');
-console.log('milestone   over £9m     bonus each   10 mgrs      75 surveyors   100 staff   % of the extra income');
+console.log('The scheme pays Emily, Stuart, Cassie and Megan - four recipients.');
+console.log('milestone   over £9m     bonus each   total pot    % of the extra income');
 for(let k=0;k<=5;k++){
   const total=9_000_000+k*200_000;
   const over=total-9_000_000;
   const per=(over/200_000)*5000;
-  const c10=per*10,c75=per*75,c100=per*100;
-  console.log(`£${(total/1e6).toFixed(1)}m  ${f(over).padStart(10)}  ${f(per).padStart(9)}  ${f(c10).padStart(10)}  ${f(c75).padStart(12)}  ${f(c100).padStart(11)}   ${over?((c10/over*100).toFixed(0)+'% / '+(c75/over*100).toFixed(0)+'% / '+(c100/over*100).toFixed(0)+'%'):'-'}`);
+  const pot=per*4;
+  console.log(`£${(total/1e6).toFixed(1)}m  ${f(over).padStart(10)}  ${f(per).padStart(9)}  ${f(pot).padStart(10)}   ${over?(pot/over*100).toFixed(0)+'%':'-'}`);
 }
 console.log('\nweekly board target £350,604 x 52 =', f(350604*52), '/year');
 console.log('monthly board targets Jan-Aug avg  =', f(monthTgt.reduce((a,b)=>a+b,0)/8), '/month  x12 =', f(monthTgt.reduce((a,b)=>a+b,0)/8*12));
