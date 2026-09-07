@@ -39,3 +39,4 @@ logs
 *.log
 reports/node_modules/
 reports/package.json
+reports/package-lock.json

@@ -8,10 +8,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-# pptxgenjs builds the decks; install it here if it is not already available
+# pptxgenjs builds the decks. Install it into reports/ only - it is a build-time
+# tool for these documents, not a dependency of the MCP server in the repo root,
+# so it must never be written into the root package.json.
 if ! node -e "require.resolve('pptxgenjs')" >/dev/null 2>&1; then
-  echo "installing pptxgenjs..."
-  npm install --silent --no-package-lock --no-audit --no-fund pptxgenjs
+  echo "installing pptxgenjs into reports/ ..."
+  [ -f package.json ] || echo '{"name":"fee-board-reports","private":true}' > package.json
+  npm install --silent --no-audit --no-fund --prefix . pptxgenjs
 fi
 # python-pptx runs the geometry check; skip that step if it is missing
 HAVE_PPTX=$(python3 -c "import pptx" 2>/dev/null && echo yes || echo no)
