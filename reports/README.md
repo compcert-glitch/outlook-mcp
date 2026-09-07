@@ -17,7 +17,7 @@ is skipped and everything else still runs.
 
 | File | What it is |
 |---|---|
-| `ytd-road-to-9m.pptx` | **The main deck.** Nine slides — Q1, Q2, the year so far, the position against £9m, September, the plan to year end, the bonus, and what £10m takes. Alice's script is in the speaker notes. |
+| `ytd-road-to-9m.pptx` | **The main deck.** Ten slides — Q1, Q2, the year so far, the position against £9m, September, the plan to year end, what each team lead owns, the bonus, and what £10m takes. Alice's script is in the speaker notes. |
 | `alice-script-road-to-9m.txt` | The same script standalone, for pasting into the voice tool. Approx 3m 53s. |
 | `week1-fee-board-review.pptx` | The Week 1 deck — eight slides on last week's board. Approx 3m 43s. |
 | `alice-presenter-script.txt` | Its presenter script. |
@@ -27,6 +27,7 @@ is skipped and everything else still runs.
 
 | File | What it holds |
 |---|---|
+| `per-team-figures.js` | Each team's year-to-date position and its Oct–Dec monthly number. `node reports/per-team-figures.js` prints the table behind the team-lead slide. |
 | `ytd-data.js` | The monthly transcription, the reconciliation against the board's own total row, the run-rate arithmetic, and the bonus ladder. `node reports/ytd-data.js` prints the lot. |
 | `week1-fee-board-data.js` | The Week 1 daily transcription and its cross-cast against the board's total row. |
 | `ytd-deck-generator.js` | Builds the year-to-date deck. Figures are constants at the top; the script lives in the `addNotes()` blocks. |
@@ -37,6 +38,19 @@ is skipped and everything else still runs.
 To change a figure, edit it in the `*-data.js` or at the top of the generator,
 then run `./reports/build.sh`. The decks, the speaker notes and the standalone
 scripts all regenerate together, so they cannot drift apart.
+
+## What each team lead owns
+
+Slide 8 gives every lead their own monthly number for October to December. The
+split applies the **same 16.6% lift to every team's Jan–Aug average**, so the ten
+figures add to exactly £820,902 — the practice number. Nobody is asked for a
+bigger proportional lift than anyone else.
+
+Year-to-date tells a different story from Week 1. Against their own year-to-date
+targets, T3 (EP, CW, AL) is the only team **ahead** at 112%, and T6 (NR, EB, BF)
+is at 96% — the two that looked worst in the Week 1 review are the two strongest
+across the year. The teams genuinely behind for the year are T2 (25%), T4 (39%),
+T7 (58%), T5 (63%) and T10 (66%).
 
 ## The bonus scheme
 

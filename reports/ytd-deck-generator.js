@@ -40,6 +40,13 @@ function statCard(s,x,y,w,h,label,value,note,opt={}){
   if(note) s.addText(note,{x:x+0.28,y:y+1.2,w:w-0.5,h:h-1.38,isTextBox:true,margin:0,
     fontFace:B,fontSize:12,color:opt.dark?MUTED_D:INK2});
 }
+// the board's own team codes, set as ledger chips - the deck's one motif
+function teamChip(s,code,x,y,fill){
+  s.addShape(p.ShapeType.roundRect,{x,y,w:0.52,h:0.3,rectRadius:0.04,
+    fill:{color:fill||TEAL},line:{color:fill||TEAL,width:0}});
+  s.addText(code,{x,y,w:0.52,h:0.3,isTextBox:true,margin:0,
+    fontFace:M,fontSize:11,bold:true,color:PAPER,align:'center',valign:'middle'});
+}
 const frame={showTitle:false,showLegend:false,
   catAxisLabelColor:MUTED,catAxisLabelFontFace:B,catAxisLabelFontSize:11.5,
   valAxisLabelColor:MUTED,valAxisLabelFontFace:B,valAxisLabelFontSize:11,
@@ -63,7 +70,7 @@ statCard(s,MGN+4.12,3.05,3.9,1.95,'THE GOAL','£9.00m','by 31 December 2026',{da
 statCard(s,MGN+8.24,3.05,3.9,1.95,'STILL TO INVOICE',fm(NEED),'over the remaining 3.8 months',{dark:true,big:34,vc:GOLD_LT});
 s.addText('Provisional — year-to-date figures are transcribed from the fee board and should be confirmed against the accounts system before circulation.',
   {x:MGN,y:6.55,w:11.8,h:0.35,isTextBox:true,margin:0,fontFace:B,fontSize:11,italic:true,color:MUTED_D});
-s.addNotes(`Good morning. <break time="0.7s"/> This is where we stand for the year, <break time="0.4s"/> and what it takes to finish at nine million. <break time="0.9s"/> Five point eight eight million invoiced to the sixth of September. <break time="0.6s"/> Sixty five per cent of the way. <break time="0.7s"/> Three point one two million still to go. <break time="0.9s"/>`);
+s.addNotes(`Good morning. <break time="0.7s"/> This is where we stand, <break time="0.4s"/> and what it takes to finish at nine million. <break time="0.9s"/> Five point eight eight million invoiced to the sixth of September. <break time="0.6s"/> Sixty five per cent of the way. <break time="0.7s"/> Three point one two million still to go. <break time="0.9s"/>`);
 
 // =====================================================================
 // 2  Q1
@@ -97,7 +104,7 @@ s.addChart(p.ChartType.bar,[
 statCard(s,9.35,2.25,3.38,1.5,'Q2 INVOICED',fm(Q2A),null,{big:28});
 statCard(s,9.35,3.9,3.38,1.5,'Q2 TARGET',fm(Q2T),null,{big:28});
 statCard(s,9.35,5.55,3.38,1.5,'ACHIEVED','91.7%',null,{big:28,vc:TEAL});
-s.addNotes(`Quarter two was much better. <break time="0.6s"/> Two point three four million against two point five five. <break time="0.6s"/> Ninety two per cent. <break time="0.7s"/> April was within two thousand pounds of target, <break time="0.4s"/> and June was our best month of the year at eight hundred and forty eight thousand. <break time="0.9s"/>`);
+s.addNotes(`Quarter two was much better. <break time="0.6s"/> Ninety two per cent of target. <break time="0.7s"/> April was on target, <break time="0.4s"/> and June was our best month of the year at eight hundred and forty eight thousand. <break time="0.9s"/>`);
 
 // =====================================================================
 // 4  THE YEAR SO FAR
@@ -114,7 +121,7 @@ s.addChart(p.ChartType.bar,[
 statCard(s,9.35,2.25,3.38,1.5,'Q1 ACHIEVED','73.9%',null,{big:28,vc:SHORT});
 statCard(s,9.35,3.9,3.38,1.5,'Q2 ACHIEVED','91.7%',null,{big:28,vc:TEAL});
 statCard(s,9.35,5.55,3.38,1.5,'Q3 SO FAR','63.9%',null,{big:28,vc:SHORT});
-s.addNotes(`Put the three quarters side by side. <break time="0.7s"/> Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/> then sixty four. <break time="0.8s"/> We recovered in quarter two and then gave it back in July and August. <break time="0.7s"/> Just over half of target between them. <break time="0.9s"/>`);
+s.addNotes(`Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/> then sixty four. <break time="0.8s"/> We recovered in quarter two and then gave it back in July and August. <break time="0.7s"/> Just over half of target between them. <break time="0.9s"/>`);
 
 // =====================================================================
 // 5  WHERE WE STAND  (progress to £9m, drawn to scale)
@@ -172,10 +179,55 @@ s.addChart(p.ChartType.bar,[
 statCard(s,MGN,5.92,3.9,1.12,'BEST MONTH SO FAR',f(BEST),null,{big:24});
 statCard(s,MGN+4.12,5.92,3.9,1.12,'NEEDED EACH MONTH',f(REQD),null,{big:24,vc:GOLD});
 statCard(s,MGN+8.24,5.92,3.9,1.12,'BELOW OUR BEST MONTH','£27,078',null,{big:24,vc:TEAL});
-s.addNotes(`The whole year in one picture. <break time="0.7s"/> Teal is what we have invoiced. <break time="0.5s"/> Gold is what is still required. <break time="0.8s"/> Eight hundred and twenty one thousand a month, <break time="0.4s"/> for four months. <break time="0.8s"/> Our best month this year was June, <break time="0.4s"/> at eight hundred and forty eight thousand. <break time="0.7s"/> So we need a June. <break time="0.5s"/> Four times over. <break time="0.9s"/>`);
+s.addNotes(`The whole year in one picture. <break time="0.7s"/> Teal is invoiced, gold is what is still required. <break time="0.8s"/> Eight hundred and twenty one thousand a month, <break time="0.4s"/> for four months. <break time="0.8s"/> Our best month this year was June, <break time="0.4s"/> at eight hundred and forty eight thousand. <break time="0.7s"/> So we need a June. <break time="0.5s"/> Four times over. <break time="0.9s"/>`);
 
 // =====================================================================
-// 8  THE BONUS
+// 8  WHAT EACH TEAM LEAD OWNS
+// =====================================================================
+s=p.addSlide();
+head(s,'FOR EACH TEAM LEAD','Your number for October, November and December',
+  'The same lift for everyone — 16.6% on what your team has averaged all year. Find your line; that is your number.');
+
+const leads=[
+  {id:'T6', who:'NR, EB, BF',  pct:96,  q4:371130, act:'45% of everything we invoice. Protect the run rate and flag capacity limits early'},
+  {id:'T10',who:'GA',          pct:66,  q4:141683, act:'£522,903 behind for the year — the biggest gap on the board to close'},
+  {id:'T3', who:'EP, CW, AL',  pct:112, q4:114880, act:'The only team ahead for the year. Hold it, and tell the rest of us what is working'},
+  {id:'T5', who:'HH',          pct:63,  q4:54770,  act:'£222,219 behind. Convert what is already in the pipeline'},
+  {id:'T9', who:'JW',          pct:75,  q4:34063,  act:'Steady all year. Clear the August carry-over and lift the weekly rate'},
+  {id:'T8', who:'KG',          pct:70,  q4:30932,  act:'£92,546 behind. Review instruction volume against surveyor availability'},
+  {id:'T1', who:'KP',          pct:83,  q4:27043,  act:'Beat target in week one. Keep that weekly discipline through Q4'},
+  {id:'T2', who:'JW',          pct:25,  q4:21408,  act:'25% for the year — our biggest concern. Full pipeline review this week'},
+  {id:'T4', who:'unallocated', pct:39,  q4:18529,  act:'No lead on the board. Ownership to be resolved before Q4 starts'},
+  {id:'T7', who:'JM',          pct:58,  q4:6463,   act:'Smallest line. Confirm what is booked for the rest of the year'},
+];
+const RY=2.32, RH=0.415;
+s.addText('TEAM',{x:MGN,y:2.05,w:1.1,h:0.22,isTextBox:true,margin:0,fontFace:M,fontSize:9.5,bold:true,charSpacing:1.2,color:MUTED});
+s.addText('LEAD',{x:MGN+1.15,y:2.05,w:1.5,h:0.22,isTextBox:true,margin:0,fontFace:M,fontSize:9.5,bold:true,charSpacing:1.2,color:MUTED});
+s.addText('YTD',{x:MGN+2.72,y:2.05,w:0.8,h:0.22,isTextBox:true,margin:0,fontFace:M,fontSize:9.5,bold:true,charSpacing:1.2,color:MUTED,align:'right'});
+s.addText('EACH MONTH, OCT–DEC',{x:MGN+3.6,y:2.05,w:1.85,h:0.22,isTextBox:true,margin:0,fontFace:M,fontSize:9.5,bold:true,charSpacing:1.2,color:MUTED,align:'right'});
+s.addText('WHAT YOU OWN',{x:MGN+5.72,y:2.05,w:6.4,h:0.22,isTextBox:true,margin:0,fontFace:M,fontSize:9.5,bold:true,charSpacing:1.2,color:MUTED});
+
+leads.forEach((L,i)=>{
+  const y=RY+i*RH;
+  if(i%2===0) s.addShape(p.ShapeType.rect,{x:MGN,y,w:12.13,h:RH,
+    fill:{color:SOFT},line:{color:SOFT,width:0}});
+  teamChip(s,L.id,MGN+0.1,y+0.06);
+  s.addText(L.who,{x:MGN+1.15,y,w:1.5,h:RH,isTextBox:true,margin:0,
+    fontFace:B,fontSize:12,color:INK2,valign:'middle'});
+  s.addText(L.pct+'%',{x:MGN+2.72,y,w:0.8,h:RH,isTextBox:true,margin:0,
+    fontFace:M,fontSize:12,bold:true,align:'right',valign:'middle',
+    color:L.pct>=100?TEAL:(L.pct>=70?INK:SHORT)});
+  s.addText(f(L.q4),{x:MGN+3.6,y,w:1.85,h:RH,isTextBox:true,margin:0,
+    fontFace:M,fontSize:12.5,bold:true,color:GOLD,align:'right',valign:'middle'});
+  s.addText(L.act,{x:MGN+5.72,y,w:6.4,h:RH,isTextBox:true,margin:0,
+    fontFace:B,fontSize:11.5,color:INK2,valign:'middle'});
+});
+s.addText('The ten monthly figures add to £820,902 — the practice number. YTD % is invoiced fees against each team\u2019s own year-to-date target.',
+  {x:MGN,y:6.62,w:12.13,h:0.35,isTextBox:true,margin:0,fontFace:B,fontSize:11,italic:true,color:MUTED});
+s.addNotes(`Now, specifically. <break time="0.7s"/> Your number for October, November and December is here. <break time="0.8s"/> The same lift for everyone. <break time="0.5s"/> Sixteen point six per cent. <break time="0.8s"/> Find your line. <break time="0.6s"/> That is your number. <break time="0.9s"/>`);
+
+// =====================================================================
+// 9  THE BONUS
 // =====================================================================
 s=p.addSlide(); s.background={color:DARK};
 head(s,'IF WE BEAT IT','£5,000 each for every £200,000 over £9m',
@@ -203,7 +255,7 @@ s.addText('Measured on fees invoiced, not cash collected. The scheme pays 10% of
 s.addNotes(`Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared between the four of you. <break time="0.6s"/> Emily, <break time="0.25s"/> Stuart, <break time="0.25s"/> Cassie <break time="0.25s"/> and Megan. <break time="0.9s"/> For every two hundred thousand over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.8s"/> Nine point six million is fifteen thousand. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="0.8s"/> Measured on invoiced fees. <break time="0.9s"/>`);
 
 // =====================================================================
-// 9  TEN MILLION
+// 10  TEN MILLION
 // =====================================================================
 s=p.addSlide(); s.background={color:DARK};
 head(s,'THE STRETCH','What ten million actually takes',
@@ -221,6 +273,6 @@ asks.forEach((a,i)=>{
   s.addText(a,{x:MGN+0.3,y:5.05+i*0.62,w:11.5,h:0.54,isTextBox:true,margin:0,
     fontFace:B,fontSize:13.5,color:PAPER_D,valign:'middle'});
 });
-s.addNotes(`Let us be straight about ten million. <break time="0.7s"/> Nine million needs a sixteen per cent uplift. <break time="0.6s"/> Ten million needs fifty four per cent, <break time="0.5s"/> above the best month we have had. <break time="0.8s"/> It is a stretch. <break time="0.4s"/> It is not impossible. <break time="0.7s"/> But only if quarter four looks nothing like July and August. <break time="0.8s"/> Nine million is the commitment. <break time="0.5s"/> Ten million is the prize. <break time="0.5s"/> Thank you.`);
+s.addNotes(`Let us be straight about ten million. <break time="0.7s"/> Nine million needs a sixteen per cent uplift. <break time="0.6s"/> Ten million needs fifty four per cent. <break time="0.8s"/> It is a stretch. <break time="0.4s"/> It is not impossible. <break time="0.7s"/> But only if quarter four looks nothing like July and August. <break time="0.8s"/> Nine million is the commitment. <break time="0.5s"/> Ten million is the prize. <break time="0.5s"/> Thank you.`);
 
 p.writeFile({fileName:'ytd-road-to-9m.pptx'}).then(x=>console.log('wrote',x));

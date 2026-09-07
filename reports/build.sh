@@ -36,7 +36,7 @@ node make-presenter-script.js week1-deck-generator.js \
   "alice-presenter-script.txt"
 
 node make-presenter-script.js ytd-deck-generator.js \
-  "Title — The Road to £9 Million|Q1 — A slow start|Q2 — The recovery|The year so far, quarter by quarter|Where we stand — £5.88m of £9m|September — the last month of Q3|The plan — four months at £820,902|The bonus — £5,000 each per £200,000 over £9m|The stretch — what £10m actually takes" \
+  "Title — The Road to £9 Million|Q1 — A slow start|Q2 — The recovery|The year so far, quarter by quarter|Where we stand — £5.88m of £9m|September — the last month of Q3|The plan — four months at £820,902|What each team lead owns|The bonus — £5,000 each per £200,000 over £9m|The stretch — what £10m actually takes" \
   "YEAR TO DATE & THE ROAD TO £9 MILLION — PRESENTER SCRIPT FOR ALICE" \
   "alice-script-road-to-9m.txt"
 
@@ -48,6 +48,10 @@ if [ "$HAVE_PPTX" = yes ]; then
 else
   echo "skipped - run 'pip install python-pptx' to enable"
 fi
+
+echo
+echo "== per-team figures ========================================="
+node per-team-figures.js
 
 echo
 echo "Done."
