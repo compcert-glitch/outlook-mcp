@@ -114,7 +114,7 @@ s.addChart(p.ChartType.bar,[
 statCard(s,9.35,2.25,3.38,1.5,'Q1 ACHIEVED','73.9%',null,{big:28,vc:SHORT});
 statCard(s,9.35,3.9,3.38,1.5,'Q2 ACHIEVED','91.7%',null,{big:28,vc:TEAL});
 statCard(s,9.35,5.55,3.38,1.5,'Q3 SO FAR','63.9%',null,{big:28,vc:SHORT});
-s.addNotes(`Put the three quarters side by side. <break time="0.7s"/> Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/> then sixty four. <break time="0.8s"/> We recovered in quarter two and then gave it back in July and August. <break time="0.7s"/> Those two months together came in at just over half of target. <break time="0.9s"/>`);
+s.addNotes(`Put the three quarters side by side. <break time="0.7s"/> Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/> then sixty four. <break time="0.8s"/> We recovered in quarter two and then gave it back in July and August. <break time="0.7s"/> Just over half of target between them. <break time="0.9s"/>`);
 
 // =====================================================================
 // 5  WHERE WE STAND  (progress to £9m, drawn to scale)
@@ -198,9 +198,9 @@ rungs.forEach((rg,i)=>{
 });
 s.addText('Ten million means £25,000 each — £100,000 shared between the four of you, out of £1,000,000 of fee income above the goal.',
   {x:MGN,y:5.3,w:12.13,h:0.5,isTextBox:true,margin:0,fontFace:B,fontSize:15,color:PAPER_D});
-s.addText('The scheme pays 10% of everything above £9m, at every rung. Confirm the payment date and whether the trigger is invoiced fees or cash collected before this is announced.',
+s.addText('Measured on fees invoiced, not cash collected. The scheme pays 10% of everything above £9m at every rung. Payment date to be confirmed.',
   {x:MGN,y:6.45,w:12.13,h:0.45,isTextBox:true,margin:0,fontFace:B,fontSize:11,italic:true,color:MUTED_D});
-s.addNotes(`Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared between the four of you. <break time="0.6s"/> Emily, <break time="0.25s"/> Stuart, <break time="0.25s"/> Cassie <break time="0.25s"/> and Megan. <break time="0.9s"/> For every two hundred thousand over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.8s"/> Nine point six million is fifteen thousand. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="1s"/>`);
+s.addNotes(`Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared between the four of you. <break time="0.6s"/> Emily, <break time="0.25s"/> Stuart, <break time="0.25s"/> Cassie <break time="0.25s"/> and Megan. <break time="0.9s"/> For every two hundred thousand over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.8s"/> Nine point six million is fifteen thousand. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="0.8s"/> Measured on invoiced fees. <break time="0.9s"/>`);
 
 // =====================================================================
 // 9  TEN MILLION

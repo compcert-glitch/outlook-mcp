@@ -1,8 +1,8 @@
 YEAR TO DATE & THE ROAD TO £9 MILLION — PRESENTER SCRIPT FOR ALICE
 Crawford & CO Surveyors · managers' meeting · prepared 5 September 2026
 
-RUN TIME: approx 3m 52s (437 spoken words + 42.3s of pauses, at 138 words per minute).
-Kept under the 4-minute limit with about 8s of headroom for a slower delivery.
+RUN TIME: approx 3m 53s (436 spoken words + 42.9s of pauses, at 138 words per minute).
+Kept under the 4-minute limit with about 7s of headroom for a slower delivery.
 
 HOW TO USE THIS FILE
 - Paste each slide's block into your AI voice tool as you go, or paste the whole
@@ -32,9 +32,9 @@ Quarter one. <break time="0.6s"/> We invoiced two point zero nine million agains
 
 Quarter two was much better. <break time="0.6s"/> Two point three four million against two point five five. <break time="0.6s"/> Ninety two per cent. <break time="0.7s"/> April was within two thousand pounds of target, <break time="0.4s"/> and June was our best month of the year at eight hundred and forty eight thousand. <break time="0.9s"/>
 
-[SLIDE 4 — The year so far, quarter by quarter]   (~23s)
+[SLIDE 4 — The year so far, quarter by quarter]   (~20s)
 
-Put the three quarters side by side. <break time="0.7s"/> Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/> then sixty four. <break time="0.8s"/> We recovered in quarter two and then gave it back in July and August. <break time="0.7s"/> Those two months together came in at just over half of target. <break time="0.9s"/>
+Put the three quarters side by side. <break time="0.7s"/> Seventy four per cent, <break time="0.4s"/> then ninety two, <break time="0.4s"/> then sixty four. <break time="0.8s"/> We recovered in quarter two and then gave it back in July and August. <break time="0.7s"/> Just over half of target between them. <break time="0.9s"/>
 
 [SLIDE 5 — Where we stand — £5.88m of £9m]   (~27s)
 
@@ -48,9 +48,9 @@ September is the last month of quarter three. <break time="0.7s"/> It needs eigh
 
 The whole year in one picture. <break time="0.7s"/> Teal is what we have invoiced. <break time="0.5s"/> Gold is what is still required. <break time="0.8s"/> Eight hundred and twenty one thousand a month, <break time="0.4s"/> for four months. <break time="0.8s"/> Our best month this year was June, <break time="0.4s"/> at eight hundred and forty eight thousand. <break time="0.7s"/> So we need a June. <break time="0.5s"/> Four times over. <break time="0.9s"/>
 
-[SLIDE 8 — The bonus — £5,000 each per £200,000 over £9m]   (~30s)
+[SLIDE 8 — The bonus — £5,000 each per £200,000 over £9m]   (~33s)
 
-Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared between the four of you. <break time="0.6s"/> Emily, <break time="0.25s"/> Stuart, <break time="0.25s"/> Cassie <break time="0.25s"/> and Megan. <break time="0.9s"/> For every two hundred thousand over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.8s"/> Nine point six million is fifteen thousand. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="1s"/>
+Now the part worth staying for. <break time="0.8s"/> Nine million is the goal. <break time="0.5s"/> Everything above it is shared between the four of you. <break time="0.6s"/> Emily, <break time="0.25s"/> Stuart, <break time="0.25s"/> Cassie <break time="0.25s"/> and Megan. <break time="0.9s"/> For every two hundred thousand over nine million, <break time="0.5s"/> five thousand pounds each. <break time="0.8s"/> Nine point six million is fifteen thousand. <break time="0.6s"/> And ten million <break time="0.4s"/> is twenty five thousand pounds each. <break time="0.8s"/> Measured on invoiced fees. <break time="0.9s"/>
 
 [SLIDE 9 — The stretch — what £10m actually takes]   (~32s)
 
@@ -92,7 +92,7 @@ Seventy four per cent, ... then ninety two, ... then sixty four.
 
 We recovered in quarter two and then gave it back in July and August.
 
-Those two months together came in at just over half of target.
+Just over half of target between them.
 
 [SLIDE 5 — Where we stand — £5.88m of £9m]
 
@@ -139,6 +139,8 @@ and Megan.
 For every two hundred thousand over nine million, ... five thousand pounds each.
 
 Nine point six million is fifteen thousand. ... And ten million ... is twenty five thousand pounds each.
+
+Measured on invoiced fees.
 
 [SLIDE 9 — The stretch — what £10m actually takes]
 
