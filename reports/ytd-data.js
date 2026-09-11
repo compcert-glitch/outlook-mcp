@@ -2,19 +2,20 @@
 // CONFIDENCE: LOW. The monthly half of the board is written at two heights per team
 // and the top-left is under camera glare. Flagged figures are marked below.
 const teams = {
-  T1:  { who:'KP',         act:[null,null,22813,20218,26364,24122,25935,19754],      tgt:[28323,31726,42673,28204,28204,28204,24000,23033] },
+  T1:  { who:'KP',         act:[23017,20556,22813,20218,26364,24122,25935,19754],      tgt:[28323,31726,42673,28204,28204,28204,24000,23033] },
   T2:  { who:'JW',         act:[25063,-394,0,-394,0,1430,51600,69630],               tgt:[52050,65804,132002,55237,56341,57468,103000,128700] },
-  T3:  { who:'EP, CW, AL', act:[86715,113626,90955,128827,99494,129822,65148,73899], tgt:[71624,72606,35145,76008,77529,79079,138252,174654] },
+  T3:  { who:'EP, CW, AL', act:[86715,113626,90955,128827,99494,129822,65448,73899], tgt:[71624,72606,35145,76008,77529,79079,138252,174654] },
   T4:  { who:'unassigned', act:[18945,59710,23571,18055,10022,-3125,0,0],             tgt:[52285,70447,79108,41667,41667,41667,0,0] },
-  T5:  { who:'HH',         act:[38060,35542,61050,34633,59241,39132,68023,40238],    tgt:[79435,88120,134029,60000,60000,60000,62918,60366] },
-  T6:  { who:'NR, EB, BF', act:[238748,323393,355952,401833,329050,476540,239475,182275], tgt:[284966,310894,288535,301878,307916,314074,432000,529763] },
-  T7:  { who:'JM',         act:[2904,6352,5793,4756,7048,12620,2908,1980],           tgt:[5390,6795,6623,12000,12000,12000,11000,11046] },
+  T5:  { who:'HH',         act:[38060,35542,61050,34633,59241,39132,68023,40238],    tgt:[74435,88120,134029,60000,60000,60000,62918,60366] },
+  T6:  { who:'NR, EB, BF', act:[238748,323393,355952,401853,329050,476540,239475,182275], tgt:[284466,310894,288535,301878,307916,314074,432000,529763] },
+  T7:  { who:'JM',         act:[2904,6352,5793,4756,7048,12620,2908,1980],           tgt:[5390,6795,6623,12000,12000,12000,11000,11044] },
   T8:  { who:'KG',         act:[30308,45515,54721,23413,29000,4368,11806,13171],     tgt:[35289,38825,29468,45000,45000,45000,30670,40102] },
   T9:  { who:'JW',         act:[16908,20688,21225,36402,45494,31241,35225,26611],    tgt:[15370,14420,7913,50000,60000,70000,52000,56887] },
   T10: { who:'GA',         act:[89805,165930,140680,154875,59115,131830,170418,59795], tgt:[192088,242876,318022,160000,160000,160000,150000,170418] },
 };
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'];
-const SEPT_TO_DATE = 246274;             // Week 1 of September, verified against the board's own total row
+const SEPT_W1 = 246274, SEPT_W2 = 123596; // each verified against the board's own total row
+const SEPT_TO_DATE = SEPT_W1 + SEPT_W2;
 const f = n => '£'+Math.round(n).toLocaleString('en-GB');
 
 const monthAct = MONTHS.map((_,i)=>Object.values(teams).reduce((s,t)=>s+(t.act[i]??0),0));
@@ -30,7 +31,7 @@ console.log('\nQ1 actual', f(q1a), ' target', f(q1t), ' var', f(q1a-q1t), ` (${(
 console.log('Q2 actual', f(q2a), ' target', f(q2t), ' var', f(q2a-q2t), ` (${(q2a/q2t*100).toFixed(1)}%)`);
 console.log('H1 actual', f(q1a+q2a), ' target', f(q1t+q2t), ' var', f(q1a+q2a-q1t-q2t));
 console.log('Jul+Aug  ', f(julAug), ' target', f(julAugT), ' var', f(julAug-julAugT));
-console.log('Sept so far', f(SEPT_TO_DATE));
+console.log('Sept W1', f(SEPT_W1), ' W2', f(SEPT_W2), ' so far', f(SEPT_TO_DATE));
 console.log('YTD (Jan-6 Sep)', f(ytd));
 
 const GOAL=9_000_000;
@@ -59,7 +60,7 @@ const boardAct = {Jan:569300,May:664826,Jun:847982,Jul:609584,Aug:487353};
 const boardTgt = {Jan:811320,Feb:942513,Mar:1073514,Apr:823994,May:851951,Jul:1004996,Aug:1194965};
 MONTHS.forEach((m,i)=>{
   if(boardAct[m]!==undefined){const d=monthAct[i]-boardAct[m];
-    console.log(`${m} actual: teams ${f(monthAct[i])}  board ${f(boardAct[m])}  diff ${f(d)} ${Math.abs(d)<50?'<= RECONCILES':(m==='Jan'?'(T1 Jan under glare)':'<= CHECK')}`);}
+    console.log(`${m} actual: teams ${f(monthAct[i])}  board ${f(boardAct[m])}  diff ${f(d)} ${Math.abs(d)<50?'<= RECONCILES':'<= CHECK'}`);}
 });
 MONTHS.forEach((m,i)=>{
   if(boardTgt[m]!==undefined){const d=monthTgt[i]-boardTgt[m];
@@ -67,17 +68,15 @@ MONTHS.forEach((m,i)=>{
 });
 
 // T1 Jan+Feb sit under the camera glare - impute at T1's own mean
-const t1known=teams.T1.act.filter(v=>v!==null);
-const t1mean=Math.round(t1known.reduce((a,b)=>a+b,0)/t1known.length);
-const YTD = q1a+q2a+julAug+SEPT_TO_DATE + t1mean*2;
-console.log(`\nT1 Jan & Feb imputed at T1's own mean of ${f(t1mean)} each (+${f(t1mean*2)})`);
-console.log('YTD to 6 September:', f(YTD));
+const YTD = q1a+q2a+julAug+SEPT_TO_DATE;
+console.log('\nT1 January and February now read directly from the board - no imputation.');
+console.log('YTD to 11 September:', f(YTD));
 
 console.log('\n=== THE ROAD TO £9M ===');
 const GOAL2=9_000_000, STRETCH=10_000_000;
 const need9=GOAL2-YTD, need10=STRETCH-YTD;
-const monthsRemaining=0.8+3;                       // rest of September, then Oct Nov Dec
-const runRate=(q1a+q2a+julAug+t1mean*2)/8;         // Jan-Aug monthly average
+const monthsRemaining=0.63+3;                      // rest of September (19 of 30 days) plus Oct, Nov, Dec
+const runRate=(q1a+q2a+julAug)/8;         // Jan-Aug monthly average
 console.log('YTD', f(YTD), `= ${(YTD/GOAL2*100).toFixed(1)}% of £9m`);
 console.log('still to invoice for £9m :', f(need9), `over ${monthsRemaining} months = ${f(need9/monthsRemaining)}/month`);
 console.log('still to invoice for £10m:', f(need10), `over ${monthsRemaining} months = ${f(need10/monthsRemaining)}/month`);
