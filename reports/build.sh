@@ -55,4 +55,15 @@ node per-team-figures.js
 node september-weeks.js
 
 echo
+echo "== slide images ============================================="
+if [ "$HAVE_PPTX" = yes ] && node -e "require.resolve('playwright')" >/dev/null 2>&1; then
+  python3 render-slides.py ytd-road-to-9m.pptx jpegs/road-to-9m
+  python3 render-slides.py week1-fee-board-review.pptx jpegs/week1-review
+  node shoot-slides.mjs jpegs/road-to-9m
+  node shoot-slides.mjs jpegs/week1-review
+else
+  echo "skipped - needs python-pptx and 'npm install playwright'"
+fi
+
+echo
 echo "Done."

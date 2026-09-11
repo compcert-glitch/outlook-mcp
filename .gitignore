@@ -40,3 +40,5 @@ logs
 reports/node_modules/
 reports/package.json
 reports/package-lock.json
+reports/jpegs/
+reports/slides*/

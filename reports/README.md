@@ -35,10 +35,19 @@ is skipped and everything else still runs.
 | `week1-deck-generator.js` | Builds the Week 1 deck. |
 | `make-presenter-script.js` | Turns a generator's speaker notes into the standalone script file, and times it. |
 | `check-slide-geometry.py` | Checks a deck for text overflow, overlaps, out-of-bounds shapes and tight margins. |
+| `render-slides.py` + `shoot-slides.mjs` | Turns a deck into one JPEG per slide, at 1920×1080. `build.sh` runs both into `reports/jpegs/`. |
 
 To change a figure, edit it in the `*-data.js` or at the top of the generator,
 then run `./reports/build.sh`. The decks, the speaker notes and the standalone
 scripts all regenerate together, so they cannot drift apart.
+
+## Slide images
+
+`./reports/build.sh` writes one JPEG per slide into `reports/jpegs/`. The
+renderer reads the real shape tree with python-pptx and screenshots it through
+Chromium, because LibreOffice cannot open .pptx in every environment. Office
+fonts are substituted with the metric-compatible Liberation family, so the
+images are a close likeness rather than a pixel-exact copy of PowerPoint.
 
 ## How the board is read
 
