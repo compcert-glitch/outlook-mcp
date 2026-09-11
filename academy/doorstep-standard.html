@@ -1,0 +1,776 @@
+<title>The Doorstep Standard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --ground:#F1F3F2; --surface:#FFFFFF; --surface-2:#E7ECEA;
+  --ink:#14212B; --ink-2:#47585F; --ink-3:#6E8189;
+  --line:#D2DAD8; --line-strong:#B4C0BD;
+  --accent:#1D4E6F; --accent-soft:#E1EBF2;
+  --cr1:#2E6B45; --cr1-bg:#E3EFE7;
+  --cr2:#8F5F0E; --cr2-bg:#F5ECD8;
+  --cr3:#A63D33; --cr3-bg:#F7E4E0;
+  --shadow:0 1px 2px rgba(20,33,43,.06), 0 8px 24px -16px rgba(20,33,43,.28);
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --grot:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1519; --surface:#161E23; --surface-2:#1E272D;
+    --ink:#E3EAED; --ink-2:#A7B7BF; --ink-3:#7C8E98;
+    --line:#28343A; --line-strong:#3A4850;
+    --accent:#7DB6D8; --accent-soft:#16303E;
+    --cr1:#83C293; --cr1-bg:#17291E;
+    --cr2:#DFB061; --cr2-bg:#2B2414;
+    --cr3:#E48978; --cr3-bg:#2E1C18;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1519; --surface:#161E23; --surface-2:#1E272D;
+  --ink:#E3EAED; --ink-2:#A7B7BF; --ink-3:#7C8E98;
+  --line:#28343A; --line-strong:#3A4850;
+  --accent:#7DB6D8; --accent-soft:#16303E;
+  --cr1:#83C293; --cr1-bg:#17291E;
+  --cr2:#DFB061; --cr2-bg:#2B2414;
+  --cr3:#E48978; --cr3-bg:#2E1C18;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1200px; margin:0 auto; padding-inline:22px; padding-block:0 72px}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:1px solid var(--line-strong); padding-block:44px 30px; margin-bottom:34px}
+.eyebrow{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-3); margin:0 0 18px;
+}
+.mast h1{
+  font-family:var(--grot); font-weight:700; font-size:clamp(2.6rem,7vw,4.6rem);
+  line-height:.98; letter-spacing:-.025em; margin:0 0 18px; text-wrap:balance;
+}
+.mast h1 em{font-style:normal; color:var(--accent)}
+.standfirst{
+  font-size:clamp(1.05rem,2.2vw,1.28rem); color:var(--ink-2); max-width:62ch;
+  margin:0 0 26px; line-height:1.5;
+}
+.mast-meta{
+  display:flex; flex-wrap:wrap; gap:10px 26px;
+  font-family:var(--mono); font-size:12px; color:var(--ink-3);
+  border-top:1px solid var(--line); padding-top:16px;
+}
+.mast-meta b{color:var(--ink-2); font-weight:500}
+
+/* ---------- shell ---------- */
+.shell{display:block}
+@media (min-width:1020px){
+  .shell{display:grid; grid-template-columns:206px minmax(0,1fr); gap:56px; align-items:start}
+}
+nav.toc{display:none}
+@media (min-width:1020px){
+  nav.toc{display:block; position:sticky; top:26px}
+}
+nav.toc ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1px}
+nav.toc a{
+  display:flex; gap:10px; align-items:baseline;
+  font-family:var(--grot); font-size:13.5px; line-height:1.3; font-weight:500;
+  color:var(--ink-2); text-decoration:none; padding:7px 9px; border-radius:3px;
+  border-left:2px solid transparent;
+}
+nav.toc a:hover{color:var(--accent); background:var(--accent-soft); border-left-color:var(--accent)}
+nav.toc a span{font-family:var(--mono); font-size:10.5px; color:var(--ink-3)}
+
+main{min-width:0; display:flex; flex-direction:column; gap:64px}
+section{scroll-margin-top:20px}
+.sec-head{display:flex; align-items:baseline; gap:14px; border-bottom:1px solid var(--line-strong); padding-bottom:10px; margin-bottom:26px}
+.sec-num{font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:.08em}
+.sec-head h2{
+  font-family:var(--grot); font-weight:600; font-size:clamp(1.5rem,3.2vw,2rem);
+  letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+h3{font-family:var(--grot); font-weight:600; font-size:1.16rem; letter-spacing:-.01em; margin:0 0 8px; text-wrap:balance}
+h4{font-family:var(--grot); font-weight:600; font-size:.98rem; margin:0 0 6px}
+p{margin:0 0 16px; max-width:68ch}
+main > section > p{color:var(--ink-2)}
+strong{font-weight:600; color:var(--ink)}
+a{color:var(--accent)}
+.lede{font-size:1.1rem; color:var(--ink-2); max-width:66ch}
+
+ul.plain{margin:0 0 16px; padding-left:1.1em; max-width:68ch}
+ul.plain li{margin-bottom:7px}
+ul.plain li::marker{color:var(--ink-3)}
+
+/* ---------- generic blocks ---------- */
+.stack{display:flex; flex-direction:column; gap:16px}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
+.grid3{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:16px}
+
+.panel{
+  background:var(--surface); border:1px solid var(--line); border-radius:4px;
+  padding:20px 22px; box-shadow:var(--shadow);
+}
+.panel p:last-child, .panel ul:last-child{margin-bottom:0}
+
+.note{
+  border-left:3px solid var(--accent); background:var(--accent-soft);
+  padding:14px 18px; border-radius:0 3px 3px 0; font-size:.95rem; color:var(--ink-2);
+}
+.note p{margin:0; max-width:70ch}
+.note b{color:var(--ink)}
+
+.tag{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-3); display:block; margin-bottom:7px;
+}
+
+/* ---------- behaviours table ---------- */
+.scroller{overflow-x:auto; border:1px solid var(--line); border-radius:4px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:760px; font-size:.9rem}
+th,td{text-align:left; vertical-align:top; padding:13px 16px; border-bottom:1px solid var(--line)}
+thead th{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:400; background:var(--surface-2); border-bottom:1px solid var(--line-strong);
+  position:sticky; top:0;
+}
+tbody tr:last-child td{border-bottom:none}
+td.beh{width:23%}
+td.beh b{font-family:var(--grot); font-size:.99rem; display:block; margin-bottom:4px}
+td.beh span{font-size:.82rem; color:var(--ink-3); line-height:1.4; display:block}
+td{color:var(--ink-2)}
+.blankcell{color:var(--ink-3); font-family:var(--mono); font-size:11px}
+
+/* ---------- condition ratings ---------- */
+.ecr-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px}
+.ecr{border:1px solid var(--line); border-radius:4px; background:var(--surface); padding:18px 20px 20px; border-top:4px solid}
+.ecr.r1{border-top-color:var(--cr1)}
+.ecr.r2{border-top-color:var(--cr2)}
+.ecr.r3{border-top-color:var(--cr3)}
+.ecr .code{font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.06em}
+.ecr.r1 .code{color:var(--cr1)} .ecr.r2 .code{color:var(--cr2)} .ecr.r3 .code{color:var(--cr3)}
+.ecr h4{margin:8px 0 8px}
+.ecr p{font-size:.92rem; color:var(--ink-2); margin:0 0 10px}
+.ecr .doing{font-size:.86rem; color:var(--ink-2); border-top:1px dashed var(--line-strong); padding-top:10px; margin:0}
+.ecr .doing b{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:4px; font-weight:400}
+
+/* ---------- modules ---------- */
+.mod{display:grid; grid-template-columns:64px minmax(0,1fr); gap:20px; padding-block:24px; border-bottom:1px solid var(--line)}
+.mod:last-child{border-bottom:none}
+.mod-n{
+  font-family:var(--grot); font-weight:700; font-size:2.1rem; line-height:1;
+  color:var(--accent); letter-spacing:-.03em; font-variant-numeric:tabular-nums;
+}
+.mod-n small{display:block; font-family:var(--mono); font-size:9.5px; font-weight:400; letter-spacing:.1em; color:var(--ink-3); margin-top:5px}
+.mod h3{margin-bottom:6px}
+.mod .sub{font-size:.92rem; color:var(--ink-3); margin:0 0 12px; font-family:var(--grot)}
+.mod ul{margin:0 0 12px; padding-left:1.05em; font-size:.93rem; color:var(--ink-2)}
+.mod ul li{margin-bottom:5px}
+.mod-foot{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+.chip{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.04em;
+  border:1px solid var(--line-strong); color:var(--ink-2);
+  padding:3px 8px; border-radius:2px; background:var(--surface);
+}
+.chip.key{border-color:var(--accent); color:var(--accent); background:var(--accent-soft)}
+
+/* ---------- tools ---------- */
+.tool{background:var(--surface); border:1px solid var(--line); border-radius:4px; overflow:hidden}
+.tool-head{padding:16px 20px 14px; border-bottom:1px solid var(--line); background:var(--surface-2)}
+.tool-head h3{margin:0 0 4px}
+.tool-head p{margin:0; font-size:.88rem; color:var(--ink-3); max-width:60ch}
+.steps{list-style:none; margin:0; padding:0}
+.steps li{display:grid; grid-template-columns:30px minmax(0,1fr); gap:14px; padding:13px 20px; border-bottom:1px solid var(--line); font-size:.93rem; color:var(--ink-2)}
+.steps li:last-child{border-bottom:none}
+.steps .k{font-family:var(--grot); font-weight:700; font-size:1.15rem; color:var(--accent); line-height:1.25}
+.steps b{display:block; color:var(--ink); font-family:var(--grot); font-size:.93rem; font-weight:600; margin-bottom:2px}
+.say{font-style:italic; color:var(--ink-3); display:block; margin-top:5px; font-size:.9rem}
+
+/* ---------- scenarios ---------- */
+.scn{border:1px solid var(--line); border-radius:4px; background:var(--surface); padding:0; overflow:hidden; display:flex; flex-direction:column}
+.scn-top{padding:15px 18px 13px; border-bottom:1px solid var(--line)}
+.scn-top .rate{font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; padding:2px 7px; border-radius:2px; display:inline-block; margin-bottom:9px}
+.r1 .rate,.rate.r1{background:var(--cr1-bg); color:var(--cr1)}
+.r2 .rate,.rate.r2{background:var(--cr2-bg); color:var(--cr2)}
+.r3 .rate,.rate.r3{background:var(--cr3-bg); color:var(--cr3)}
+.scn-top h4{margin:0; font-size:1rem; line-height:1.35}
+.scn-body{padding:15px 18px 17px; display:flex; flex-direction:column; gap:12px; font-size:.9rem}
+.scn-body div{color:var(--ink-2)}
+.scn-body .tag{margin-bottom:3px}
+
+/* ---------- observation card ---------- */
+.card-sheet{background:var(--surface); border:1px solid var(--line-strong); border-radius:4px; padding:24px 26px}
+.card-sheet .rule{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:18px}
+.card-sheet .rule h3{margin:0}
+.card-sheet .rule span{font-family:var(--mono); font-size:11px; color:var(--ink-3)}
+.obs{list-style:none; margin:0; padding:0}
+.obs li{display:grid; grid-template-columns:minmax(0,1fr) 96px; gap:16px; align-items:start; padding:12px 0; border-bottom:1px dashed var(--line-strong)}
+.obs li:last-child{border-bottom:none}
+.obs b{font-family:var(--grot); font-size:.95rem; display:block}
+.obs span{font-size:.86rem; color:var(--ink-3)}
+.boxes{display:flex; gap:7px; justify-content:flex-end; padding-top:3px}
+.boxes i{width:17px; height:17px; border:1.5px solid var(--line-strong); border-radius:2px; display:block}
+.boxkey{display:flex; gap:14px; justify-content:flex-end; font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; color:var(--ink-3); text-transform:uppercase; margin-top:12px}
+
+/* ---------- measures ---------- */
+td.metric b{font-family:var(--grot); font-size:.94rem; display:block; color:var(--ink)}
+
+/* ---------- timeline ---------- */
+.phase{display:grid; grid-template-columns:120px minmax(0,1fr); gap:22px; padding-block:18px; border-top:1px solid var(--line)}
+.phase:first-child{border-top:none}
+.phase .when{font-family:var(--mono); font-size:11.5px; color:var(--accent); letter-spacing:.05em; padding-top:3px}
+.phase h4{margin-bottom:5px}
+.phase p{font-size:.93rem; color:var(--ink-2); margin:0}
+@media (max-width:560px){
+  .phase{grid-template-columns:1fr; gap:6px}
+  .mod{grid-template-columns:1fr; gap:10px}
+  .mod-n{font-size:1.5rem; display:flex; align-items:baseline; gap:10px}
+  .mod-n small{margin:0}
+}
+
+footer.end{margin-top:70px; border-top:1px solid var(--line-strong); padding-top:22px; font-size:.85rem; color:var(--ink-3); max-width:70ch}
+footer.end p{max-width:70ch; color:var(--ink-3)}
+
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important}}
+
+@media print{
+  body{background:#fff; color:#000; font-size:11pt}
+  nav.toc{display:none}
+  .shell{display:block}
+  .panel,.tool,.scn,.card-sheet,.ecr{box-shadow:none; break-inside:avoid}
+  main{gap:32px}
+  .mast{padding-block:0 18px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Crawford &amp; CO Surveyors &mdash; The Academy &mdash; Behaviours &amp; Emotional Intelligence</p>
+  <h1>The Doorstep<br><em>Standard</em></h1>
+  <p class="standfirst">A six-month behavioural curriculum for field surveyors. It trains the part of the job that sits between a correct diagnosis and a client who acts on it &mdash; the doorstep, the difficult finding, the challenge, the complaint, and the drive home afterwards.</p>
+  <div class="mast-meta">
+    <span><b>Audience</b> &nbsp;75 field surveyors, assessors &amp; APC candidates</span>
+    <span><b>Format</b> &nbsp;6 half-days over 6 months + field coaching</span>
+    <span><b>Formal CPD</b> &nbsp;18 hours</span>
+    <span><b>Status</b> &nbsp;Draft v1 for Academy review</span>
+  </div>
+</header>
+
+<div class="shell">
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#why"><span>01</span>Why behaviour is technical</a></li>
+    <li><a href="#behaviours"><span>02</span>The six behaviours</a></li>
+    <li><a href="#ecr"><span>03</span>Emotional condition ratings</a></li>
+    <li><a href="#modules"><span>04</span>The six modules</a></li>
+    <li><a href="#tools"><span>05</span>Field tools</a></li>
+    <li><a href="#scenarios"><span>06</span>Scenario library</a></li>
+    <li><a href="#embed"><span>07</span>Embedding it</a></li>
+    <li><a href="#measures"><span>08</span>What we measure</a></li>
+    <li><a href="#rollout"><span>09</span>Rollout</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 01 -->
+<section id="why">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Behaviour is a technical competence, not a soft one</h2></div>
+  <p class="lede">In energy efficiency, retrofit and building pathology, we are almost never the bearer of good news. A correct CR3 on a damp wall is worth nothing if the occupant stops listening at the word &ldquo;mould&rdquo;, the landlord&rsquo;s agent gets defensive, and the report is filed unread.</p>
+  <p>Our surveyors work alone, in other people&rsquo;s homes, delivering findings that cost people money, delay their sale, or confirm that the place they live in is making them unwell. That is emotional labour performed four or five times a day, in a car, without a colleague to decompress with. The skill of doing it well is learnable and teachable &mdash; and it is currently learned by accident, by watching whoever a new surveyor happened to shadow.</p>
+
+  <div class="grid3" style="margin-block:24px">
+    <div class="panel">
+      <span class="tag">The gap this closes</span>
+      <p style="font-size:.93rem">Nearly every complaint we would recognise turns on <strong>how</strong> a finding landed, not whether it was right. Tone, pace, and who felt talked down to.</p>
+    </div>
+    <div class="panel">
+      <span class="tag">The risk it manages</span>
+      <p style="font-size:.93rem">A surveyor who softens a finding to keep the peace on a doorstep has created a professional indemnity exposure. Candour <em>is</em> the risk control.</p>
+    </div>
+    <div class="panel">
+      <span class="tag">The people it keeps</span>
+      <p style="font-size:.93rem">Field surveyors leave over accumulated emotional load far more often than over pay. Debriefs and peer support are a retention mechanism.</p>
+    </div>
+  </div>
+
+  <h3>Where it connects to our professional obligations</h3>
+  <p>This is not a wellbeing bolt-on. It sits directly under the RICS Rules of Conduct: honesty and integrity (Rule 1), good-quality and diligent service (Rule 3), treating others with respect and encouraging diversity and inclusion (Rule 4), and acting in the public interest and preventing harm (Rule 5). It maps to the mandatory APC competencies in Client care, Communication and negotiation, Conflict avoidance and dispute resolution, and Diversity, inclusion and teamworking &mdash; so APC candidates can evidence it directly.</p>
+  <div class="note"><p><b>Design principle running through the whole programme:</b> we never train people to be nicer about a finding. We train them to be <em>clearer</em> about it, sooner, with the evidence in front of both parties. Warmth is the delivery mechanism; the finding itself never moves.</p></div>
+</section>
+
+<!-- 02 -->
+<section id="behaviours">
+  <div class="sec-head"><span class="sec-num">02</span><h2>The six behaviours</h2></div>
+  <p>One framework, used everywhere: recruitment scoring, probation reviews, ride-along feedback, the annual conversation, and promotion to Senior. Three levels, because a Foundation surveyor and a Team Lead are not doing the same thing with the same skill.</p>
+
+  <div class="scroller" style="margin-block:22px">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Behaviour</th>
+        <th scope="col">Foundation &mdash; assistant, trainee, APC candidate</th>
+        <th scope="col">Practising &mdash; chartered surveyor</th>
+        <th scope="col">Leading &mdash; senior, team lead, mentor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="beh"><b>Steady under pressure</b><span>Self-management</span></td>
+        <td>Recognises own stress signals and uses a reset before speaking. Does not mirror an angry occupant&rsquo;s volume.</td>
+        <td>Stays regulated through a full confrontation and still closes the visit properly. Reschedules rather than pushing through when unfit to inspect.</td>
+        <td>Is the calmest voice on the call. Absorbs escalation from a client without passing the pressure down to the surveyor who is already shaken.</td>
+      </tr>
+      <tr>
+        <td class="beh"><b>Read the room</b><span>Social awareness</span></td>
+        <td>Notices who is actually in the property and what state they are in before starting the inspection.</td>
+        <td>Adjusts language, pace and route through the property to the occupant &mdash; vulnerability, language, faith, disability, children present.</td>
+        <td>Spots the dynamic a surveyor has missed (who really holds the decision, who is being spoken over) and names it in the debrief.</td>
+      </tr>
+      <tr>
+        <td class="beh"><b>Straight talking, kindly done</b><span>Candour with care</span></td>
+        <td>States the finding in plain words without jargon or hedging. Does not promise outcomes that are not ours to give.</td>
+        <td>Delivers an unwelcome, expensive or health-related finding using LEVEL, in person, before it appears in writing.</td>
+        <td>Holds the line on a finding under commercial pressure from a repeat client, and is seen to do it.</td>
+      </tr>
+      <tr>
+        <td class="beh"><b>Curious before certain</b><span>Professional scepticism</span></td>
+        <td>Asks the occupant about the history of the defect before forming a view. Records what was said.</td>
+        <td>Actively tests the competing hypothesis &mdash; condensation vs. penetrating vs. rising, ventilation vs. fabric &mdash; and notices when fatigue is doing the diagnosing.</td>
+        <td>Builds the habit into the team: asks &ldquo;what would have to be true for this to be something else?&rdquo; in case clinics.</td>
+      </tr>
+      <tr>
+        <td class="beh"><b>Own it</b><span>Accountability</span></td>
+        <td>Raises an access failure, a missed area or an error the same day rather than hoping it holds.</td>
+        <td>Corrects own report promptly and without defensiveness. Says &ldquo;I got that wrong&rdquo; to a client without collapsing.</td>
+        <td>Makes it survivable to admit a mistake. Responds to a reported error with the fix first and the cause second.</td>
+      </tr>
+      <tr>
+        <td class="beh"><b>Lift others</b><span>Team &amp; dispersed working</span></td>
+        <td>Uses the peer line after a hard visit instead of sitting on it. Answers a colleague&rsquo;s call.</td>
+        <td>Debriefs juniors after ride-alongs with specifics, not reassurance. Shares the visits that went badly, not only the clean ones.</td>
+        <td>Runs the regional case clinic. Knows which of their surveyors is carrying the heaviest emotional load this month.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note"><p><b>Note on &ldquo;Curious before certain&rdquo;:</b> this is the behaviour that earns the programme its credibility with a technical audience. Diagnostic anchoring &mdash; deciding it is rising damp because three of today&rsquo;s four were &mdash; is an emotional failure with a technical consequence. Self-awareness and building pathology are the same discipline here.</p></div>
+</section>
+
+<!-- 03 -->
+<section id="ecr">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Emotional condition ratings</h2></div>
+  <p class="lede">Surveyors already triage buildings on a three-point scale. The programme borrows the same grammar for the human side of the visit, so it needs no new vocabulary &mdash; a surveyor can flag an <span class="rate r3" style="font-family:var(--mono)">ECR3</span> visit to a coordinator in one character.</p>
+
+  <div class="ecr-row" style="margin-block:22px">
+    <div class="ecr r1">
+      <span class="code">ECR 1</span>
+      <h4>Routine</h4>
+      <p>Cooperative occupant, expectations broadly accurate, findings unsurprising. The emotional work is maintaining quality on the fourth visit of the day.</p>
+      <p class="doing"><b>What we train</b>Consistency. The doorstep script does not degrade at 4pm.</p>
+    </div>
+    <div class="ecr r2">
+      <span class="code">ECR 2</span>
+      <h4>Managed</h4>
+      <p>A gap to close: expectations don&rsquo;t match reality, money or blame is in play, or a third party is pushing. Manageable in the moment with structure.</p>
+      <p class="doing"><b>What we train</b>LEVEL, expectation resets, and holding a finding under challenge.</p>
+    </div>
+    <div class="ecr r3">
+      <span class="code">ECR 3</span>
+      <h4>Serious &mdash; flag it</h4>
+      <p>Health, safeguarding, hostility, or a finding that changes someone&rsquo;s living situation. Beyond one surveyor&rsquo;s judgement alone.</p>
+      <p class="doing"><b>What we train</b>Stabilise, record factually, escalate the same day, and debrief before the next appointment.</p>
+    </div>
+  </div>
+  <p>An ECR3 is not a mark against a surveyor &mdash; it is a request for support and the trigger for a same-day check-in from the team lead. Getting that culturally right is the single most important thing to land in the first cohort. If ECR3s stay under-reported, the rest of the programme is decoration.</p>
+</section>
+
+<!-- 04 -->
+<section id="modules">
+  <div class="sec-head"><span class="sec-num">04</span><h2>The six modules</h2></div>
+  <p>One half-day a month, regionally delivered, cohorts of ten to twelve so everybody speaks. Each module follows the same shape: a real anonymised case from our own files, the tool, live practice in threes with a genuinely difficult brief, then one commitment each to test in the field before the next session.</p>
+
+  <div style="margin-top:12px">
+
+    <div class="mod">
+      <div class="mod-n">01<small>Month 1</small></div>
+      <div>
+        <h3>The load you are carrying</h3>
+        <p class="sub">Self-awareness &mdash; what the job does to you, and what that does to your surveying</p>
+        <ul>
+          <li>The emotional profile of a survey day: lone working, back-to-back appointments, the report backlog, the phone call you are dreading.</li>
+          <li>Your own tells &mdash; what you do at the point of stress. Clipped sentences, over-explaining, rushing the loft, agreeing with the client to get out of the house.</li>
+          <li>The direct line from depleted to defensive to a weaker report.</li>
+          <li>Tool taught: <strong>Notice / Name / Next sentence</strong>.</li>
+        </ul>
+        <div class="mod-foot"><span class="chip key">3h formal CPD</span><span class="chip">Rules of Conduct 2, 3</span><span class="chip">Field task: log your ECR ratings for a fortnight</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-n">02<small>Month 2</small></div>
+      <div>
+        <h3>Reading the home, reading the person</h3>
+        <p class="sub">Social awareness &mdash; the doorstep, vulnerability and inclusive practice</p>
+        <ul>
+          <li>The first ninety seconds: how the visit&rsquo;s emotional weather is set before you have taken a single reading.</li>
+          <li>Consent and control in someone&rsquo;s home &mdash; asking for the route, not just the entry; what it feels like to have a stranger photograph your bedroom.</li>
+          <li>Recognising vulnerability without diagnosing it: fuel poverty and a cold home in February, hoarding, cognitive impairment, fear of the landlord, children in the property.</li>
+          <li>Our safeguarding route: observe, record factually, refer to the named lead the same day, never promise an outcome.</li>
+          <li>Inclusive practice as a Rule 4 obligation, not an optional courtesy &mdash; interpreters, faith and household norms, disability, who you address in a room of three people.</li>
+        </ul>
+        <div class="mod-foot"><span class="chip key">3h formal CPD</span><span class="chip">Rule 4 &middot; Rule 5</span><span class="chip">APC: Client care, Inclusive environments</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-n">03<small>Month 3</small></div>
+      <div>
+        <h3>Telling people what they don&rsquo;t want to hear</h3>
+        <p class="sub">The core module &mdash; unwelcome findings, cost shocks and health risk</p>
+        <ul>
+          <li>Why hedging is the most expensive habit in the practice: the occupant hears reassurance, the report says otherwise, and the gap becomes the complaint.</li>
+          <li>Damp and mould in an occupied home &mdash; delivering a health-relevant finding to the person living with it, with a child in the doorway. Where social housing is involved, the finding starts a statutory clock, so precision and same-day reporting matter more than comfort.</li>
+          <li>The retrofit cost conversation: when the measure the customer has set their heart on is the wrong measure for the fabric.</li>
+          <li>Grant-funded work and the expectation gap: the occupant who believes the assessment is the installation.</li>
+          <li>Tool taught: <strong>LEVEL</strong>.</li>
+        </ul>
+        <div class="mod-foot"><span class="chip key">3h formal CPD</span><span class="chip">Rule 1 &middot; Rule 3</span><span class="chip">APC: Communication &amp; negotiation</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-n">04<small>Month 4</small></div>
+      <div>
+        <h3>Under fire</h3>
+        <p class="sub">Challenge, conflict and complaint &mdash; holding a finding without hardening</p>
+        <ul>
+          <li>Who challenges us and why: the vendor losing a sale, the agent losing a fee, the contractor whose work we have just failed, the landlord facing a bill, the homeowner who has already spent the money.</li>
+          <li>Separating the finding (not negotiable) from the route to fixing it (very negotiable).</li>
+          <li>De-escalation on a doorstep, and the point at which you leave. Lone-working safety overrides completing the survey, every time.</li>
+          <li>The hostile email six weeks later. First response drafting: acknowledge, state what we did, set the review route, never argue by email.</li>
+          <li>Tool taught: <strong>Hold the finding, move the person</strong>.</li>
+        </ul>
+        <div class="mod-foot"><span class="chip key">3h formal CPD</span><span class="chip">APC: Conflict avoidance &amp; dispute resolution</span><span class="chip">H&amp;S: lone working</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-n">05<small>Month 5</small></div>
+      <div>
+        <h3>Curious before certain</h3>
+        <p class="sub">Where emotion distorts technical judgement</p>
+        <ul>
+          <li>Anchoring, pattern-matching and fatigue in defect diagnosis &mdash; the fourth damp inspection of the day is the dangerous one.</li>
+          <li>Deference and its opposite: softening a rating because the client is a major account; hardening one because you were doubted last week.</li>
+          <li>Interviewing the occupant as evidence-gathering. The history of the defect is data, and most surveyors collect it badly.</li>
+          <li>Practice: two surveyors, same photographs and readings, different conclusions &mdash; work out what drove the difference.</li>
+        </ul>
+        <div class="mod-foot"><span class="chip key">3h formal CPD</span><span class="chip">Rule 2: competence</span><span class="chip">Building pathology crossover</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-n">06<small>Month 6</small></div>
+      <div>
+        <h3>Lifting the team</h3>
+        <p class="sub">Peer support and mentoring across a dispersed field force</p>
+        <ul>
+          <li>The two-minute debrief, and why it happens in the car before the next appointment, not at the end of the month.</li>
+          <li>Coaching a shaken colleague without either minimising it or catastrophising it.</li>
+          <li>Mentoring APC candidates on behaviour, not just technical competence &mdash; what to feed back after a ride-along.</li>
+          <li>Psychological safety when you see each other four times a year: what makes a surveyor ring a colleague rather than swallow it.</li>
+          <li>Each participant leaves paired into a standing peer pair for the year.</li>
+        </ul>
+        <div class="mod-foot"><span class="chip key">3h formal CPD</span><span class="chip">APC: Diversity, inclusion &amp; teamworking</span><span class="chip">Ends with peer pairing</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="tools">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Field tools</h2></div>
+  <p>Four tools, printed on one laminated card for the van. Everything else in the programme is practice for these.</p>
+
+  <div class="stack" style="margin-top:22px">
+
+    <div class="tool">
+      <div class="tool-head">
+        <h3>The first ninety seconds</h3>
+        <p>Arrival. The single highest-leverage moment of the visit, and the one we currently leave to personality.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="k">1</span><div><b>Knock, then step back</b>Put a pace between you and the door before it opens. A stranger filling a doorway reads as threat; a stranger standing back reads as expected.</div></li>
+        <li><span class="k">2</span><div><b>Name, firm, purpose, duration, ID &mdash; in that order</b>Say how long you will be before they have to ask. Uncertainty about duration is the most common source of doorstep tension.<span class="say">&ldquo;Morning &mdash; James Whitfield, Crawford and CO, here for the retrofit assessment. I&rsquo;ll be about ninety minutes. Here&rsquo;s my ID.&rdquo;</span></div></li>
+        <li><span class="k">3</span><div><b>Ask for the route, not just the entry</b>Tell them where you need to go and in what order, and ask if that works. It returns control of the home to the person who lives in it.</div></li>
+        <li><span class="k">4</span><div><b>Notice one thing about the person, not the building</b>You are about to spend ninety minutes assessing their home. Thirty seconds acknowledging them first pays for itself at the findings conversation.<span class="say">&ldquo;Looks like I&rsquo;ve caught you mid school run &mdash; I can start outside and come in at half past, if that&rsquo;s easier.&rdquo;</span></div></li>
+      </ol>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <h3>LEVEL &mdash; delivering an unwelcome finding</h3>
+        <p>Use in person, before it reaches them in writing. Roughly three minutes. Never deliver a serious finding in a doorway on the way out.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="k">L</span><div><b>Lead with the headline</b>One sentence, plain words, no preamble. Preamble is heard as bad news being smuggled in, and it costs you their trust before you have started.<span class="say">&ldquo;There&rsquo;s active penetrating damp in the rear bedroom wall, and the mould is a health issue for whoever sleeps in there.&rdquo;</span></div></li>
+        <li><span class="k">E</span><div><b>Evidence, alongside them</b>Show, don&rsquo;t assert. Stand next to them looking at the wall, the reading, the photo &mdash; not opposite them. The evidence should sit between the two of you and the problem, not between you and them.</div></li>
+        <li><span class="k">V</span><div><b>Validate the impact before they argue for it</b>Name what this actually means for them. If you say it first, they don&rsquo;t have to fight you to be heard.<span class="say">&ldquo;This is expensive and it&rsquo;s landing at a terrible time. I&rsquo;d be sick about it too.&rdquo;</span></div></li>
+        <li><span class="k">E</span><div><b>Explain the options &mdash; at least two</b>Including, honestly, the consequence of doing nothing. One option is a verdict; two options is advice. Give ranges, not invented precision, and be clear about what sits outside our scope.</div></li>
+        <li><span class="k">L</span><div><b>Leave a next step</b>Who does what, by when &mdash; and one of those things is yours. Nobody should be left holding an unwelcome finding with nothing to do about it.<span class="say">&ldquo;My report is with you Thursday. The section on ventilation is the bit to show your builder. Ring me when you&rsquo;ve read it &mdash; I&rsquo;d rather talk it through than have you guess.&rdquo;</span></div></li>
+      </ol>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <h3>Hold the finding, move the person</h3>
+        <p>When a contractor, agent, landlord or client pushes back on a rating. The aim is not to win; it is to end with the finding intact and the relationship workable.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="k">1</span><div><b>Say their case back better than they made it</b>Until they believe you have understood the objection, nothing else you say is being processed.</div></li>
+        <li><span class="k">2</span><div><b>Split the two arguments</b>The finding is not negotiable. The route to fixing it, the sequencing, the cost, the phasing &mdash; genuinely negotiable, and that is where you spend the goodwill.</div></li>
+        <li><span class="k">3</span><div><b>Put the evidence on the table, not between you</b>Literally move to the same side. Readings, photographs, the standard you are applying, in front of both of you.</div></li>
+        <li><span class="k">4</span><div><b>Offer the route, not the retreat</b>A second opinion, a re-inspection, our formal review process. All legitimate. Changing a rating to end an argument is not.<span class="say">&ldquo;If your builder disagrees, have him put it in writing and I&rsquo;ll come back out and look at it with him. What I can&rsquo;t do is take it out of the report because it&rsquo;s inconvenient.&rdquo;</span></div></li>
+        <li><span class="k">5</span><div><b>Record it the same day</b>What was challenged, by whom, what you said. If it is going to become a complaint, your note is written now, not reconstructed in four months.</div></li>
+      </ol>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <h3>The two-minute debrief</h3>
+        <p>After any ECR3 visit, in the car, before the engine goes back on. To a peer pair or the team lead &mdash; voice note is fine.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="k">1</span><div><b>What actually happened?</b>Facts only. Sixty seconds. Saying it out loud is most of the work.</div></li>
+        <li><span class="k">2</span><div><b>What am I carrying out of it?</b>Anger, guilt, worry about the child in that bedroom, doubt about a reading. Name it so it does not travel into the next appointment.</div></li>
+        <li><span class="k">3</span><div><b>What needs doing today, by whom?</b>Safeguarding referral, a call to the coordinator, a note on file, or simply nothing &mdash; and the peer confirming that nothing is genuinely the right answer.</div></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- 06 -->
+<section id="scenarios">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Scenario library</h2></div>
+  <p>The teaching material. Each is run in threes &mdash; surveyor, other party, observer with the behaviours card &mdash; then rotated so everyone plays the difficult party. Facilitators should replace these with anonymised real cases from our own files as the library matures; nothing teaches like a case the room recognises.</p>
+
+  <div class="grid2" style="margin-top:22px">
+
+    <div class="scn r3">
+      <div class="scn-top"><span class="rate">ECR 3</span><h4>The third report of the same mould</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>Black mould to the external wall of a child&rsquo;s bedroom in a social tenancy. The tenant tells you she has reported it three times. The managing agent has come to the visit and is standing behind you.</div>
+        <div><span class="tag">What is really going on</span>The tenant expects to be disbelieved again and is testing whether you are on the agent&rsquo;s side. The agent is managing exposure. You are the first person in the room whose job is to say what is true.</div>
+        <div><span class="tag">What good looks like</span>Address the tenant, not the agent, and say the finding out loud in front of both. Name the health relevance plainly. Record the reporting history as evidence, not as complaint. Same-day write-up, because the clock on this is not ours to reset.</div>
+        <div><span class="tag">The trap</span>Talking to the agent because the agent is the client. The tenant reads it instantly and stops giving you information you need.</div>
+      </div>
+    </div>
+
+    <div class="scn r3">
+      <div class="scn-top"><span class="rate">ECR 3</span><h4>Eighteen thousand pounds, already spent</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>External wall insulation to a 1930s solid-wall semi, installed two years ago by another firm. Detailing has failed, moisture is trapped, and the interstitial risk is now worse than before the work. The owner is proud of it.</div>
+        <div><span class="tag">What is really going on</span>You are not delivering a technical finding, you are telling someone they were taken advantage of. Shame arrives before anger, and shame is what makes people argue with evidence.</div>
+        <div><span class="tag">What good looks like</span>LEVEL, slowly. Separate the decision from the person &mdash; the decision was reasonable on the information they had. Be specific about what can be recovered and what cannot. Point to the routes available to them without becoming their advocate or their solicitor.</div>
+        <div><span class="tag">The trap</span>Technical detail as an anaesthetic. Twenty minutes on vapour permeability so you don&rsquo;t have to say the sentence.</div>
+      </div>
+    </div>
+
+    <div class="scn r3">
+      <div class="scn-top"><span class="rate">ECR 3</span><h4>No heating on in February</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>An elderly owner, house at roughly nine degrees, one room in use, an unopened pile of post. She is apologetic and changes the subject whenever you ask about the boiler.</div>
+        <div><span class="tag">What is really going on</span>Almost certainly fuel poverty, possibly with the boiler failed and unreported. The subject-changing is dignity, not evasion.</div>
+        <div><span class="tag">What good looks like</span>Ask about warmth, not money. Keep the observation factual on file &mdash; internal temperature, heating not in use, occupant declined to discuss. Refer to our safeguarding lead the same day. Mention available support without turning yourself into the caseworker or promising anything we cannot deliver.</div>
+        <div><span class="tag">The trap</span>Either sailing past it because it is not in scope, or over-promising a grant you cannot guarantee. Both do harm.</div>
+      </div>
+    </div>
+
+    <div class="scn r2">
+      <div class="scn-top"><span class="rate">ECR 2</span><h4>&ldquo;So when do the lads start?&rdquo;</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>Grant-funded retrofit assessment. Halfway round, it becomes clear the occupant believes today is the installation, that everything is free, and that it finishes this week.</div>
+        <div><span class="tag">What is really going on</span>An expectation gap created upstream of you, which you have inherited and will be blamed for. Every minute you let it run makes the correction more painful.</div>
+        <div><span class="tag">What good looks like</span>Stop and reset immediately, before the loft. Explain what today is, what comes next, what is funded and what may not be, and who decides. Write down the sequence and leave it with them. Flag the mis-set expectation back upstream so the next one is better.</div>
+        <div><span class="tag">The trap</span>Finishing the survey and letting the report break the news. That is the complaint, written in advance.</div>
+      </div>
+    </div>
+
+    <div class="scn r2">
+      <div class="scn-top"><span class="rate">ECR 2</span><h4>&ldquo;My builder says it&rsquo;s fine&rdquo;</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>Client disputes your CR3 on the roof covering because a builder they trust has told them it has years left. The sale depends on your rating.</div>
+        <div><span class="tag">What is really going on</span>You are the obstacle between them and a completed transaction. The builder is being used as a lever, not quoted as an expert.</div>
+        <div><span class="tag">What good looks like</span>Hold the finding, move the person. Restate their case, split the finding from the route, show the evidence side by side, offer re-inspection with the builder present. Record the challenge on file the same day.</div>
+        <div><span class="tag">The trap</span>Small softening of the wording &ldquo;to be reasonable&rdquo;. That is the sentence that gets read out later.</div>
+      </div>
+    </div>
+
+    <div class="scn r2">
+      <div class="scn-top"><span class="rate">ECR 2</span><h4>The flank wall you cannot reach</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>A heavily hoarded property. Two rooms are impassable, the flank wall is inaccessible, and the occupant is watching your face very closely as you come down the stairs.</div>
+        <div><span class="tag">What is really going on</span>They are braced for disgust. Whatever you do with your face in the next three seconds sets the rest of the visit and determines whether you get a second appointment.</div>
+        <div><span class="tag">What good looks like</span>Neutral face, ordinary voice, task language only. State the access limitation as a fact about the survey, not a judgement about them. Record limitations precisely. Consider whether a safeguarding referral is warranted, on the same factual basis as any other observation.</div>
+        <div><span class="tag">The trap</span>Overcompensating with jokes or excessive reassurance. It reads as pity and confirms exactly what they were afraid of.</div>
+      </div>
+    </div>
+
+    <div class="scn r2">
+      <div class="scn-top"><span class="rate">ECR 2</span><h4>The agent who wants to walk you round</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>The vendor&rsquo;s estate agent arrives &ldquo;to help&rdquo;, keeps up a running commentary, steers you away from the extension, and mentions twice how much work they put our way.</div>
+        <div><span class="tag">What is really going on</span>Soft interference with an independent inspection, delivered pleasantly enough that objecting feels rude. That is what makes it effective.</div>
+        <div><span class="tag">What good looks like</span>Friendly, early, and unmistakable: you inspect alone, you will find them when you are done, and you will look at everything. Said in the first two minutes it costs nothing; said in the twentieth it is a confrontation.</div>
+        <div><span class="tag">The trap</span>Politeness as compliance. Rule 1 does not bend for a referral source.</div>
+      </div>
+    </div>
+
+    <div class="scn r2">
+      <div class="scn-top"><span class="rate">ECR 2</span><h4>The email six weeks later</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>A purchase has fallen through. The email is long, hostile, copied to two other people, and questions your competence directly.</div>
+        <div><span class="tag">What is really going on</span>Real loss looking for somewhere to land. Roughly ten per cent of it is a substantive point that deserves a proper answer.</div>
+        <div><span class="tag">What good looks like</span>Do not reply the same hour. Acknowledge within our stated timescale, set out what was inspected and on what basis, name the formal review route, and offer to talk. Find the ten per cent and answer it honestly &mdash; including if it is a fair hit.</div>
+        <div><span class="tag">The trap</span>The point-by-point rebuttal written at half past ten at night. It never helps and it is always disclosable.</div>
+      </div>
+    </div>
+
+    <div class="scn r2">
+      <div class="scn-top"><span class="rate">ECR 2</span><h4>The call from the driveway</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>A trainee rings you from outside a property. They have been shouted at and asked to leave, and they are trying very hard to sound fine about it.</div>
+        <div><span class="tag">What is really going on</span>They are asking whether they did something wrong and whether you are about to be disappointed in them. The technical question is a cover.</div>
+        <div><span class="tag">What good looks like</span>Safety first and explicitly &mdash; are you out, are you in the car. Then the debrief, in order: what happened, what are you carrying, what needs doing today. Reassign the visit yourself. Feedback, if any, comes tomorrow.</div>
+        <div><span class="tag">The trap</span>Going straight to &ldquo;what did you say to them?&rdquo;. That is the question that teaches them not to ring next time.</div>
+      </div>
+    </div>
+
+    <div class="scn r1">
+      <div class="scn-top"><span class="rate">ECR 1</span><h4>The fourth damp inspection of the day</h4></div>
+      <div class="scn-body">
+        <div><span class="tag">Situation</span>Nobody is upset. Nothing is contentious. It is ten past four, the readings look familiar, and you have written this paragraph three times already today.</div>
+        <div><span class="tag">What is really going on</span>The lowest-emotion visit on the list carries the highest diagnostic risk. Fatigue plus pattern-matching is how the wrong cause gets confidently recorded.</div>
+        <div><span class="tag">What good looks like</span>Name the fatigue rather than pushing through it. Run the competing hypothesis deliberately &mdash; what would have to be true for this to be condensation? Take the extra reading you would have taken at nine in the morning.</div>
+        <div><span class="tag">The trap</span>Assuming emotional intelligence is only for difficult visits. It is doing its most valuable work here.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="embed">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Embedding it</h2></div>
+  <p>Six half-days on their own will change nothing. Four routines carry it into the field, and they matter more than the training days themselves.</p>
+
+  <div class="grid2" style="margin-block:22px">
+    <div class="panel">
+      <span class="tag">Monthly &mdash; 60 minutes, regional, online</span>
+      <h3>The case clinic</h3>
+      <p style="font-size:.93rem; color:var(--ink-2)">One real case, brought by a surveyor, run against the behaviours. Team leads facilitate. The rule that makes it work: the person bringing the case chooses one they handled badly, and leads open by going first for the first three months.</p>
+    </div>
+    <div class="panel">
+      <span class="tag">Twice yearly &mdash; per surveyor</span>
+      <h3>Behaviour ride-along</h3>
+      <p style="font-size:.93rem; color:var(--ink-2)">A senior observes a live visit against the observation card and feeds back within 24 hours. Explicitly separate from technical audit, and never scored in the same conversation &mdash; mixing them turns both into a performance review.</p>
+    </div>
+    <div class="panel">
+      <span class="tag">Standing &mdash; all field staff</span>
+      <h3>Peer pairs</h3>
+      <p style="font-size:.93rem; color:var(--ink-2)">Everyone leaves Module 6 paired for twelve months, cross-region, with an agreed expectation that either can ring the other after a hard visit. Re-paired annually so the network widens.</p>
+    </div>
+    <div class="panel">
+      <span class="tag">Every 1:1 &mdash; team leads</span>
+      <h3>Three standing questions</h3>
+      <p style="font-size:.93rem; color:var(--ink-2)">Which visit stayed with you this month? Where did you hold a finding under pressure? Who have you rung, and who has rung you? Three minutes, every time, regardless of workload.</p>
+    </div>
+  </div>
+
+  <div class="card-sheet">
+    <div class="rule">
+      <h3>Field observation card</h3>
+      <span>Surveyor &nbsp;__________________ &nbsp; Observer &nbsp;__________________ &nbsp; Date &nbsp;__________ &nbsp; ECR &nbsp;1 &nbsp;2 &nbsp;3</span>
+    </div>
+    <ul class="obs">
+      <li><div><b>Steady under pressure</b><span>Stayed regulated; did not mirror the occupant&rsquo;s state; closed the visit properly.</span></div><div class="boxes"><i></i><i></i><i></i></div></li>
+      <li><div><b>Read the room</b><span>Noticed who was present and in what state; adapted pace, language and route accordingly.</span></div><div class="boxes"><i></i><i></i><i></i></div></li>
+      <li><div><b>Straight talking, kindly done</b><span>Said the finding plainly and early; no hedging; no promises outside our scope.</span></div><div class="boxes"><i></i><i></i><i></i></div></li>
+      <li><div><b>Curious before certain</b><span>Gathered defect history from the occupant; tested a competing explanation out loud.</span></div><div class="boxes"><i></i><i></i><i></i></div></li>
+      <li><div><b>Own it</b><span>Flagged limitations, access failures or errors without prompting or defensiveness.</span></div><div class="boxes"><i></i><i></i><i></i></div></li>
+      <li><div><b>Lift others</b><span>Debriefed where warranted; supported or coached whoever else was on site.</span></div><div class="boxes"><i></i><i></i><i></i></div></li>
+    </ul>
+    <div class="boxkey"><span>Developing</span><span>Consistent</span><span>Exemplary</span></div>
+    <p style="margin:18px 0 0; font-size:.88rem; color:var(--ink-3); border-top:1px solid var(--line); padding-top:14px">One specific example per behaviour, overleaf. No example, no rating &mdash; an unevidenced score teaches nothing and is the fastest way to discredit the framework.</p>
+  </div>
+</section>
+
+<!-- 08 -->
+<section id="measures">
+  <div class="sec-head"><span class="sec-num">08</span><h2>What we measure</h2></div>
+  <p>Behavioural training is easy to spend money on and hard to defend, so the baseline is taken before Cohort 1 starts, not afterwards. Baselines below are deliberately blank &mdash; they come from our own systems, and a figure invented here would be worse than none.</p>
+
+  <div class="scroller" style="margin-block:22px">
+  <table>
+    <thead>
+      <tr><th scope="col">Measure</th><th scope="col">Why it moves with behaviour</th><th scope="col">Source</th><th scope="col">Cadence</th><th scope="col">Baseline</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="metric"><b>Complaints per 1,000 instructions</b></td><td>Most complaints turn on delivery, not diagnosis. The leading indicator for everything else here.</td><td>Complaints log</td><td>Quarterly</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>Complaints upheld, in whole or part</b></td><td>Distinguishes &ldquo;we handled it badly&rdquo; from &ldquo;they didn&rsquo;t like the answer&rdquo;. Both matter; only one is a training problem.</td><td>Complaints log</td><td>Quarterly</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>Post-issue report amendments</b></td><td>Findings softened on site and corrected later show up here first.</td><td>Report QA</td><td>Monthly</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>ECR3 visits flagged</b></td><td>Should <em>rise</em> in year one. A flat line means people are not reporting, not that visits are easy.</td><td>Job notes</td><td>Monthly</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>Safeguarding referrals made</b></td><td>Direct test of Module 2. Under-referral is the risk, not over-referral.</td><td>Safeguarding lead</td><td>Quarterly</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>Abortive and re-booked visits</b></td><td>Access refused, occupant not engaged, survey abandoned &mdash; a partly behavioural cost with a hard financial number attached.</td><td>Scheduling</td><td>Monthly</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>Client satisfaction &mdash; two added questions</b></td><td>&ldquo;Did the surveyor explain the findings in a way you understood?&rdquo; and &ldquo;Did you feel treated with respect in your home?&rdquo; Nothing else on the survey tests this.</td><td>Post-instruction survey</td><td>Continuous</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>Field surveyor turnover</b></td><td>The emotional load of the role is a live retention factor, and replacing a chartered surveyor is expensive.</td><td>HR</td><td>Quarterly</td><td class="blankcell">&mdash;</td></tr>
+      <tr><td class="metric"><b>PI notifications and circumstances</b></td><td>Low volume, high value. Track qualitatively &mdash; how many involved a finding that was softened, delayed or poorly communicated?</td><td>Risk register</td><td>Annually</td><td class="blankcell">&mdash;</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note"><p><b>Read these together, not separately.</b> Complaints falling while ECR3 flags and safeguarding referrals rise is the pattern that shows the programme working. Everything falling at once in year one usually means reporting has quietly stopped.</p></div>
+</section>
+
+<!-- 09 -->
+<section id="rollout">
+  <div class="sec-head"><span class="sec-num">09</span><h2>Rollout</h2></div>
+  <p>Nine months from decision to full field coverage, running two cohorts in parallel from month four. Seventy-five surveyors at twelve per cohort is roughly seven cohorts.</p>
+
+  <div style="margin-block:22px">
+    <div class="phase"><div class="when">Weeks 1&ndash;4</div><div><h4>Baseline and build</h4><p>Pull the nine measures. Add the two client-survey questions. Anonymise six real cases from the complaints log and the file room to replace the starter scenarios. Name the safeguarding lead in writing and confirm the referral route actually works end to end.</p></div></div>
+    <div class="phase"><div class="when">Weeks 5&ndash;8</div><div><h4>Train the team leads first</h4><p>Leads run the full six modules compressed into two days, then are signed off to facilitate. This is the load-bearing decision: if leads treat the framework as HR paperwork, the field will too. Their own 1:1s start using the three standing questions immediately.</p></div></div>
+    <div class="phase"><div class="when">Months 3&ndash;8</div><div><h4>Cohort 1 &mdash; deliberately mixed</h4><p>Twelve people spanning sceptics, high performers and two APC candidates. Not the willing volunteers. The sceptics&rsquo; verdict at month six is what determines uptake across the other six cohorts, so recruit for it openly.</p></div></div>
+    <div class="phase"><div class="when">Month 6</div><div><h4>Review before scaling</h4><p>Cohort 1 rewrites the scenario library from what they actually met in the field. Cut anything that did not survive contact. Two cohorts then run in parallel.</p></div></div>
+    <div class="phase"><div class="when">Months 4&ndash;12</div><div><h4>Cohorts 2&ndash;7 and induction</h4><p>The framework enters recruitment scoring, induction and probation, so new surveyors meet it in week one rather than year two. Ride-alongs and case clinics run continuously from this point.</p></div></div>
+    <div class="phase"><div class="when">Month 12</div><div><h4>Measure against baseline</h4><p>Full read of the nine measures against the pattern described above, plus an honest question to the field: which of the four tools do you actually use? Anything nobody uses gets cut rather than re-taught.</p></div></div>
+  </div>
+
+  <h3>What it needs from us</h3>
+  <ul class="plain">
+    <li><strong>Time, mostly.</strong> Eighteen hours per surveyor of chargeable time, plus facilitation and two ride-alongs a year per person. That is the real cost and it should be stated plainly to the board rather than buried.</li>
+    <li><strong>An MD who goes first.</strong> The behaviour that gets copied is the one leadership demonstrates under pressure &mdash; particularly &ldquo;Own it&rdquo;. A visible example from the top in Cohort 1 is worth more than the whole of Module 1.</li>
+    <li><strong>A credible facilitator.</strong> Someone who has personally been shouted at on a doorstep. A trainer who has never carried a damp meter will not survive the first session with this audience.</li>
+    <li><strong>No link to pay in year one.</strong> The moment the behaviours framework feeds a bonus, the observation card becomes a negotiation and the honest self-assessment stops.</li>
+  </ul>
+</section>
+
+<footer class="end">
+  <p>Prepared for the Crawford &amp; CO Surveyors Academy. Draft v1 &mdash; intended for review by the Academy lead, the safeguarding lead and one practising field surveyor before Cohort 1 is recruited.</p>
+  <p>References to RICS Rules of Conduct, APC mandatory competencies, CPD requirements and statutory duties on damp and mould in social housing are included as mapping, not as advice. Verify each against the current published requirements before the pack is issued to candidates.</p>
+</footer>
+
+</main>
+</div>
+</div>
